@@ -13,8 +13,8 @@
 <header class="nav"><div class="wrap"><a class="logo" href="index.html"><i></i>Dalí Pérez · Seguros</a><nav class="links" aria-label="Secciones"><a href="index.html" aria-current="page">Inicio</a><a href="vida.html">Vida</a><a href="ahorro.html">Ahorro</a><a href="casa.html">Casa</a><a href="mascota.html">Mascota</a><a href="negocio.html">Negocio</a></nav></div></header>
 
 <section class="hero" style="padding:0">
-  <canvas id="hero3d" aria-hidden="true"></canvas><div class="glow"></div>
-  <div class="wrap">
+  <canvas id="hero3d" aria-hidden="true"></canvas><div class="glow layer" data-speed="0.6"></div>
+  <div class="wrap layer" data-speed="-0.35">
     <span class="eyebrow">Seguros y ahorro · Agente GNP</span>
     <h1>El tiempo es tu mejor <em>inversión</em>.</h1>
     <p class="lead">Cada columna es un año de tu vida. Las doradas son los años que aportas; las verdes, <b>lo que el interés compuesto hace solo</b>. Te ayudo a que tu dinero crezca y a que tu familia quede protegida, <b>con tus números y sin venderte lo que no necesitas</b>.</p>
@@ -24,6 +24,7 @@
       <div class="pill"><b>$0 de ISR</b><span>al retirar desde los 60, con 5 años de póliza</span></div>
       <div class="pill"><b>Todo México</b><span>por videollamada</span></div>
     </div>
+    <span class="hint">Arrastra para girar · cada columna es un año</span>
   </div>
 </section>
 
@@ -35,7 +36,22 @@
   </div>
   <script type="application/json" id="f-home">[["Si me pasa algo, ¿qué les queda a mis hijos?", "Un seguro de vida les deja dinero directo, sin impuestos y sin juicio de herencia, desde el primer pago. Lo que cambia es cuánto necesitan ellos, y eso lo calculamos juntos.", "Lo resuelve: seguro de vida", "vida.html", "Ver cómo funciona"], ["No me va a alcanzar para el retiro", "El tiempo hace el trabajo: unos años de aportación crecen solos por décadas, y lo sacas sin impuestos desde los 60.", "Lo resuelve: ahorro con candado", "ahorro.html", "Ver cómo crece"], ["Siempre acabo gastándome el ahorro", "No es falta de disciplina: es que el dinero está a la mano. Un plan con candado lo pone fuera de tu alcance y te premia por terminar.", "Lo resuelve: ahorro con candado", "ahorro.html", "Ver el Premio de Lealtad"], ["Si se meten a robar o se quema mi casa", "Tus cosas, tu casa y lo que le debas a otros, por unos cientos de pesos al mes. Rentes o seas dueño.", "Lo resuelve: seguro de casa", "casa.html", "Ver qué cubre"], ["Si mi perro se enferma o muerde a alguien", "Gastos de veterinario en emergencias y servicios de cuidado durante el año.", "Lo resuelve: seguro de mascota", "mascota.html", "Ver qué incluye"], ["Si a mi negocio le pasa algo, ¿cómo sigo?", "Robo, incendio, un cliente que se lastima o tener que cerrar unos días. Tu negocio asegurado por lo que de verdad tiene.", "Lo resuelve: seguro de negocio", "negocio.html", "Ver cómo protegerlo"], ["¿Y si me cobran y luego no pagan?", "Por eso te enseño los candados antes de firmar y reviso tu póliza contigo cada año. Lo que no está escrito, no te lo prometo.", "Así trabajo", null, ""]]</script>
 </div></section>
-<section id="tiempo"><div class="wrap">
+<section class="story" id="historia" aria-label="La historia de un plan real">
+  <div class="stage"><canvas id="story3d" aria-hidden="true"></canvas>
+    <div class="head wrap"><span class="eyebrow">Historia real · baja para verla</span><h2>Así crece un plan que empieza a los 33</h2></div>
+    <p class="note wrap">Cifras de una cotización real de GNP (Trasciende, pago a 5 años). La altura de las columnas entre cada punto es ilustrativa.</p>
+  </div>
+  <div class="steps-s wrap">
+    <div class="card-s" data-story="0"><div><span class="age">33 años</span><b class="big">$3,777 al mes</b><p>Empieza a pagar. Desde ese mismo mes su familia queda protegida por <b>$695,780</b>.</p></div></div>
+    <div class="card-s" data-story="1"><div><span class="age">38 años</span><b class="big">Deja de pagar</b><p>Pagó $250,464 en total. Desde aquí el dinero trabaja solo: las columnas doradas fueron su esfuerzo; las verdes, el tiempo.</p></div></div>
+    <div class="card-s" data-story="2"><div><span class="age">64 años</span><b class="big">$1,694,471</b><p>Lo que ya vale su plan, sin haber metido un peso en 26 años.</p></div></div>
+    <div class="card-s" data-story="3"><div><span class="age">65 años</span><b class="big">Saca $908,087</b><p>Sin impuestos, para lo que quiera. La protección baja en la misma proporción y vuelve a crecer sola.</p></div></div>
+    <div class="card-s" data-story="4"><div><span class="age">84 años</span><b class="big">$3,179,711</b><p>Lo que todavía tiene después de haber sacado a los 65. Y su familia protegida por $4,190,612.</p></div></div>
+    <div class="card-s" data-story="5"><div><span class="age">Hasta los 100</span><b class="big">Sigue viva</b><p>Pagó 5 años. Su póliza lo acompaña toda la vida. <a href="vida.html" style="color:var(--gold)">Ver cómo funciona →</a></p></div></div>
+  </div>
+</section>
+
+<section id="tiempo" class="has-num"><span class="bignum" data-speed="-0.5" aria-hidden="true">65</span><div class="wrap">
   <div class="intro rv"><span class="eyebrow">Interés compuesto</span><h2>Lo que vale empezar antes</h2><p class="lead">Aportas 10 años y dejas que el dinero trabaje hasta los 65. Mueve la edad: <b>cada año que esperas te cuesta más que cualquier aportación</b>.</p></div>
   <div class="chart-card rv" data-compound>
     <div class="chart-top">
@@ -50,7 +66,7 @@
   </div>
 </div></section>
 
-<section id="como"><div class="wrap">
+<section id="como" class="has-num"><span class="bignum" data-speed="0.4" aria-hidden="true">4</span><div class="wrap">
   <div class="intro rv"><span class="eyebrow">Así trabajo</span><h2>No te vendo un seguro. Armamos un plan.</h2><p class="lead">Antes de hablar de productos, entiendo qué quieres cuidar y cuánto puedes apartar sin apretarte.</p></div>
   <div class="steps rv">
     <div class="step"><h3>Te escucho</h3><p>Una videollamada para entender a quién quieres proteger, tus metas y tu flujo real.</p></div>
@@ -60,7 +76,7 @@
   </div>
 </div></section>
 
-<section id="planes"><div class="wrap">
+<section id="planes" class="has-num"><span class="bignum" data-speed="-0.4" aria-hidden="true">5</span><div class="wrap">
   <div class="intro rv"><span class="eyebrow">Lo que puedo cuidar contigo</span><h2>Elige por dónde empezar</h2></div>
   <div class="cards">
 <a class="pcard rv" href="vida.html"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--s1)"><path d="M24 41s-15-8.6-15-20a8.5 8.5 0 0 1 15-5.5A8.5 8.5 0 0 1 39 21c0 11.4-15 20-15 20z"/></svg><span class="k">Trasciende</span><h3>Tu familia</h3><p>Protección de por vida que también se vuelve ahorro.</p><span class="go">Ver cómo funciona →</span></a><a class="pcard rv" href="ahorro.html"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke-width="3" stroke-linecap="round" style="stroke:var(--s2)"><path d="M8 38l10-10 7 6 15-17"/><path d="M31 17h9v9"/></svg><span class="k">Capitaliza</span><h3>Tu ahorro</h3><p>Un plan con candado, premio de GNP y retiro sin impuestos.</p><span class="go">Ver cómo funciona →</span></a><a class="pcard rv" href="casa.html"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke-width="3" stroke-linejoin="round" style="stroke:var(--s1)"><path d="M8 22L24 9l16 13v17H8z"/><path d="M20 39V28h8v11"/></svg><span class="k">Hogar Versátil</span><h3>Tu casa</h3><p>Tus cosas, tu casa y lo que le debas a otros.</p><span class="go">Ver cómo funciona →</span></a><a class="pcard rv" href="mascota.html"><svg class="ic" viewBox="0 0 48 48" style="fill:var(--s2)"><circle cx="14" cy="18" r="4"/><circle cx="24" cy="13" r="4"/><circle cx="34" cy="18" r="4"/><path d="M24 23c-7 0-12 8-12 12 0 3 3 4 6 4 2 0 4-1 6-1s4 1 6 1c3 0 6-1 6-4 0-4-5-12-12-12z"/></svg><span class="k">Mi Mascota</span><h3>Tu mascota</h3><p>Emergencias de veterinario y cuidados durante el año.</p><span class="go">Ver cómo funciona →</span></a><a class="pcard rv" href="negocio.html"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke-width="3" stroke-linejoin="round" style="stroke:var(--s1)"><path d="M7 19l3-9h28l3 9"/><path d="M9 19v20h30V19"/><path d="M7 19c0 3 2.5 5 5.5 5S18 22 18 19c0 3 2.5 5 6 5s6-2 6-5c0 3 2.5 5 5.5 5S41 22 41 19"/></svg><span class="k">Negocio Protegido</span><h3>Tu negocio</h3><p>Robo, incendio, clientes y días sin poder abrir.</p><span class="go">Ver cómo funciona →</span></a><a class="pcard rv" href="https://wa.me/523117408139?text=Hola%20Dal%C3%AD%2C%20quiero%20ver%20gastos%20m%C3%A9dicos" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke-width="3" stroke-linecap="round" style="stroke:var(--s2)"><path d="M24 12v24M12 24h24"/><rect x="7" y="7" width="34" height="34" rx="10"/></svg><span class="k">Tu salud</span><h3>Gastos médicos</h3><p>Antes de los 64 se entra; después, casi no. Lo vemos con tu caso.</p><span class="go">Platicarlo →</span></a>
@@ -91,8 +107,11 @@
   <p>Los ejemplos salen de cotizaciones reales de GNP, sin nombres. Son proyecciones con tasas ilustrativas, no garantías; las coberturas, sumas, deducibles y exclusiones finales son las de tu cotización y tu póliza. La exención de impuestos depende de cumplir los requisitos del art. 93 fr. XXI de la LISR.</p>
 </footer>
 <div class="sticky"><a class="btn primary" href="https://wa.me/523117408139?text=Hola%20Dal%C3%AD%2C%20quiero%20platicar%20mi%20caso" target="_blank" rel="noopener">Quiero mi plan</a></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="assets/hero3d.js"></script>
+<script src="assets/story3d.js"></script>
 <script src="assets/site.js"></script>
 </body>
 </html>

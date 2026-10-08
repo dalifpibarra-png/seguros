@@ -25,7 +25,7 @@
     var h=0.2+7.2*fvs[i]/fmax;
     for(var j=0;j<ROWS;j++){
       var idx=i*ROWS+j,ang=(i/YEARS)*Math.PI*0.95-0.15,rad=9+j*0.62;
-      var x=Math.cos(ang)*rad+1.5,z=-Math.sin(ang)*rad+2;
+      var x=-Math.cos(ang)*rad+2.5,z=-Math.sin(ang)*rad+2;
       pos.push([x,z]);target.push(h*(1-j*0.07));
       if(i<PAY)c.copy(gold).lerp(deep,j*0.08);else c.copy(teal).lerp(gold,Math.max(0,(i-PAY))/ (YEARS*2.2)).lerp(deep,j*0.1);
       mesh.setColorAt(idx,c);
@@ -40,7 +40,10 @@
 
   function size(){var w=cv.clientWidth,h=cv.clientHeight;if(!w||!h)return;r.setSize(w,h,false);cam.aspect=w/h;cam.position.set(w<700?3:0,w<700?8:6.5,w<700?24:19);cam.updateProjectionMatrix();}
   window.addEventListener("resize",size);size();
-  var mx=0,my=0;window.addEventListener("pointermove",function(e){mx=(e.clientX/window.innerWidth-0.5);my=(e.clientY/window.innerHeight-0.5);});
+  var mx=0,my=0,spin=0,vel=0,down=false,lx=0,hero=cv.closest(".hero")||cv;
+  window.addEventListener("pointermove",function(e){mx=(e.clientX/window.innerWidth-0.5);my=(e.clientY/window.innerHeight-0.5);if(down){vel=(e.clientX-lx)*0.004;spin+=vel;lx=e.clientX;}});
+  hero.addEventListener("pointerdown",function(e){if(e.target.closest("a,button"))return;down=true;lx=e.clientX;hero.classList.add("grabbing");});
+  window.addEventListener("pointerup",function(){down=false;hero.classList.remove("grabbing");});
   var t0=performance.now(),visible=true;
   if("IntersectionObserver" in window)new IntersectionObserver(function(es){visible=es[0].isIntersecting;}).observe(cv);
   function frame(now){
@@ -53,7 +56,7 @@
     mesh.instanceMatrix.needsUpdate=true;
     var a=pg.attributes.position.array;if(!reduce)for(var q=0;q<pn;q++){a[q*3+1]+=0.012;if(a[q*3+1]>14)a[q*3+1]=0;}pg.attributes.position.needsUpdate=true;
     var orbit=reduce?0:Math.sin(t*0.12)*0.35;
-    scene.rotation.y=orbit+mx*0.25;cam.lookAt(-2.5,2.6-my*0.8,-3);
+    if(!down){spin+=vel;vel*=0.94;}scene.rotation.y=orbit+mx*0.25+spin;cam.lookAt(2.2,2.8-my*0.8,-3);
     r.render(scene,cam);
     if(!reduce&&visible)requestAnimationFrame(frame);else if(!reduce)setTimeout(function(){requestAnimationFrame(frame);},400);
   }
