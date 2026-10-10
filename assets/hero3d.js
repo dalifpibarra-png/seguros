@@ -2,10 +2,11 @@
    las demás (verdes) crecen solas con interés compuesto. */
 (function(){
   var cv=document.getElementById("hero3d");
-  if(!cv||!window.THREE)return;
+  function flat(){var h=cv&&cv.closest(".hero");if(h)h.classList.add("no3d");}
+  if(!cv||!window.THREE){flat();return;}
   var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var T=window.THREE,r;
-  try{r=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true});}catch(e){return;}
+  try{r=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true});}catch(e){flat();return;}
   r.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
   var scene=new T.Scene();scene.fog=new T.Fog(0x0B1A17,18,46);
   var cam=new T.PerspectiveCamera(42,1,0.1,100);

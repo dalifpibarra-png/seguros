@@ -2,10 +2,11 @@
    Las cifras de cada paso son de la cotización; la altura de las columnas entre esos puntos es ilustrativa. */
 (function(){
   var cv=document.getElementById("story3d");
-  if(!cv||!window.THREE)return;
+  function flat(){var s=cv&&cv.closest(".story");if(s)s.classList.add("flat");}
+  if(!cv||!window.THREE){flat();return;}
   var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var T=window.THREE,r;
-  try{r=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true});}catch(e){return;}
+  try{r=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true});}catch(e){flat();return;}
   r.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
   var scene=new T.Scene();scene.fog=new T.Fog(0x0B1A17,14,40);
   var cam=new T.PerspectiveCamera(40,1,0.1,100);

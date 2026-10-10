@@ -266,3 +266,67 @@ footer p{max-width:86ch}
 .story .card-s p{color:var(--on-night-2);font-size:17px}
 .story .note{position:absolute;left:0;right:0;bottom:16px;z-index:2;font-size:12.5px;color:var(--on-night-2)}
 @media (max-width:760px){.story .stage::after{background:linear-gradient(180deg,rgba(11,26,23,.2),rgba(11,26,23,.7))}.story .card-s > div{max-width:none}}
+
+/* ===== v3 · más profesional (9 oct 2026) ===== */
+.navcta{flex:none;padding:8px 16px;font-size:15px;margin-left:6px}
+@media (max-width:720px){.navcta{display:none}}
+.hero .micro{font-size:14.5px;color:var(--on-night-2);margin-top:-10px}
+.hero.no3d .hint{display:none}
+
+/* franja de confianza */
+.trust{background:var(--card);border-bottom:1px solid var(--line)}
+.trust ul{list-style:none;margin:0 auto;padding-block:22px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px 0}
+.trust li{display:grid;gap:2px;align-content:start;padding-inline:20px;min-width:0}
+.trust li:first-child{padding-left:0}
+.trust li+li{border-left:1px solid var(--line)}
+.trust b{font-family:"Bricolage Grotesque",sans-serif;font-size:17.5px;line-height:1.25}
+.trust span{color:var(--ink-2);font-size:14.5px;line-height:1.4}
+@media (max-width:860px){.trust ul{grid-template-columns:1fr 1fr}.trust li{padding-left:0}.trust li+li{border-left:none}.trust li:nth-child(even){border-left:1px solid var(--line);padding-left:18px}}
+@media (max-width:420px){.trust ul{grid-template-columns:1fr}.trust li:nth-child(even){border-left:none;padding-left:0}}
+
+/* caso real de siniestro */
+.case{background:var(--wash)}
+.case-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,5vw,64px);align-items:start}
+.case-grid .intro{margin-bottom:0}
+@media (max-width:860px){.case-grid{grid-template-columns:1fr}}
+.timeline{list-style:none;margin:0;padding:0;display:grid}
+.timeline li{display:grid;grid-template-columns:64px 1fr;gap:16px}
+.timeline .d{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--pine);text-align:right;padding-top:3px;font-variant-numeric:tabular-nums}
+.timeline li > div{position:relative;border-left:2px solid var(--line);padding:0 0 28px 24px;display:grid;gap:4px;min-width:0}
+.timeline li:last-child > div{padding-bottom:0;border-left-color:transparent}
+.timeline li > div::before{content:"";position:absolute;left:-9px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--card);border:3px solid var(--pine)}
+.timeline li.win > div::before{background:var(--marigold);border-color:var(--marigold);box-shadow:0 0 0 5px var(--marigold-wash)}
+.timeline b{font-family:"Bricolage Grotesque",sans-serif;font-size:21px;line-height:1.2}
+.timeline li.win b{color:var(--marigold-ink)}
+.timeline p{color:var(--ink-2);font-size:16.5px}
+
+/* preguntas frecuentes */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,64px);align-items:start}
+.faq-grid .intro{margin-bottom:0}
+@media (max-width:860px){.faq-grid{grid-template-columns:1fr}}
+.faq details{border-bottom:1px solid var(--line);padding-block:18px}
+.faq details:first-child{border-top:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline;font-family:"Bricolage Grotesque",sans-serif;font-size:20px;font-weight:700;line-height:1.25}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:"IBM Plex Mono",monospace;font-size:22px;color:var(--marigold-ink);flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin-top:10px;color:var(--ink-2);font-size:17px}
+.faq a{color:inherit;font-weight:700;text-decoration:none;border-bottom:2px solid var(--marigold)}
+
+/* quién te atiende */
+.about{gap:clamp(24px,4vw,40px)}
+.portrait{width:168px;height:168px;border-radius:50%;object-fit:cover;display:block;box-shadow:0 0 0 6px var(--paper),0 0 0 8px var(--marigold)}
+.avatar{width:148px;height:148px;font-size:46px;letter-spacing:-.04em;box-shadow:0 0 0 6px var(--paper),0 0 0 8px var(--marigold)}
+.creds{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.creds li{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+
+/* historia sin 3D: tarjetas en cuadrícula en vez de un hueco oscuro */
+.story.flat .stage{position:relative;height:auto;padding-block:clamp(56px,9vw,104px) 24px}
+.story.flat .stage::after,.story.flat canvas{display:none}
+.story.flat .head,.story.flat .note{position:static}
+.story.flat .note{margin-top:12px}
+.story.flat .steps-s{margin-top:0;padding-bottom:clamp(56px,9vw,104px);display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.story.flat .card-s{min-height:0;display:block}
+.story.flat .card-s > div{opacity:1;transform:none;max-width:none;height:100%}
+@media (max-width:860px){.story.flat .steps-s{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.story.flat .steps-s{grid-template-columns:1fr}}
