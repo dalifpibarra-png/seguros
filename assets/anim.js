@@ -1,13 +1,13 @@
 /* Capa de animación del sitio: barra de progreso, títulos que se revelan, cifras que cuentan,
    botones magnéticos y scrollytelling ligero (sin WebGL). Todo el contenido es visible en reposo. */
 (function(){
-  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reduce=window.__motion==="off";
   var $$=function(s,c){return [].slice.call((c||document).querySelectorAll(s));};
   var G=window.gsap,ST=window.ScrollTrigger;if(G&&ST)G.registerPlugin(ST);
 
   /* barra de progreso de lectura */
   var bar=document.createElement("div");bar.className="progress";document.body.appendChild(bar);
-  var ticking=false;function prog(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform="scaleX("+(h>0?scrollY/h:0)+")";ticking=false;}
+  var ticking=false,docH=0;function measure(){docH=document.documentElement.scrollHeight-innerHeight;}measure();addEventListener("resize",measure);addEventListener("load",measure);setTimeout(measure,2500);function prog(){var h=docH;bar.style.transform="scaleX("+(h>0?scrollY/h:0)+")";ticking=false;}
   addEventListener("scroll",function(){if(!ticking){ticking=true;requestAnimationFrame(prog);}},{passive:true});prog();
 
   /* títulos: palabra por palabra */
@@ -37,7 +37,7 @@
   }
 
   /* botones magnéticos */
-  if(!reduce&&matchMedia("(pointer:fine)").matches){
+  if(window.__motion==="full"&&matchMedia("(pointer:fine)").matches){
     $$(".btn.primary").forEach(function(b){
       b.addEventListener("pointermove",function(e){var r=b.getBoundingClientRect();b.style.transform="translate("+((e.clientX-r.left-r.width/2)*.18)+"px,"+((e.clientY-r.top-r.height/2)*.28)+"px)";});
       b.addEventListener("pointerleave",function(){b.style.transform="";});

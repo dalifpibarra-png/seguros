@@ -3,7 +3,7 @@
    casa: una casa bajo un domo · mascota: una huella flotando · negocio: un local con su toldo */
 (function(){
   if(!window.THREE)return;
-  var T=window.THREE,reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var T=window.THREE,reduce=window.__motion==="off",soft=window.__motion==="soft";
   var GOLD=0xF2B04F,TEAL=0x22A08C,DEEP=0x12332E,WHITE=0xE7F0ED;
   function std(c,o){return new T.MeshStandardMaterial(Object.assign({color:c,roughness:.45,metalness:.15},o||{}));}
   function columns(group,years,pay,rows,rad0,scaleH){
@@ -18,7 +18,8 @@
       mesh.setColorAt(i*rows+j,c);
     }
     mesh.instanceColor.needsUpdate=true;group.add(mesh);
-    return function(t){for(var q=0;q<n;q++){var col=Math.floor(q/rows),g=reduce?1:Math.min(1,Math.max(0,t*1.4-col*.05)),e=1-Math.pow(1-g,3);
+    var fin=false;
+    return function(t){if(fin)return;if(reduce||t*1.4-(years-1)*.05>=1)fin=true;for(var q=0;q<n;q++){var col=Math.floor(q/rows),g=reduce?1:Math.min(1,Math.max(0,t*1.4-col*.05)),e=1-Math.pow(1-g,3);
       tmp.position.set(data[q][0],0,data[q][1]);tmp.scale.set(1,Math.max(.001,data[q][2]*e),1);tmp.updateMatrix();mesh.setMatrixAt(q,tmp.matrix);}mesh.instanceMatrix.needsUpdate=true;};
   }
   function dome(group,r,color){var m=new T.Mesh(new T.IcosahedronGeometry(r,2),new T.MeshBasicMaterial({color:color,wireframe:true,transparent:true,opacity:.22}));group.add(m);
@@ -45,8 +46,8 @@
     group.add(s);return s;
   }
   [].forEach.call(document.querySelectorAll("canvas[data-scene]"),function(cv){
-    var r;try{r=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true});}catch(e){return;}
-    r.setPixelRatio(Math.min(window.devicePixelRatio||1,(window.matchMedia&&matchMedia("(pointer: coarse)").matches)?1.5:2));
+    var r;try{r=new T.WebGLRenderer({canvas:cv,antialias:!window.__lowfx,alpha:true});}catch(e){return;}
+    r.setPixelRatio(window.__dpr?window.__dpr():1);
     var mode=cv.dataset.scene,scene=new T.Scene(),cam=new T.PerspectiveCamera(40,1,.1,100),root=new T.Group();scene.add(root);
     scene.add(new T.AmbientLight(0xffffff,.55));var l=new T.DirectionalLight(0xffe2b0,.95);l.position.set(5,9,7);scene.add(l);var l2=new T.DirectionalLight(0x6fc2b6,.6);l2.position.set(-6,4,-5);scene.add(l2);
     var anim=function(){},spinObj=root,camPos=[0,5,13],look=[0,1.8,0];
@@ -69,12 +70,13 @@
     function draw(now){var t=((now||performance.now())-t0)/1000;anim(reduce?99:t);
       if(!down){spin+=vel;vel*=.94;}
       /* v5: al bajar, la escena gira y la cámara se acerca */
-      var hb=host.getBoundingClientRect(),sp=reduce?0:Math.min(1,Math.max(0,-hb.top/(hb.height||1)));
+      var hb=host.getBoundingClientRect(),sp=(reduce||soft)?0:Math.min(1,Math.max(0,-hb.top/(hb.height||1)));
       cam.position.set(camPos[0],camPos[1]*k+sp*2.5,camPos[2]*k-sp*4);
       root.rotation.y=(reduce?.4:t*.15)+mx*.3+spin+sp*1.6;
       var a=pg.attributes.position.array;if(!reduce)for(var q=0;q<pn;q++){a[q*3+1]+=.01;if(a[q*3+1]>10)a[q*3+1]=0;}pg.attributes.position.needsUpdate=true;
       cam.lookAt(look[0],look[1]-my*.5-(mob?.3:0),look[2]);r.render(scene,cam);}
-    function loop(now){draw(now);if(vis&&!reduce)requestAnimationFrame(loop);}
+    var adapt=window.__adapt?window.__adapt(r,size):null;
+    function loop(now){if(adapt)adapt(now);draw(now);if(vis&&!reduce)requestAnimationFrame(loop);}
     draw();
   });
 })();

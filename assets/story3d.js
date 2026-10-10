@@ -6,15 +6,15 @@
 (function(){
   var sec=document.getElementById("historia"),cv=document.getElementById("story3d");
   if(!sec||!cv)return;
-  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reduce=window.__motion!=="full";  /* el vuelo de cámara con el scroll es solo para el modo completo */
   if(reduce||!window.THREE||!window.gsap||!window.ScrollTrigger)return;
   var T=THREE,r;
-  try{r=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true,powerPreference:"high-performance"});}catch(e){return;}
+  try{r=new T.WebGLRenderer({canvas:cv,antialias:!window.__lowfx,alpha:true,powerPreference:"high-performance"});}catch(e){return;}
   if(!r.getContext())return;
   sec.classList.add("live");
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.config({ignoreMobileResize:true});
-  r.setPixelRatio(Math.min(window.devicePixelRatio||1,(window.matchMedia&&matchMedia("(pointer: coarse)").matches)?1.5:2));
+  r.setPixelRatio(window.__dpr?window.__dpr():1);
   r.outputEncoding=T.sRGBEncoding;r.toneMapping=T.ACESFilmicToneMapping;r.toneMappingExposure=1.0;
 
   /* ---------- datos ---------- */
@@ -164,7 +164,8 @@
     r.render(scene,cam);
     hud(p,age);
   }
-  function loop(){frame();if(near||active)requestAnimationFrame(loop);else running=false;}
+  var adapt=null;
+  function loop(now){if(!adapt&&window.__adapt)adapt=window.__adapt(r,size);if(adapt)adapt(now||performance.now());frame();if(near||active)requestAnimationFrame(loop);else running=false;}
   if(/debug/.test(location.hash))window.__story=function(p){prog=p;near=true;first=true;kick();};  // solo para probar la historia sin hacer scroll
   size();frame();
   window.addEventListener("load",function(){size();ScrollTrigger.refresh();});

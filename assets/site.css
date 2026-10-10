@@ -236,7 +236,7 @@ footer p{max-width:86ch}
 /* reveal: always visible, only slides */
 .rv{transition:transform .7s cubic-bezier(.2,.7,.2,1)}
 .rv.pre{transform:translateY(22px)}
-@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.rv.pre{transform:none}}
+html.mo-off *{transition:none!important;animation:none!important;scroll-behavior:auto!important}html.mo-off .rv.pre{transform:none}
 
 /* hero interactivo */
 .hero{cursor:grab;touch-action:pan-y}
@@ -474,7 +474,7 @@ body.in-story .sticky{transform:translateY(130%)}
 .webinar li::before{content:"";flex:none;width:10px;height:10px;margin-top:.5em;border-radius:50%;background:var(--gold)}
 .webinar .btn.ghost{color:var(--on-night)}
 @media (max-width:820px){.webinar{grid-template-columns:1fr}}
-@media (prefers-reduced-motion: reduce){.marquee .track{animation:none}}
+html.mo-off .marquee .track,html.mo-soft .marquee .track{animation:none}
 
 /* ===== v5 · historia que da antes de pedir, movimiento a tope (10 oct 2026) ===== */
 /* frases de capítulo */
@@ -533,9 +533,9 @@ body.in-story .sticky{transform:translateY(130%)}
 .has-motion.at-cta .sticky,.has-motion.in-story .sticky{transform:translateY(130%)}
 
 /* transición entre páginas */
-html.pt-in body::after{content:"";position:fixed;inset:0;z-index:999;background:var(--night);animation:ptout .75s .05s cubic-bezier(.7,0,.2,1) forwards;pointer-events:none}
+html.pt-in body::after{content:"";position:fixed;inset:0;z-index:999;background:var(--night);animation:ptout .45s cubic-bezier(.7,0,.2,1) forwards;pointer-events:none}
 @keyframes ptout{to{transform:translateY(-100%)}}
-.curtain{position:fixed;inset:0;z-index:999;background:var(--night);display:grid;place-items:center;transform:translateY(100%);transition:transform .48s cubic-bezier(.7,0,.2,1)}
+.curtain{position:fixed;inset:0;z-index:999;background:var(--night);display:grid;place-items:center;transform:translateY(100%);transition:transform .28s cubic-bezier(.7,0,.2,1)}
 .curtain.in{transform:none}
 .curtain .mark{width:56px;height:64px}
 .curtain .mark .b{fill:var(--night)}
@@ -590,8 +590,20 @@ html.pt-in body::after{content:"";position:fixed;inset:0;z-index:999;background:
   .btns .btn{flex:1 1 auto;justify-content:center}
   .statement .st-text{font-size:clamp(30px,9vw,44px)}
 }
-@media (prefers-reduced-motion: reduce){.fl-in{transition:none}.swipe-hint{animation:none}html.pt-in body::after{display:none}}
+html.mo-off .fl-in{transition:none}html.mo-off .swipe-hint{animation:none}
 
 /* columnas de grid que nunca se ensanchan más que la pantalla */
 @media (max-width:860px){.phero .grid{grid-template-columns:minmax(0,1fr)}.phero .grid > *{min-width:0}}
 @media (max-width:520px){.proof .row b{white-space:normal;text-align:right}}
+
+/* botón de animaciones (solo lo ven los celulares con "Reducir movimiento") y panel de diagnóstico */
+.motion-toggle{position:fixed;left:12px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:70;font:inherit;font-size:14px;font-weight:700;cursor:pointer;border:1px solid rgba(242,176,79,.5);background:var(--night);color:var(--on-night);border-radius:999px;padding:10px 16px;box-shadow:0 12px 30px -12px rgba(0,0,0,.6)}
+.diag{position:fixed;inset:auto 10px 10px 10px;z-index:1000;background:#0B1A17;color:#E7F0ED;border:1px solid #F2B04F;border-radius:16px;padding:16px;font:13px/1.5 "IBM Plex Mono",monospace;max-height:70vh;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.diag b{color:#F2B04F}.diag button{float:right;font:inherit;background:#F2B04F;color:#1C1406;border:0;border-radius:999px;padding:4px 12px;cursor:pointer}
+
+/* equipos modestos: sin desenfoques caros sobre el 3D (fondo sólido en su lugar) */
+html.lowfx .nav,html.lowfx .sticky,html.lowfx .chapters,html.lowfx .pill,html.lowfx .phero.dark .proof,html.lowfx .story.live .card-s > div{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+html.lowfx .nav{background:var(--paper)}
+html.lowfx .sticky{background:var(--paper)}
+html.lowfx .chapters{background:var(--card)}
+html.lowfx .phero.dark .proof,html.lowfx .story.live .card-s > div{background:rgba(11,26,23,.92)}

@@ -1,6 +1,6 @@
 (function(){
   var WA="523117408139";
-  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reduce=window.__motion==="off";
   function $(s,c){return (c||document).querySelector(s);}
   function $$(s,c){return [].slice.call((c||document).querySelectorAll(s));}
   function J(id){var el=document.getElementById(id);return el?JSON.parse(el.textContent):null;}
@@ -15,7 +15,7 @@
 
   /* parallax: capas a distinta velocidad */
   var layers=$$("[data-speed]");
-  if(layers.length&&!reduce){
+  if(layers.length&&window.__motion==="full"){
     if(window.gsap&&window.ScrollTrigger){
       gsap.registerPlugin(ScrollTrigger);
       layers.forEach(function(el){var sp=parseFloat(el.dataset.speed);var trig=el.closest("section")||el;
@@ -131,10 +131,10 @@
 
 /* v4: scroll suave (Lenis, sincronizado con ScrollTrigger) e inclinación 3D de las tarjetas */
 (function(){
-  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reduce=window.__motion!=="full";
   if(reduce)return;
-  if(window.Lenis){try{
-    var lenis=window.__lenis=new Lenis({lerp:0.1,anchors:true});
+  if(window.Lenis&&!window.__lowfx){try{
+    var lenis=window.__lenis=new Lenis({lerp:0.14,anchors:true});
     if(window.gsap&&window.ScrollTrigger){lenis.on("scroll",ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000);});gsap.ticker.lagSmoothing(0);}
     else{(function raf(t){lenis.raf(t);requestAnimationFrame(raf);})(0);}
   }catch(e){}}
