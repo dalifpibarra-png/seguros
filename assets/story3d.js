@@ -14,7 +14,7 @@
   sec.classList.add("live");
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.config({ignoreMobileResize:true});
-  r.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+  r.setPixelRatio(Math.min(window.devicePixelRatio||1,(window.matchMedia&&matchMedia("(pointer: coarse)").matches)?1.5:2));
   r.outputEncoding=T.sRGBEncoding;r.toneMapping=T.ACESFilmicToneMapping;r.toneMappingExposure=1.0;
 
   /* ---------- datos ---------- */

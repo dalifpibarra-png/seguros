@@ -8,19 +8,20 @@
 <meta property="og:title" content="Dalí Pérez · Seguros con GNP"><meta property="og:description" content="Protección y ahorro a tu medida: vida, ahorro, casa, mascota y negocio. Te explico con tus números, sin venderte lo que no necesitas.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v=5">
+<script>try{if(sessionStorage.getItem("pt"))document.documentElement.classList.add("pt-in")}catch(e){}</script>
 </head>
 <body>
 <header class="nav"><div class="wrap"><a class="logo" href="index.html" aria-label="Dalí Pérez, Seguros y patrimonio. Inicio"><svg class="mark" viewBox="0 0 32 36" aria-hidden="true"><path class="sh" d="M16 1c4 2 9 1.6 14 2v14c-.5 9-7 14.5-14 18C9 31.5 2.5 26 2 17V3c5-.4 10 0 14-2z"/><rect class="g" x="7.6" y="21" width="2.8" height="5" rx="1.4"/><rect class="g" x="11.4" y="18.5" width="2.8" height="7.5" rx="1.4"/><rect class="b" x="15.2" y="15.5" width="2.8" height="10.5" rx="1.4"/><rect class="b" x="19" y="12" width="2.8" height="14" rx="1.4"/><rect class="b" x="22.8" y="8" width="2.8" height="18" rx="1.4"/></svg><span class="wm"><b>Dalí Pérez</b><small>Seguros y patrimonio</small></span></a><nav class="links" aria-label="Secciones"><a href="index.html" aria-current="page">Inicio</a><a href="vida.html">Vida</a><a href="ahorro.html">Ahorro</a><a href="casa.html">Casa</a><a href="mascota.html">Mascota</a><a href="negocio.html">Negocio</a></nav><a class="btn primary navcta" href="https://wa.me/523117408139?text=Hola%20Dal%C3%AD%2C%20quiero%20agendar%20una%20videollamada" target="_blank" rel="noopener">Agendar llamada</a></div></header>
 
-<section class="hero" style="padding:0">
+<section class="hero" style="padding:0" data-chapter="Inicio">
   <canvas id="hero3d" aria-hidden="true"></canvas><div class="glow layer" data-speed="0.6"></div>
   <div class="wrap layer" data-speed="-0.35">
     <span class="eyebrow">Fernando Dalí Pérez · Agente de seguros GNP</span>
     <h1>El tiempo es tu mejor <em>inversión</em>.</h1>
     <p class="lead">Te ayudo a proteger a tu familia y a hacer crecer tu dinero con <b>cotizaciones reales de GNP, explicadas en pesos</b> y sin venderte lo que no necesitas.</p>
-    <div class="btns"><a class="btn primary" href="https://wa.me/523117408139?text=Hola%20Dal%C3%AD%2C%20quiero%20agendar%20una%20videollamada" target="_blank" rel="noopener">Agendar videollamada</a><a class="btn ghost" href="#tiempo">Ver cuánto crece mi dinero</a></div>
-    <p class="micro">Sin costo y sin compromiso · por videollamada desde cualquier parte de México</p>
+    <div class="btns"><a class="btn primary" href="#miedos">Empieza por aquí</a><a class="btn ghost" href="#historia">Ver cómo crece un plan real</a></div>
+    <p class="micro">Primero te explico, gratis y sin pedirte nada. Si te sirve, platicamos.</p>
     <div class="hero-stats">
       <div class="pill"><b>Hasta los 100</b><span>protegido, aunque pagues pocos años</span></div>
       <div class="pill"><b>$0 de ISR</b><span>al retirar desde los 60, con 5 años de póliza</span></div>
@@ -31,12 +32,13 @@
 </section>
 <div class="trust"><ul class="wrap" aria-label="Por qué conmigo">
   <li><b>Agente GNP</b><span>Guadalajara · todo México</span></li>
-  <li><b>Asesoría sin costo</b><span>GNP me paga una comisión que ya va en la prima</span></li>
+  <li><b>Asesoría sin costo</b><span>y sin compromiso: primero entiendes, luego decides</span></li>
   <li><b>Números reales</b><span>cotizaciones de GNP, con los candados a la vista</span></li>
   <li><b>Contigo en el siniestro</b><span>de la denuncia al dictamen</span></li>
 </ul></div>
 
-<section id="miedos"><div class="wrap">
+<section class="statement" aria-label="Nadie se despierta queriendo un seguro. Se despierta pensando en alguien."><div class="wrap"><span class="eyebrow">Capítulo 1</span><p class="st-text">Nadie se despierta queriendo un seguro. Se despierta pensando en <em>alguien</em>.</p></div></section>
+<section id="miedos" data-chapter="Lo que te preocupa"><div class="wrap">
   <div class="intro rv"><span class="eyebrow">Antes que cualquier producto</span><h2>Toca lo que te quita el sueño</h2><p class="lead">Elige lo que más te pesa y te digo, en corto, cómo se resuelve.</p></div>
   <div data-fears="f-home">
     <div class="chips" role="group" aria-label="Preocupaciones"><button class="chip" type="button" data-i="0" aria-pressed="false">Si me pasa algo, ¿qué les queda a mis hijos?</button><button class="chip" type="button" data-i="1" aria-pressed="false">No me va a alcanzar para el retiro</button><button class="chip" type="button" data-i="2" aria-pressed="false">Siempre acabo gastándome el ahorro</button><button class="chip" type="button" data-i="3" aria-pressed="false">Si se meten a robar o se quema mi casa</button><button class="chip" type="button" data-i="4" aria-pressed="false">Si mi perro se enferma o muerde a alguien</button><button class="chip" type="button" data-i="5" aria-pressed="false">Si a mi negocio le pasa algo, ¿cómo sigo?</button><button class="chip" type="button" data-i="6" aria-pressed="false">¿Y si me cobran y luego no pagan?</button></div>
@@ -44,7 +46,12 @@
   </div>
   <script type="application/json" id="f-home">[["Si me pasa algo, ¿qué les queda a mis hijos?", "Un seguro de vida les deja dinero directo, sin impuestos y sin juicio de herencia, desde el primer pago. Lo que cambia es cuánto necesitan ellos, y eso lo calculamos juntos.", "Lo resuelve: seguro de vida", "vida.html", "Ver cómo funciona"], ["No me va a alcanzar para el retiro", "El tiempo hace el trabajo: unos años de aportación crecen solos por décadas, y lo sacas sin impuestos desde los 60.", "Lo resuelve: ahorro con candado", "ahorro.html", "Ver cómo crece"], ["Siempre acabo gastándome el ahorro", "No es falta de disciplina: es que el dinero está a la mano. Un plan con candado lo pone fuera de tu alcance y te premia por terminar.", "Lo resuelve: ahorro con candado", "ahorro.html", "Ver el Premio de Lealtad"], ["Si se meten a robar o se quema mi casa", "Tus cosas, tu casa y lo que le debas a otros, por unos cientos de pesos al mes. Rentes o seas dueño.", "Lo resuelve: seguro de casa", "casa.html", "Ver qué cubre"], ["Si mi perro se enferma o muerde a alguien", "Gastos de veterinario en emergencias y servicios de cuidado durante el año.", "Lo resuelve: seguro de mascota", "mascota.html", "Ver qué incluye"], ["Si a mi negocio le pasa algo, ¿cómo sigo?", "Robo, incendio, un cliente que se lastima o tener que cerrar unos días. Tu negocio asegurado por lo que de verdad tiene.", "Lo resuelve: seguro de negocio", "negocio.html", "Ver cómo protegerlo"], ["¿Y si me cobran y luego no pagan?", "Por eso te enseño los candados antes de firmar y reviso tu póliza contigo cada año. Lo que no está escrito, no te lo prometo.", "Así trabajo", null, ""]]</script>
 </div></section>
-<section class="story" id="historia" aria-label="La vida de un plan real">
+<section id="saber" class="has-num" data-chapter="Lo que conviene saber"><span class="bignum" data-speed="0.45" aria-hidden="true">4</span><div class="wrap">
+  <div class="intro rv"><span class="eyebrow">Gratis, contrates o no</span><h2>Cuatro palabras que te ahorran dinero</h2><p class="lead">Con estas cuatro entiendes cualquier póliza, de cualquier aseguradora. <b>Toca cada tarjeta.</b></p></div>
+  <div class="flips"><button class="flip" type="button" aria-pressed="false"><span class="fl-in"><span class="fl-face fl-front"><span class="fl-n">01</span><b>Suma asegurada</b><span class="fl-s">El tope de lo que te pagan.</span><span class="fl-cta">Toca para ver un ejemplo ↻</span></span><span class="fl-face fl-back"><span class="fl-n">Suma asegurada</span><span class="fl-b">No es lo que vale tu casa: es lo que tú declaras. Si tus cosas valen $500,000 y aseguras $200,000, el día del incendio tu techo es $200,000. Asegura lo que costaría volver a comprarlo.</span><span class="fl-cta">Toca para regresar ↻</span></span></span></button><button class="flip" type="button" aria-pressed="false"><span class="fl-in"><span class="fl-face fl-front"><span class="fl-n">02</span><b>Deducible</b><span class="fl-s">Lo que pones tú en cada reclamo.</span><span class="fl-cta">Toca para ver un ejemplo ↻</span></span><span class="fl-face fl-back"><span class="fl-n">Deducible</span><span class="fl-b">Si se rompe algo de $10,000 y tu deducible es de $2,000, te pagan $8,000. Un deducible más alto baja tu pago anual; uno más bajo te cuesta más cada año.</span><span class="fl-cta">Toca para regresar ↻</span></span></span></button><button class="flip" type="button" aria-pressed="false"><span class="fl-in"><span class="fl-face fl-front"><span class="fl-n">03</span><b>Exclusiones</b><span class="fl-s">Lo que no se paga aunque pase.</span><span class="fl-cta">Toca para ver un ejemplo ↻</span></span><span class="fl-face fl-back"><span class="fl-n">Exclusiones</span><span class="fl-b">En un seguro de casa, si alguien se lleva algo sin forzar nada, no se paga: el robo tiene que ser con violencia. Las exclusiones se leen antes de firmar, no el día del reclamo.</span><span class="fl-cta">Toca para regresar ↻</span></span></span></button><button class="flip" type="button" aria-pressed="false"><span class="fl-in"><span class="fl-face fl-front"><span class="fl-n">04</span><b>Valor de rescate</b><span class="fl-s">Lo que recuperas si cancelas.</span><span class="fl-cta">Toca para ver un ejemplo ↻</span></span><span class="fl-face fl-back"><span class="fl-n">Valor de rescate</span><span class="fl-b">En un plan de vida o de ahorro, si cancelas en los primeros dos años recuperas poco o nada. Por eso el monto tiene que ser uno que puedas sostener sin apretarte.</span><span class="fl-cta">Toca para regresar ↻</span></span></span></button></div>
+</div></section>
+<section class="statement" aria-label="Lo que más rinde no es la tasa. Es el tiempo."><div class="wrap"><span class="eyebrow">Capítulo 2</span><p class="st-text">Lo que más rinde no es la tasa. Es el <em>tiempo</em>.</p></div></section>
+<section class="story" id="historia" aria-label="La vida de un plan real" data-chapter="Un plan real">
   <div class="stage">
     <canvas id="story3d" aria-hidden="true"></canvas>
     <div class="st-head wrap"><span class="eyebrow">Historia real · baja despacio</span><h2>La vida de un plan que empieza a los 33</h2>
@@ -68,7 +75,7 @@
   </div>
 </section>
 
-<section id="tiempo" class="has-num"><span class="bignum" data-speed="-0.5" aria-hidden="true">65</span><div class="wrap">
+<section id="tiempo" class="has-num" data-chapter="Interés compuesto"><span class="bignum" data-speed="-0.5" aria-hidden="true">65</span><div class="wrap">
   <div class="intro rv"><span class="eyebrow">Interés compuesto</span><h2>Lo que vale empezar antes</h2><p class="lead">Aportas 10 años y dejas que el dinero trabaje hasta los 65. Mueve la edad: <b>cada año que esperas te cuesta más que cualquier aportación</b>.</p></div>
   <div class="transp rv" style="margin-bottom:18px"><div><b>Un caso real a los 25</b><p>$1,867 al mes durante 5 años en Trasciende: sacas $540,000 sin impuestos a los 60 y a los 84 todavía tienes $2,713,736, con tu familia protegida desde el primer día. <a href="vida.html#joven">Ver el estudio completo</a>.</p></div></div>
   <div class="chart-card rv" data-compound>
@@ -84,17 +91,8 @@
   </div>
 </div></section>
 
-<section id="como" class="has-num"><span class="bignum" data-speed="0.4" aria-hidden="true">4</span><div class="wrap">
-  <div class="intro rv"><span class="eyebrow">Así trabajo</span><h2>No te vendo un seguro. Armamos un plan.</h2><p class="lead">Antes de hablar de productos, entiendo qué quieres cuidar y cuánto puedes apartar sin apretarte.</p></div>
-  <div class="steps rv">
-    <div class="step"><h3>Te escucho</h3><p>Una videollamada para entender a quién quieres proteger, tus metas y tu flujo real.</p></div>
-    <div class="step"><h3>Te muestro números</h3><p>Opciones con cotizaciones reales de GNP, en pesos y en peras y manzanas.</p></div>
-    <div class="step"><h3>Tú decides</h3><p>Te digo los candados antes de firmar. Si no te conviene, te lo digo también.</p></div>
-    <div class="step"><h3>Te acompaño</h3><p>Reviso tu plan contigo cada año y estoy del otro lado si algo pasa.</p></div>
-  </div>
-</div></section>
-
-<section id="siniestro" class="case"><div class="wrap case-grid">
+<section class="statement" aria-label="Un seguro no se mide el día que firmas. Se mide el día que lo usas."><div class="wrap"><span class="eyebrow">Capítulo 3</span><p class="st-text">Un seguro no se mide el día que firmas. Se mide el día que lo <em>usas</em>.</p></div></section>
+<section id="siniestro" class="case" data-chapter="Cuando sí pasa"><div class="wrap case-grid">
   <div class="intro rv"><span class="eyebrow">Caso real · septiembre 2026</span><h2>Cuando sí pasa algo, no te quedas solo con el trámite</h2><p class="lead">A un cliente de una cafetería asegurada en Guadalajara le arrebataron el celular en la terraza. Así fue, día por día.</p></div>
   <ol class="timeline rv">
     <li><span class="d">21 sep</span><div><b>El robo</b><p>Ese mismo día el dueño supo qué hacer: reportar a GNP, bloquear el IMEI del teléfono y guardar el video.</p></div></li>
@@ -104,23 +102,7 @@
   </ol>
 </div></section>
 
-
-<section id="ayuda"><div class="wrap">
-  <div class="intro rv"><span class="eyebrow">Primero te ayudo</span><h2>Llévate algo útil, contrates o no</h2><p class="lead">Si después quieres contratar, perfecto. Si no, te quedas con la información y con un contacto que sabe de seguros.</p></div>
-  <div class="offers">
-    <div class="offer rv"><span class="k">Asesoría</span><span class="free">$0</span><h3>Sin costo, siempre</h3><p>Tu llamada, tu plan y la revisión de cada año no te cuestan: GNP me paga una comisión que ya viene incluida en la prima.</p><a class="btn primary" href="https://wa.me/523117408139?text=Hola%20Dalí,%20quiero%20agendar%20mi%20asesoría%20(inicio)" target="_blank" rel="noopener">Agendar mi llamada</a></div>
-    <div class="offer rv"><span class="k">Revisión gratis</span><span class="free">1 póliza</span><h3>¿Tu seguro actual sirve?</h3><p>Mándame la carátula de tu póliza, de cualquier aseguradora, y te digo en pesos qué te falta, qué te sobra y qué no te van a pagar.</p><a class="btn primary" href="https://wa.me/523117408139?text=Hola%20Dalí,%20quiero%20que%20revises%20mi%20póliza" target="_blank" rel="noopener">Mandar mi póliza</a></div>
-    <div class="offer rv"><span class="k">Webinar gratis</span><span class="free">En vivo</span><h3>El tiempo es tu mejor inversión</h3><p>Interés compuesto, impuestos y cómo proteger a tu familia, explicado en una hora y con tus preguntas.</p><a class="btn primary" href="https://wa.me/523117408139?text=Hola%20Dalí,%20avísame%20la%20fecha%20del%20próximo%20webinar" target="_blank" rel="noopener">Avísame la fecha</a></div>
-  </div>
-</div></section>
-<section id="planes" class="has-num"><span class="bignum" data-speed="-0.4" aria-hidden="true">5</span><div class="wrap">
-  <div class="intro rv"><span class="eyebrow">Lo que puedo cuidar contigo</span><h2>Elige por dónde empezar</h2></div>
-  <div class="cards">
-<a class="pcard rv" href="vida.html"><span class="ic3d-wrap"><img class="ic3d" src="assets/3d/vida.png" alt="" width="132" height="132" loading="lazy"></span><span class="k">Trasciende</span><h3>Tu familia</h3><p>Protección de por vida que también se vuelve ahorro.</p><span class="go">Ver cómo funciona →</span></a><a class="pcard rv" href="ahorro.html"><span class="ic3d-wrap"><img class="ic3d" src="assets/3d/ahorro.png" alt="" width="132" height="132" loading="lazy"></span><span class="k">Capitaliza</span><h3>Tu ahorro</h3><p>Un plan con candado, premio de GNP y retiro sin impuestos.</p><span class="go">Ver cómo funciona →</span></a><a class="pcard rv" href="casa.html"><span class="ic3d-wrap"><img class="ic3d" src="assets/3d/casa.png" alt="" width="132" height="132" loading="lazy"></span><span class="k">Hogar Versátil</span><h3>Tu casa</h3><p>Tus cosas, tu casa y lo que le debas a otros.</p><span class="go">Ver cómo funciona →</span></a><a class="pcard rv" href="mascota.html"><span class="ic3d-wrap"><img class="ic3d" src="assets/3d/mascota.png" alt="" width="132" height="132" loading="lazy"></span><span class="k">Mi Mascota</span><h3>Tu mascota</h3><p>Emergencias de veterinario y cuidados durante el año.</p><span class="go">Ver cómo funciona →</span></a><a class="pcard rv" href="negocio.html"><span class="ic3d-wrap"><img class="ic3d" src="assets/3d/negocio.png" alt="" width="132" height="132" loading="lazy"></span><span class="k">Negocio Protegido</span><h3>Tu negocio</h3><p>Robo, incendio, clientes y días sin poder abrir.</p><span class="go">Ver cómo funciona →</span></a><a class="pcard rv" href="https://wa.me/523117408139?text=Hola%20Dal%C3%AD%2C%20quiero%20ver%20gastos%20m%C3%A9dicos" target="_blank" rel="noopener"><span class="ic3d-wrap"><img class="ic3d" src="assets/3d/salud.png" alt="" width="132" height="132" loading="lazy"></span><span class="k">Tu salud</span><h3>Gastos médicos</h3><p>Antes de los 64 se entra; después, casi no. Lo vemos con tu caso.</p><span class="go">Platicarlo →</span></a>
-  </div>
-</div></section>
-
-<section id="yo"><div class="wrap">
+<section id="yo" data-chapter="Quién te atiende"><div class="wrap">
   <div class="about rv">
     <img class="portrait" src="assets/dali.jpg" alt="Dalí Pérez, agente de seguros GNP" width="168" height="168">
     <div style="display:grid;gap:14px"><span class="eyebrow">Quién te atiende</span><h2>Soy Dalí Pérez</h2><p class="lead">Agente de seguros GNP con formación en finanzas, en Guadalajara. Atiendo por videollamada en todo México. Mi trabajo es que el día que lo necesites, cobres lo que creíste que habías comprado.</p>
@@ -128,18 +110,43 @@
   </div>
 </div></section>
 
-<section id="preguntas"><div class="wrap faq-grid">
+<section id="como" class="has-num" data-chapter="El plan"><span class="bignum" data-speed="0.4" aria-hidden="true">3</span><div class="wrap">
+  <div class="intro rv"><span class="eyebrow">Así trabajo</span><h2>No te vendo un seguro. Armamos un plan.</h2><p class="lead">Tres pasos. Antes de hablar de productos, entiendo qué quieres cuidar y cuánto puedes apartar sin apretarte.</p></div>
+  <div class="steps three rv">
+    <div class="step"><h3>Te escucho</h3><p>Una videollamada de 20 minutos para entender a quién quieres proteger, tus metas y tu flujo real.</p></div>
+    <div class="step"><h3>Te muestro números</h3><p>Opciones con cotizaciones reales de GNP, en pesos y con los candados a la vista. Si no te conviene, te lo digo.</p></div>
+    <div class="step"><h3>Te acompaño</h3><p>Reviso tu plan contigo cada año y estoy del otro lado el día que algo pasa.</p></div>
+  </div>
+</div></section>
+
+<section id="preguntas" data-chapter="Preguntas"><div class="wrap faq-grid">
   <div class="intro rv"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que me preguntan antes de la primera llamada</h2></div>
   <div class="faq rv">
-    <details open><summary>¿Cuánto me cuesta tu asesoría?</summary><p>Nada aparte. GNP me paga una comisión que ya viene incluida en la prima de tu póliza. La llamada, la cotización y la revisión anual no te cuestan.</p></details>
-    <details><summary>¿Por qué GNP?</summary><p>Es una de las aseguradoras más grandes de México y lleva más de 120 años en el país. Trabajo con sus productos porque los conozco a fondo: condicionados, candados y cómo se cobra un siniestro.</p></details>
+    <details open><summary>¿Por qué GNP?</summary><p>Es una de las aseguradoras más grandes de México y lleva más de 120 años en el país. Trabajo con sus productos porque los conozco a fondo: condicionados, candados y cómo se cobra un siniestro.</p></details>
     <details><summary>¿Tengo que ir a una oficina?</summary><p>No. Todo es por videollamada y WhatsApp. Te mando la cotización en PDF y te explico cada línea antes de que decidas.</p></details>
     <details><summary>¿Qué pasa el día que necesite usar el seguro?</summary><p>Me escribes primero. Te digo qué hacer ese mismo día y qué documentos conseguir, y te acompaño con el ajustador hasta el dictamen. <a href="#siniestro">Ver un caso real</a>.</p></details>
     <details><summary>¿Y si un día ya no puedo pagar?</summary><p>Depende del plan. En vida y ahorro, si cancelas los primeros años recuperas poco. Por eso te enseño la tabla de rescate antes de firmar y armamos una aportación que no te apriete.</p></details>
   </div>
 </div></section>
 
-<section id="platicamos"><div class="wrap">
+<section class="statement" aria-label="Ya sabes cómo funciona. Ahora imagina tenerlo resuelto."><div class="wrap"><span class="eyebrow">Capítulo 4</span><p class="st-text">Ya sabes cómo funciona. Ahora imagina tenerlo <em>resuelto</em>.</p></div></section>
+<section id="ayuda" data-chapter="Primero te ayudo"><div class="wrap">
+  <div class="intro rv"><span class="eyebrow">Primero te ayudo</span><h2>Llévate algo útil, contrates o no</h2><p class="lead">Si después quieres contratar, perfecto. Si no, te quedas con la información y con un contacto que sabe de seguros.</p></div>
+  <div class="offers">
+    <div class="offer rv"><span class="k">Asesoría</span><span class="free">$0</span><h3>Sin costo, siempre</h3><p>Tu llamada, tu plan y la revisión de cada año no te cuestan nada. Te llevas tus números aunque no contrates.</p><a class="btn primary" href="https://wa.me/523117408139?text=Hola%20Dalí,%20quiero%20agendar%20mi%20asesoría%20(inicio)" target="_blank" rel="noopener">Agendar mi llamada</a></div>
+    <div class="offer rv"><span class="k">Revisión gratis</span><span class="free">1 póliza</span><h3>¿Tu seguro actual sirve?</h3><p>Mándame la carátula de tu póliza, de cualquier aseguradora, y te digo en pesos qué te falta, qué te sobra y qué no te van a pagar.</p><a class="btn primary" href="https://wa.me/523117408139?text=Hola%20Dalí,%20quiero%20que%20revises%20mi%20póliza" target="_blank" rel="noopener">Mandar mi póliza</a></div>
+    <div class="offer rv"><span class="k">Webinar gratis</span><span class="free">En vivo</span><h3>El tiempo es tu mejor inversión</h3><p>Interés compuesto, impuestos y cómo proteger a tu familia, explicado en una hora y con tus preguntas.</p><a class="btn primary" href="https://wa.me/523117408139?text=Hola%20Dalí,%20avísame%20la%20fecha%20del%20próximo%20webinar" target="_blank" rel="noopener">Avísame la fecha</a></div>
+  </div>
+</div></section>
+<section id="planes" class="has-num" data-chapter="Tu plan"><span class="bignum" data-speed="-0.4" aria-hidden="true">6</span><div class="wrap">
+  <div class="intro rv"><span class="eyebrow">Lo que puedo cuidar contigo</span><h2>Elige por dónde empezar</h2><p class="lead">Cada página te explica el producto con un ejemplo real antes de pedirte nada.</p></div>
+  <div class="cards">
+<a class="pcard rv" href="vida.html"><span class="ic3d-wrap"><img class="ic3d" src="assets/3d/vida.png" alt="" width="132" height="132" loading="lazy"></span><span class="k">Trasciende</span><h3>Tu familia</h3><p>Protección de por vida que también se vuelve ahorro.</p><span class="go">Ver cómo funciona →</span></a><a class="pcard rv" href="ahorro.html"><span class="ic3d-wrap"><img class="ic3d" src="assets/3d/ahorro.png" alt="" width="132" height="132" loading="lazy"></span><span class="k">Capitaliza</span><h3>Tu ahorro</h3><p>Un plan con candado, premio de GNP y retiro sin impuestos.</p><span class="go">Ver cómo funciona →</span></a><a class="pcard rv" href="casa.html"><span class="ic3d-wrap"><img class="ic3d" src="assets/3d/casa.png" alt="" width="132" height="132" loading="lazy"></span><span class="k">Hogar Versátil</span><h3>Tu casa</h3><p>Tus cosas, tu casa y lo que le debas a otros.</p><span class="go">Ver cómo funciona →</span></a><a class="pcard rv" href="mascota.html"><span class="ic3d-wrap"><img class="ic3d" src="assets/3d/mascota.png" alt="" width="132" height="132" loading="lazy"></span><span class="k">Mi Mascota</span><h3>Tu mascota</h3><p>Emergencias de veterinario y cuidados durante el año.</p><span class="go">Ver cómo funciona →</span></a><a class="pcard rv" href="negocio.html"><span class="ic3d-wrap"><img class="ic3d" src="assets/3d/negocio.png" alt="" width="132" height="132" loading="lazy"></span><span class="k">Negocio Protegido</span><h3>Tu negocio</h3><p>Robo, incendio, clientes y días sin poder abrir.</p><span class="go">Ver cómo funciona →</span></a><a class="pcard rv" href="https://wa.me/523117408139?text=Hola%20Dal%C3%AD%2C%20quiero%20ver%20gastos%20m%C3%A9dicos" target="_blank" rel="noopener"><span class="ic3d-wrap"><img class="ic3d" src="assets/3d/salud.png" alt="" width="132" height="132" loading="lazy"></span><span class="k">Tu salud</span><h3>Gastos médicos</h3><p>Antes de los 64 se entra; después, casi no. Lo vemos con tu caso.</p><span class="go">Platicarlo →</span></a>
+  </div>
+  <div class="swipe-hint" aria-hidden="true">Desliza para ver más →</div>
+</div></section>
+
+<section id="platicamos" data-chapter="Tu caso"><div class="wrap">
   <div class="cta rv" data-quiz="q-home">
     <img class="cta3d" src="assets/3d/logo.png" alt="" width="220" height="220" loading="lazy">
     <span class="eyebrow">Tu caso, no un folleto</span>
@@ -161,10 +168,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="assets/hero3d.js"></script>
-<script src="assets/story3d.js"></script>
-<script src="assets/site.js"></script>
-<script src="assets/scene3d.js"></script>
-<script src="assets/anim.js"></script>
+<script src="assets/hero3d.js?v=5"></script>
+<script src="assets/story3d.js?v=5"></script>
+<script src="assets/site.js?v=5"></script>
+<script src="assets/scene3d.js?v=5"></script>
+<script src="assets/anim.js?v=5"></script>
+<script src="assets/motion.js?v=5"></script>
 </body>
 </html>

@@ -46,7 +46,7 @@
   }
   [].forEach.call(document.querySelectorAll("canvas[data-scene]"),function(cv){
     var r;try{r=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true});}catch(e){return;}
-    r.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+    r.setPixelRatio(Math.min(window.devicePixelRatio||1,(window.matchMedia&&matchMedia("(pointer: coarse)").matches)?1.5:2));
     var mode=cv.dataset.scene,scene=new T.Scene(),cam=new T.PerspectiveCamera(40,1,.1,100),root=new T.Group();scene.add(root);
     scene.add(new T.AmbientLight(0xffffff,.55));var l=new T.DirectionalLight(0xffe2b0,.95);l.position.set(5,9,7);scene.add(l);var l2=new T.DirectionalLight(0x6fc2b6,.6);l2.position.set(-6,4,-5);scene.add(l2);
     var anim=function(){},spinObj=root,camPos=[0,5,13],look=[0,1.8,0];
@@ -57,7 +57,8 @@
     else if(mode==="negocio"){var sh=store(root);var dn=dome(root,5,GOLD);camPos=[0,4.4,12];look=[0,1.7,0];anim=function(t){dn.rotation.y=t*.07;};}
     var pg=new T.BufferGeometry(),pn=110,pp=new Float32Array(pn*3);for(var p=0;p<pn;p++){pp[p*3]=(Math.random()-.5)*22;pp[p*3+1]=Math.random()*10;pp[p*3+2]=(Math.random()-.5)*14;}
     pg.setAttribute("position",new T.BufferAttribute(pp,3));scene.add(new T.Points(pg,new T.PointsMaterial({color:GOLD,size:.06,transparent:true,opacity:.7})));
-    function size(){var w=cv.clientWidth,h=cv.clientHeight;if(!w||!h)return;r.setSize(w,h,false);cam.aspect=w/h;var k=w<700?1.25:1;cam.position.set(camPos[0],camPos[1]*k,camPos[2]*k);cam.updateProjectionMatrix();}
+    var k=1,mob=false;
+    function size(){var w=cv.clientWidth,h=cv.clientHeight;if(!w||!h)return;r.setSize(w,h,false);cam.aspect=w/h;mob=w<700;k=mob?1.2:1;cam.position.set(camPos[0],camPos[1]*k,camPos[2]*k);cam.updateProjectionMatrix();}
     window.addEventListener("resize",size);size();
     var host=cv.closest("section")||cv,down=false,lx=0,spin=0,vel=0,mx=0,my=0,vis=true;
     host.addEventListener("pointerdown",function(e){if(e.target.closest("a,button"))return;down=true;lx=e.clientX;});
@@ -66,9 +67,13 @@
     if("IntersectionObserver" in window)new IntersectionObserver(function(es){vis=es[0].isIntersecting;if(vis&&!reduce)requestAnimationFrame(loop);}).observe(cv);
     var t0=performance.now();
     function draw(now){var t=((now||performance.now())-t0)/1000;anim(reduce?99:t);
-      if(!down){spin+=vel;vel*=.94;}root.rotation.y=(reduce?.4:t*.15)+mx*.3+spin;
+      if(!down){spin+=vel;vel*=.94;}
+      /* v5: al bajar, la escena gira y la cámara se acerca */
+      var hb=host.getBoundingClientRect(),sp=reduce?0:Math.min(1,Math.max(0,-hb.top/(hb.height||1)));
+      cam.position.set(camPos[0],camPos[1]*k+sp*2.5,camPos[2]*k-sp*4);
+      root.rotation.y=(reduce?.4:t*.15)+mx*.3+spin+sp*1.6;
       var a=pg.attributes.position.array;if(!reduce)for(var q=0;q<pn;q++){a[q*3+1]+=.01;if(a[q*3+1]>10)a[q*3+1]=0;}pg.attributes.position.needsUpdate=true;
-      cam.lookAt(look[0],look[1]-my*.5,look[2]);r.render(scene,cam);}
+      cam.lookAt(look[0],look[1]-my*.5-(mob?.3:0),look[2]);r.render(scene,cam);}
     function loop(now){draw(now);if(vis&&!reduce)requestAnimationFrame(loop);}
     draw();
   });

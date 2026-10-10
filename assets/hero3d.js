@@ -7,7 +7,7 @@
   var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var T=window.THREE,r;
   try{r=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true});}catch(e){flat();return;}
-  r.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+  r.setPixelRatio(Math.min(window.devicePixelRatio||1,(window.matchMedia&&matchMedia("(pointer: coarse)").matches)?1.5:2));
   var scene=new T.Scene();scene.fog=new T.Fog(0x0B1A17,18,46);
   var cam=new T.PerspectiveCamera(42,1,0.1,100);
   scene.add(new T.AmbientLight(0xffffff,0.55));
@@ -39,14 +39,15 @@
   pg.setAttribute("position",new T.BufferAttribute(pp,3));
   var pts=new T.Points(pg,new T.PointsMaterial({color:0xF2B04F,size:0.07,transparent:true,opacity:0.7}));scene.add(pts);
 
-  function size(){var w=cv.clientWidth,h=cv.clientHeight;if(!w||!h)return;r.setSize(w,h,false);cam.aspect=w/h;cam.position.set(w<700?3:0,w<700?8:6.5,w<700?24:19);cam.updateProjectionMatrix();}
+  var base=[0,6.5,19],mob=false;
+  function size(){var w=cv.clientWidth,h=cv.clientHeight;if(!w||!h)return;r.setSize(w,h,false);cam.aspect=w/h;mob=w<700;base=mob?[2.5,9.5,22]:[0,6.5,19];cam.fov=mob?64:42;scene.fog.near=mob?20:18;scene.fog.far=mob?56:46;cam.position.set(base[0],base[1],base[2]);cam.updateProjectionMatrix();}
   window.addEventListener("resize",size);size();
   var mx=0,my=0,spin=0,vel=0,down=false,lx=0,hero=cv.closest(".hero")||cv;
   window.addEventListener("pointermove",function(e){mx=(e.clientX/window.innerWidth-0.5);my=(e.clientY/window.innerHeight-0.5);if(down){vel=(e.clientX-lx)*0.004;spin+=vel;lx=e.clientX;}});
   hero.addEventListener("pointerdown",function(e){if(e.target.closest("a,button"))return;down=true;lx=e.clientX;hero.classList.add("grabbing");});
   window.addEventListener("pointerup",function(){down=false;hero.classList.remove("grabbing");});
   var t0=performance.now(),visible=true;
-  if("IntersectionObserver" in window)new IntersectionObserver(function(es){visible=es[0].isIntersecting;}).observe(cv);
+  if("IntersectionObserver" in window)new IntersectionObserver(function(es){var was=visible;visible=es[0].isIntersecting;if(visible&&!was&&!reduce)requestAnimationFrame(frame);}).observe(cv);
   function frame(now){
     var t=(now-t0)/1000;
     for(var i=0;i<count;i++){
@@ -57,9 +58,12 @@
     mesh.instanceMatrix.needsUpdate=true;
     var a=pg.attributes.position.array;if(!reduce)for(var q=0;q<pn;q++){a[q*3+1]+=0.012;if(a[q*3+1]>14)a[q*3+1]=0;}pg.attributes.position.needsUpdate=true;
     var orbit=reduce?0:Math.sin(t*0.12)*0.35;
-    if(!down){spin+=vel;vel*=0.94;}scene.rotation.y=orbit+mx*0.25+spin;cam.lookAt(2.2,2.8-my*0.8,-3);
+    /* v5: al bajar, la cámara se eleva y entra sobre las columnas */
+    var hb=hero.getBoundingClientRect(),sp=reduce?0:Math.min(1,Math.max(0,-hb.top/(hb.height||1)));
+    cam.position.set(base[0],base[1]+sp*5,base[2]-sp*7);
+    if(!down){spin+=vel;vel*=0.94;}scene.rotation.y=orbit+mx*0.25+spin+sp*0.9;cam.lookAt((mob?2.6:2.2),(mob?2.4:2.8)-my*0.8-sp*1.5,-3);
     r.render(scene,cam);
-    if(!reduce&&visible)requestAnimationFrame(frame);else if(!reduce)setTimeout(function(){requestAnimationFrame(frame);},400);
+    if(!reduce&&visible)requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
 })();
