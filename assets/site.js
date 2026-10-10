@@ -128,3 +128,20 @@
     var cp=$(".copy",box);if(cp)cp.addEventListener("click",function(){var n="3117408139";try{navigator.clipboard.writeText(n).then(function(){ok.textContent="Número copiado.";},function(){ok.textContent="Mi número: 311 740 8139";});}catch(e){ok.textContent="Mi número: 311 740 8139";}});
   });
 })();
+
+/* v4: scroll suave (Lenis, sincronizado con ScrollTrigger) e inclinación 3D de las tarjetas */
+(function(){
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce)return;
+  if(window.Lenis){try{
+    var lenis=window.__lenis=new Lenis({lerp:0.1,anchors:true});
+    if(window.gsap&&window.ScrollTrigger){lenis.on("scroll",ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000);});gsap.ticker.lagSmoothing(0);}
+    else{(function raf(t){lenis.raf(t);requestAnimationFrame(raf);})(0);}
+  }catch(e){}}
+  if(!(window.matchMedia&&matchMedia("(pointer: fine)").matches))return;
+  [].slice.call(document.querySelectorAll(".pcard")).forEach(function(c){
+    c.addEventListener("pointermove",function(e){var b=c.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;
+      c.style.transform="perspective(900px) rotateX("+(-y*9)+"deg) rotateY("+(x*11)+"deg) translateY(-4px)";});
+    c.addEventListener("pointerleave",function(){c.style.transform="";});
+  });
+})();
