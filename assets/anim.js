@@ -33,7 +33,7 @@
   }
   if(!reduce&&"IntersectionObserver" in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){countUp(e.target);io.unobserve(e.target);}});},{threshold:.6});
-    $$(".proof .row b,.pill b,.offer b.k2,.stat-big").forEach(function(el){io.observe(el);});
+    $$(".proof .row b,.pill b,.trust b,.offer b.k2,.stat-big").forEach(function(el){io.observe(el);});
   }
 
   /* botones magnéticos */
