@@ -8,7 +8,7 @@
 <meta property="og:title" content="Dalí Pérez · Seguros con GNP"><meta property="og:description" content="Protección y ahorro a tu medida: vida, ahorro, casa, mascota y negocio. Te explico con tus números, sin venderte lo que no necesitas.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/site.css?v=9">
+<link rel="stylesheet" href="assets/site.css?v=10">
 <script>(function(){var d=document.documentElement,R=false,p=null;try{R=matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}try{p=localStorage.getItem("anim")}catch(e){}var lo=(navigator.hardwareConcurrency||8)<=4||(navigator.deviceMemory||8)<=4;window.__lowfx=lo;if(lo)d.classList.add("lowfx");window.__dpr=function(){var c=false;try{c=matchMedia("(pointer: coarse)").matches}catch(e){}return Math.min(window.devicePixelRatio||1,c?1.5:(lo?1:1.5))};window.__adapt=function(r,resize,onSlow){var n=0,t=0,l=0,done=0;return function(now){if(done)return;var dt=now-l;if(l&&dt<200){t+=dt;n++}l=now;if(n>=45){done=1;if(t/n>24){if(r.getPixelRatio()>1){r.setPixelRatio(1);if(resize)resize()}if(onSlow)onSlow()}}}};window.__osReduce=R;window.__motion=p==="full"?"full":p==="off"?"off":(R?"soft":"full");d.classList.add("mo-"+window.__motion);window.__errs=[];addEventListener("error",function(e){window.__errs.push((e.message||("no cargó: "+((e.target&&(e.target.src||e.target.href))||"?")))+(e.filename?" @"+e.filename.split("/").pop()+":"+e.lineno:""))},true);try{if(sessionStorage.getItem("pt")&&window.__motion==="full")d.classList.add("pt-in")}catch(e){}})();</script>
 </head>
 <body>
@@ -67,6 +67,64 @@
     <p class="note wrap">Cifras de una cotización real de GNP (Trasciende, pago a 5 años) en las edades marcadas; entre ellas, la altura de las columnas y los montos con ~ son ilustrativos. Proyección con tasas ilustrativas, no garantía.</p>
   </div>
 </section>
+
+<!-- Explorador "pagas 5 años, crece toda la vida" (15 oct 2026). Regla: toda proyección se puede mover con el dedo.
+     Datos: cotización real de GNP, Trasciende a 5 años, hombre de 33 no fumador, 15 oct 2026, sin nombre. -->
+<section id="crece" data-chapter="Crece solo"><div class="wrap" style="display:grid;gap:22px">
+  <h2>Pagas 5 años. <em>Crece toda la vida.</em></h2>
+  <p class="lead" style="max-width:62ch">Un seguro de vida que también es tuyo en vida. Mueve la edad y mira, con una cotización real de este mes, cuánto vale, cuánto se pagó y cuánto recibiría la familia.</p>
+  <div class="cx-vs">
+    <div class="no"><h3>Un seguro de vida tradicional</h3><ul><li>Solo paga si algo malo pasa</li><li>Si no pasa nada, no recibes nada</li><li>Pagas mientras quieras estar cubierto</li></ul></div>
+    <div class="si"><h3>Un plan como Trasciende</h3><ul><li>Protege a tu familia si algo pasa, y a ti si no puedes trabajar</li><li>Si no pasa nada, el dinero es tuyo y sigue creciendo</li><li>Desde los 60 lo sacas sin impuestos</li><li>Pagas 5 años y quedas protegido hasta los 100</li></ul></div>
+  </div>
+  <div class="cx">
+    <div class="cx-top"><button type="button" class="cx-ar" data-d="-1" aria-label="Un año antes">‹</button><output id="cxEd" aria-live="polite">42 años</output><button type="button" class="cx-ar" data-d="1" aria-label="Un año después">›</button></div>
+    <input type="range" id="cxR" min="0" max="26" value="9" aria-label="Edad">
+    <div class="cx-chips"><button type="button" data-i="0">33 · empieza</button><button type="button" data-i="4">37 · deja de pagar</button><button type="button" data-i="9">42</button><button type="button" data-i="19">52</button><button type="button" data-i="26">59</button></div>
+    <div class="cx-grid">
+      <div class="cx-k hot"><span>Su plan vale</span><b id="cxV">$0</b><i class="cx-bar"><i id="cxB"></i></i></div>
+      <div class="cx-k"><span>Lleva pagado</span><b id="cxP">$0</b></div>
+      <div class="cx-k"><span>Por cada $100 que metió</span><b id="cxX">$0</b></div>
+      <div class="cx-k"><span>Si falta, su familia recibe</span><b id="cxF">$0</b></div>
+    </div>
+    <p class="cx-note">Cotización real de GNP (Trasciende, pago a 5 años, hombre de 33, no fumador, octubre 2026), sin nombre. Proyección con tasas ilustrativas, no garantía. Lo que se retira tiene tope en la tabla de valores garantizados; antes de los 60 sí paga ISR.</p>
+  </div>
+  <div class="btns"><a class="btn primary" href="#platicamos">Quiero ver mis números</a></div>
+</div></section>
+<style>
+#crece h2 em{font-style:normal;color:var(--pine)}
+.cx-vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.cx-vs>div{border:2px solid var(--line);border-radius:22px;padding:20px;background:var(--card);min-width:0}
+.cx-vs>div.si{border-color:var(--pine);background:var(--pine-wash)}
+.cx-vs h3{margin:0 0 8px;font-size:1.1rem}
+.cx-vs ul{list-style:none;margin:0;padding:0}.cx-vs li{margin:7px 0;padding-left:26px;position:relative}
+.cx-vs li::before{position:absolute;left:0;font-weight:800}.cx-vs .no li::before{content:"✕";color:var(--ink-3)}.cx-vs .si li::before{content:"✓";color:var(--pine)}
+.cx{display:grid;gap:14px;background:var(--card);border:2px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--shadow)}
+.cx-top{display:flex;align-items:center;justify-content:center;gap:16px}
+.cx-top output{font:800 2rem/1 'Bricolage Grotesque',system-ui,sans-serif;min-width:6ch;text-align:center}
+.cx-ar{width:50px;height:50px;border-radius:50%;border:2px solid var(--line);background:var(--card);color:var(--ink);font-size:1.5rem;cursor:pointer}
+#cxR{width:100%;accent-color:var(--marigold);height:34px}
+.cx-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.cx-chips button{border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}
+.cx-chips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.cx-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cx-k{border:1px solid var(--line);border-radius:16px;padding:14px;min-width:0;container-type:inline-size}
+.cx-k span{display:block;font-size:.85rem;color:var(--ink-2);font-weight:700}
+.cx-k b{display:block;font:800 clamp(1.2rem,13cqi,1.8rem)/1.15 'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;margin-top:4px}
+.cx-k.hot{border-color:var(--marigold);background:var(--marigold-wash)}.cx-k.hot b{color:var(--marigold-ink)}
+.cx-bar{display:block;height:8px;border-radius:6px;background:var(--line);margin-top:8px;overflow:hidden}.cx-bar i{display:block;height:100%;background:var(--marigold);transition:width .35s}
+.cx-note{font-size:.85rem;color:var(--ink-3);margin:0}
+@media (max-width:760px){.cx-vs{grid-template-columns:minmax(0,1fr)}.cx-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+<script>(function(){var T=[[33,33088,0,496467],[34,67830,0,521290],[35,104310,35879,547355],[36,142614,65668,574723],[37,182832,105382,603459],[38,182832,126429,633632],[39,182832,150341,665313],[40,182832,177027,698579],[41,182832,207209,733508],[42,182832,240782,770183],[43,182832,259873,808692],[44,182832,280407,849127],[45,182832,302488,891583],[46,182832,326234,936163],[47,182832,351746,982971],[48,182832,379159,1032119],[49,182832,408597,1083725],[50,182832,440201,1137911],[51,182832,474111,1194807],[52,182832,510488,1254547],[53,182832,549501,1317275],[54,182832,591306,1383138],[55,182832,636105,1452295],[56,182832,684075,1524910],[57,182832,735427,1601156],[58,182832,790389,1681213],[59,182832,849150,1765274]];
+var r=document.getElementById("cxR"),cur=9,max=T[T.length-1][2],$=function(i){return document.getElementById(i);},mx=function(n){return "$"+Math.round(n).toLocaleString("es-MX");};
+function show(i){cur=Math.max(0,Math.min(T.length-1,i));r.value=cur;var q=T[cur];
+$("cxEd").textContent=q[0]+" años";$("cxV").textContent=mx(q[2]);$("cxP").textContent=mx(q[1]);$("cxX").textContent=q[2]?"$"+Math.round(q[2]/q[1]*100):"$0";$("cxF").textContent=mx(q[3]);
+$("cxB").style.width=(q[2]/max*100).toFixed(1)+"%";
+[].forEach.call(document.querySelectorAll(".cx-chips button"),function(b){b.setAttribute("aria-pressed",+b.dataset.i===cur?"true":"false");});}
+r.addEventListener("input",function(){show(+r.value);});
+[].forEach.call(document.querySelectorAll(".cx-ar"),function(b){b.onclick=function(){show(cur+(+b.dataset.d));};});
+document.querySelector(".cx-chips").onclick=function(e){var b=e.target.closest("button[data-i]");if(b)show(+b.dataset.i);};show(9);})();</script>
 
 <section id="tiempo" class="has-num" data-chapter="Interés compuesto"><span class="bignum" data-speed="-0.5" aria-hidden="true">65</span><div class="wrap">
   <div class="intro rv"><h2>Lo que vale empezar antes</h2><p class="lead">Aportas 10 años y dejas que el dinero trabaje hasta los 65. Mueve la edad: <b>cada año que esperas te cuesta más que cualquier aportación</b>.</p></div>
@@ -160,11 +218,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="assets/hero3d.js?v=9"></script>
-<script src="assets/story3d.js?v=9"></script>
-<script src="assets/site.js?v=9"></script>
-<script src="assets/scene3d.js?v=9"></script>
-<script src="assets/anim.js?v=9"></script>
-<script src="assets/motion.js?v=9"></script>
+<script src="assets/hero3d.js?v=10"></script>
+<script src="assets/story3d.js?v=10"></script>
+<script src="assets/site.js?v=10"></script>
+<script src="assets/scene3d.js?v=10"></script>
+<script src="assets/anim.js?v=10"></script>
+<script src="assets/motion.js?v=10"></script>
 </body>
 </html>
