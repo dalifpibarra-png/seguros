@@ -277,9 +277,12 @@
   html.lowfx .top{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--paper)}
   html.mo-off .timeline li::before,html.mo-off .steps li::before{transition:none}
   @media (prefers-reduced-motion: reduce){html.mo-soft .bar-fill{transition-duration:.2s}}
+
+  /* celular: letra más grande desde que abre (15 oct 2026) */
+  @media (max-width:700px){html{font-size:122%}html.big{font-size:140%}}
 </style>
 
-<style>.fam-nav{position:relative;z-index:5;display:flex;gap:6px;justify-content:center;padding:10px 12px;background:rgba(16,35,31,.96);font:700 15px/1.2 system-ui,-apple-system,sans-serif}.fam-nav a{color:#E7F0ED;text-decoration:none;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.25)}.fam-nav a.on{background:#D98A1E;border-color:#D98A1E;color:#10231F}</style><nav class="fam-nav" aria-label="Planes de la familia"><a href="./" class="on" aria-current="page">Mamá · tu Capitalízate</a><a href="papa.html">Papá · tu plan de retiro</a></nav><div class="top">
+<style>.fam-nav{position:relative;z-index:5;display:flex;gap:8px;justify-content:center;padding:12px;background:#10231F;font:700 16px/1.25 system-ui,-apple-system,sans-serif}.fam-nav a{flex:1 1 0;max-width:280px;text-align:center;color:#E7F0ED;text-decoration:none;padding:14px 12px;border-radius:16px;border:1px solid rgba(255,255,255,.25)}.fam-nav a.on{background:#D98A1E;border-color:#D98A1E;color:#10231F}@media (max-width:700px){.fam-nav{font-size:18px}.fam-nav a{padding:16px 10px}}</style><nav class="fam-nav" aria-label="Planes de la familia"><a href="./" class="on" aria-current="page">Mamá<br>tu Capitalízate</a><a href="papa.html">Papá<br>tu plan de retiro</a></nav><div class="top">
   <div class="wrap top-in">
     <nav aria-label="Secciones">
       <a href="#cuanto">¿Cuánto tengo?</a>

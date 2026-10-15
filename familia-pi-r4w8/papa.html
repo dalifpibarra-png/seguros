@@ -266,9 +266,12 @@ body.at-end #cta{transform:translate(-50%,140%)}
   .tbl td[data-l]::before{content:attr(data-l);color:var(--muted);font-weight:700;font-size:.85rem;text-align:left}
 }
 @media (max-width:700px){section.blk{padding-block:40px}.statement{padding-block:44px}.flow .v{font-size:1.4rem}}
+
+/* celular: letra más grande desde que abre (pedido de Dalí 15 oct 2026: "se ve muy chiquito, la gente no ve bien en el cel") */
+@media (max-width:700px){:root{--base:22px}}
 </style>
 
-<style>.fam-nav{position:relative;z-index:5;display:flex;gap:6px;justify-content:center;padding:10px 12px;background:rgba(16,35,31,.96);font:700 15px/1.2 system-ui,-apple-system,sans-serif}.fam-nav a{color:#E7F0ED;text-decoration:none;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.25)}.fam-nav a.on{background:#D98A1E;border-color:#D98A1E;color:#10231F}</style><nav class="fam-nav" aria-label="Planes de la familia"><a href="./">Mamá · tu Capitalízate</a><a href="papa.html" class="on" aria-current="page">Papá · tu plan de retiro</a></nav><header class="hero" data-chapter="Inicio">
+<style>.fam-nav{position:relative;z-index:5;display:flex;gap:8px;justify-content:center;padding:12px;background:#10231F;font:700 16px/1.25 system-ui,-apple-system,sans-serif}.fam-nav a{flex:1 1 0;max-width:280px;text-align:center;color:#E7F0ED;text-decoration:none;padding:14px 12px;border-radius:16px;border:1px solid rgba(255,255,255,.25)}.fam-nav a.on{background:#D98A1E;border-color:#D98A1E;color:#10231F}@media (max-width:700px){.fam-nav{font-size:18px}.fam-nav a{padding:16px 10px}}</style><nav class="fam-nav" aria-label="Planes de la familia"><a href="./">Mamá<br>tu Capitalízate</a><a href="papa.html" class="on" aria-current="page">Papá<br>tu plan de retiro</a></nav><header class="hero" data-chapter="Inicio">
   <div class="wrap">
     <div class="topbar"><span class="eyebrow" id="eyebrow"></span>
       <div class="aa" aria-label="Tamaño de letra"><button type="button" id="aMenos" aria-label="Letra más chica">A−</button><button type="button" id="aMas" aria-label="Letra más grande">A+</button></div></div>
@@ -387,7 +390,7 @@ body.at-end #cta{transform:translate(-50%,140%)}
   var PC={cap:["var(--cap)","var(--cap-soft)"],tra:["var(--tra)","var(--tra-soft)"],ppr:["var(--ppr)","var(--ppr-soft)"]};
   function cs(id){return 'style="--c:'+PC[id][0]+';--cs:'+PC[id][1]+'"';}
   try{var b=localStorage.getItem("planBase");if(b)document.documentElement.style.setProperty("--base",b);}catch(e){}
-  function base(d){var cur=parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--base"))||19;cur=Math.max(16,Math.min(26,cur+d));
+  function base(d){var cur=parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--base"))||19;cur=Math.max(16,Math.min(30,cur+d));
     document.documentElement.style.setProperty("--base",cur+"px");try{localStorage.setItem("planBase",cur+"px");}catch(e){}if(window.ScrollTrigger)ScrollTrigger.refresh();}
   $("aMas").onclick=function(){base(2);};$("aMenos").onclick=function(){base(-2);};
 
