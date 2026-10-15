@@ -188,10 +188,10 @@ body.at-end #cta{transform:translate(-50%,140%)}
 .legado{background:var(--hero);color:var(--hero-ink)}
 .legado h2{color:var(--hero-ink)}
 .legado .sub{color:var(--hero-ink);opacity:.85}
-.leg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
-.leg{border:1px solid rgba(255,255,255,.18);border-radius:var(--r);padding:18px;display:grid;gap:4px;background:rgba(255,255,255,.05)}
+.leg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.leg{border:1px solid rgba(255,255,255,.18);border-radius:var(--r);padding:18px;display:grid;gap:4px;background:rgba(255,255,255,.05);min-width:0;align-content:space-between}
 .leg span{font-size:.9rem;opacity:.85}
-.leg b{font-family:var(--f-head);font-weight:800;font-size:clamp(1.6rem,4.5vw,2.2rem);color:var(--leg,#9FB4FF);line-height:1.1}
+.leg b{font-family:var(--f-head);font-weight:800;font-size:clamp(1.35rem,2.6vw,1.85rem);font-variant-numeric:tabular-nums;overflow-wrap:anywhere;color:var(--leg,#9FB4FF);line-height:1.1}
 .leg.main{background:rgba(255,255,255,.1);border-color:var(--leg,#9FB4FF)}
 .legado .nota{opacity:.8;font-size:.95rem}
 
