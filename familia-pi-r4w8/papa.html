@@ -1,0 +1,601 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Papá, tus tres caminos</title>
+<script>(function(){var d=document.documentElement,R=false,p=null;try{R=matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}try{p=localStorage.getItem("anim")}catch(e){}var lo=(navigator.hardwareConcurrency||8)<=4||(navigator.deviceMemory||8)<=4;window.__lowfx=lo;if(lo)d.classList.add("lowfx");window.__dpr=function(){var c=false;try{c=matchMedia("(pointer: coarse)").matches}catch(e){}return Math.min(window.devicePixelRatio||1,c?1.5:(lo?1:1.5))};window.__adapt=function(r,resize,onSlow){var n=0,t=0,l=0,done=0;return function(now){if(done)return;var dt=now-l;if(l&&dt<200){t+=dt;n++}l=now;if(n>=45){done=1;if(t/n>24){if(r.getPixelRatio()>1){r.setPixelRatio(1);if(resize)resize()}if(onSlow)onSlow()}}}};window.__osReduce=R;window.__motion=p==="full"?"full":p==="off"?"off":(R?"soft":"full");d.classList.add("mo-"+window.__motion);window.__errs=[];addEventListener("error",function(e){window.__errs.push((e.message||("no cargó: "+((e.target&&(e.target.src||e.target.href))||"?")))+(e.filename?" @"+e.filename.split("/").pop()+":"+e.lineno:""))},true);})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Literata:opsz,wght@7..72,600;7..72,800&display=swap">
+<style>
+/* Una historia en una columna: mismo cheque → tres caminos lado a lado → por cada $100 → la pregunta que decide → año con año → cuándo sacar → cuándo conviene. Letra grande y ajustable; el 3D de la portada son los propios montos. */
+:root{
+  --bg:#F5F6F8; --card:#FFFFFF; --ink:#18212D; --muted:#525E6E; --line:#D8DDE4; --soft:#ECEFF3; --hero:#14202E; --hero-ink:#F2F5F9;
+  --cap:#1D6A4F; --tra:#3A4C9E; --ppr:#9A5A12; --pick:#C2410C;
+  --cap-soft:#E3F1EA; --tra-soft:#E7EAF8; --ppr-soft:#F6EBDD;
+  --f-body:'Atkinson Hyperlegible',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-head:'Literata',Georgia,'Times New Roman',serif;
+  --base:19px; --r:16px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E131A; --card:#161D27; --ink:#E6EBF2; --muted:#9DA9B9; --line:#283242; --soft:#1C2531; --hero:#0A1018; --hero-ink:#F2F5F9;
+  --cap:#5CC49A; --tra:#8E9EF0; --ppr:#E2A65E; --pick:#FB923C;
+  --cap-soft:#15302A; --tra-soft:#1E2442; --ppr-soft:#33261A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E131A; --card:#161D27; --ink:#E6EBF2; --muted:#9DA9B9; --line:#283242; --soft:#1C2531; --hero:#0A1018; --hero-ink:#F2F5F9;
+  --cap:#5CC49A; --tra:#8E9EF0; --ppr:#E2A65E; --pick:#FB923C;
+  --cap-soft:#15302A; --tra-soft:#1E2442; --ppr-soft:#33261A; color-scheme:dark}
+*{box-sizing:border-box}
+html{font-size:var(--base)}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--f-body);margin:0}
+.wrap{max-width:900px;margin:0 auto;padding-inline:16px}
+h1,h2,h3{font-family:var(--f-head);text-wrap:balance;margin:0;line-height:1.15}
+h2{font-size:clamp(1.5rem,4.5vw,2.1rem);font-weight:800}
+h3{font-size:1.2rem;font-weight:600}
+p{margin:0}
+.muted{color:var(--muted)}
+button{font:700 .95rem/1.25 var(--f-body);border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:12px 14px;cursor:pointer;min-height:48px}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--pick);outline-offset:2px}
+section.blk{padding-block:56px;display:grid;gap:18px}
+.sub{color:var(--muted);font-size:1.05rem;max-width:60ch}
+.dot{display:inline-block;width:.75em;height:.75em;border-radius:50%;background:var(--c);margin-right:8px;vertical-align:baseline}
+
+/* portada */
+.hero{background:var(--hero);color:var(--hero-ink);padding-block:28px 40px}
+.hero .wrap{display:grid;gap:18px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;opacity:.8}
+.aa{display:flex;gap:6px}
+.aa button{background:transparent;color:var(--hero-ink);border-color:rgba(255,255,255,.3);min-height:44px;padding:8px 12px}
+.hero h1{font-size:clamp(2rem,6.5vw,3.2rem);font-weight:800}
+.hero .lead{font-size:1.15rem;max-width:44ch;opacity:.92}
+.pill{justify-self:start;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:8px 16px;font-weight:700}
+.stage{position:relative;height:clamp(220px,42vw,340px);border-radius:var(--r);overflow:hidden;background:radial-gradient(70% 80% at 50% 100%,rgba(255,255,255,.08),transparent 70%)}
+.stage canvas{display:block;width:100%;height:100%}
+.legend{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.legend li{border-left:5px solid var(--c);padding:6px 12px;background:rgba(255,255,255,.06);border-radius:0 10px 10px 0}
+.legend b{display:block;font-family:var(--f-head);font-size:1.35rem}
+.legend span{font-size:.85rem;opacity:.85}
+
+/* frases que se encienden */
+.statement{padding-block:64px}
+.st-text{font-family:var(--f-head);font-weight:800;font-size:clamp(1.6rem,5vw,2.5rem);line-height:1.25;max-width:24ch}
+.st-text em{font-style:normal;background:linear-gradient(transparent 62%,color-mix(in srgb,var(--pick) 35%,transparent) 62%) no-repeat;background-size:var(--hl,100%) 100%}
+.sw{display:inline-block}
+
+/* tres caminos */
+.offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.offer{background:var(--card);border:1px solid var(--line);border-top:7px solid var(--c);border-radius:var(--r);padding:20px;display:grid;gap:14px;align-content:start;min-width:0;transition:box-shadow .25s}
+.offer.rec{box-shadow:0 0 0 3px var(--pick)}
+.offer .rb{display:none;color:var(--pick);font-weight:700;font-size:.85rem}
+.offer.rec .rb{display:block}
+.tag{justify-self:start;font-size:.8rem;font-weight:700;color:var(--c);background:var(--cs);padding:4px 10px;border-radius:999px}
+.yrs{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.yrs i{width:18px;height:18px;border-radius:5px;background:var(--c);display:inline-block}
+.yrs i.off{background:var(--soft);border:1px dashed var(--line)}
+.yrs small{margin-left:6px;color:var(--muted);font-weight:700}
+.flow{display:grid;gap:4px}
+.flow .k{font-size:.85rem;color:var(--muted);font-weight:700}
+.flow .v{font-family:var(--f-head);font-weight:800;font-size:1.55rem;color:var(--c);line-height:1.1}
+.flow .n{font-size:.88rem;color:var(--muted)}
+.arrow{font-size:1.4rem;color:var(--muted);line-height:1}
+.mini{display:grid;gap:8px;border-top:1px dashed var(--line);padding-top:12px}
+.mini div{display:flex;justify-content:space-between;gap:10px;font-size:.95rem}
+.mini b{text-align:right}
+
+/* por cada $100 */
+.bars{display:grid;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.bar{display:grid;gap:6px}
+.bar-lbl{display:flex;justify-content:space-between;gap:10px;font-weight:700}
+.bar-lbl b{font-family:var(--f-head);font-size:1.3rem;color:var(--c)}
+.bar-track{height:22px;background:var(--soft);border-radius:999px;overflow:hidden;position:relative}
+.bar-track::after{content:"";position:absolute;top:0;bottom:0;left:var(--m100);border-left:2px dashed var(--muted)}
+.bar-fill{height:100%;width:var(--w);background:var(--c);border-radius:999px}
+.bars .note{font-size:.88rem;color:var(--muted)}
+
+/* pregunta */
+.q-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.q-opts button{text-align:left;padding:14px 16px}
+.q-opts button[aria-pressed="true"]{border-color:var(--pick);background:var(--soft)}
+.verdict{font-size:1.12rem;padding:18px 20px;border-radius:var(--r);background:var(--card);border:1px solid var(--line);border-left:6px solid var(--pick)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--card);border-color:var(--ink)}
+
+/* año con año */
+.tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{padding:14px 12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+thead th{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+td.p{font-weight:700}
+
+/* cuándo sacar */
+.access{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.timeline{list-style:none;margin:0;padding:0 0 0 22px;position:relative;display:grid;gap:14px}
+.timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;border-left:3px solid var(--soft)}
+.timeline .tl-fill{position:absolute;left:7px;top:6px;bottom:6px;border-left:3px solid var(--c);transform-origin:top}
+.timeline li{position:relative}
+.timeline li::before{content:"";position:absolute;left:-22px;top:6px;width:17px;height:17px;border-radius:50%;background:var(--card);border:3px solid var(--c);transition:transform .3s,background .3s}
+.timeline li.lit::before{background:var(--c);transform:scale(1.1)}
+.timeline b{display:block}
+.when{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:grid;gap:10px;align-content:start;min-width:0}
+ul.list{margin:0;padding-left:1.2em;display:grid;gap:6px}
+details.letras{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 20px}
+summary{cursor:pointer;font-weight:700;font-size:1.05rem}
+details.letras ul{margin-top:12px}
+.sig{font-size:.95rem;color:var(--muted);border-top:1px solid var(--line);padding-block:20px 40px}
+.scale{display:flex;flex-wrap:wrap;gap:8px}
+.scale button[aria-pressed="true"]{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.motion-toggle{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:20;font-size:.85rem;min-height:40px;padding:8px 12px}
+.diag{position:fixed;inset:auto 8px 8px 8px;z-index:30;background:var(--card);color:var(--ink);border:2px solid var(--ink);border-radius:12px;padding:12px;white-space:pre-wrap;font-size:.8rem;max-height:60vh;overflow:auto}
+
+
+/* gráfica que se dibuja */
+.plot{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 12px 8px;overflow-x:auto}
+.plot svg{display:block;width:100%;height:auto}
+.plot{overflow:visible}
+.plot .gl{stroke:var(--line);stroke-width:1}
+.plot text{fill:var(--muted);font:700 13px var(--f-body)}
+.plot text.end{font-size:14px}
+@media (max-width:600px){.plot text{font-size:15px}.plot text.end{font-size:15px}}
+.plot .ln{fill:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.plot .pg{fill:none;stroke:var(--muted);stroke-width:2.5;stroke-dasharray:6 6}
+/* miedos */
+.fears{display:grid;gap:12px}
+.answer{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--pick);border-radius:var(--r);padding:18px 20px;display:grid;gap:8px;min-height:6em}
+.answer .q{font-family:var(--f-head);font-weight:800;font-size:1.2rem}
+/* tarjetas que se voltean */
+.flips{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.flip{position:relative;min-height:190px;padding:0;border:0;background:none;perspective:1000px;text-align:left;cursor:pointer}
+.flip .in{position:absolute;inset:0;transition:transform .6s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.flip[aria-pressed="true"] .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--r);padding:18px;display:grid;align-content:space-between;gap:8px}
+.flip .f{background:var(--hero);color:var(--hero-ink)}
+.flip .f b{font-family:var(--f-head);font-size:1.25rem;line-height:1.2}
+.flip .f small{opacity:.75;font-weight:700}
+.flip .b{background:var(--card);border:2px solid var(--pick);transform:rotateY(180deg);font-size:1rem;color:var(--ink)}
+.mo-off .flip .in,.mo-soft .flip .in{transition:none}
+/* preguntas a fondo */
+.faq-tools{display:grid;gap:10px}
+.faq-tools input{font:400 1rem var(--f-body);padding:14px 16px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);width:100%}
+.faq{display:grid;gap:10px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.faq summary{font-size:1rem}
+.faq p{margin-top:8px}
+.faq .src{display:block;margin-top:6px;font-size:.82rem;color:var(--muted)}
+/* pasos */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;counter-reset:st}
+.steps li{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:6px;counter-increment:st}
+.steps li::before{content:counter(st);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--soft);font:800 1.1rem var(--f-head);transition:background .3s,transform .3s}
+.steps li.lit::before{background:var(--pick);color:var(--card);transform:scale(1.08)}
+.countdown{display:inline-block;background:var(--soft);border-radius:999px;padding:6px 14px;font-weight:700}
+/* WhatsApp fijo y riel de capítulos */
+#cta{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translate(-50%,140%);z-index:15;background:var(--cap);color:#fff;border-radius:999px;padding:14px 22px;font-weight:700;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .4s cubic-bezier(.2,.8,.2,1);white-space:nowrap}
+body.past-hero #cta{transform:translate(-50%,0)}
+body.at-end #cta{transform:translate(-50%,140%)}
+.chapters{display:none}
+@media (min-width:1180px){.chapters{display:grid;gap:12px;position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:12}
+  .chapters a{display:flex;align-items:center;gap:10px;color:var(--muted);text-decoration:none;font-size:.78rem;font-weight:700}
+  .chapters a i{width:10px;height:10px;border-radius:50%;border:2px solid var(--muted);transition:all .3s}
+  .chapters a span{opacity:0;transition:opacity .3s}
+  .chapters:hover a span,.chapters a.on span{opacity:1}
+  .chapters a.on{color:var(--ink)}.chapters a.on i{background:var(--pick);border-color:var(--pick);transform:scale(1.3)}
+  .chapters a.done i{background:var(--muted)}}
+
+
+/* lo que les queda: franja oscura con números grandes */
+.crece .vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.crece .vs>div{border:2px solid var(--line);border-radius:var(--r);padding:18px;background:var(--card);min-width:0}
+.crece .vs>div.si{border-color:var(--tra);background:var(--tra-soft)}
+.crece .vs h3{margin:0 0 8px;font-size:1.1rem}
+.crece .vs ul{list-style:none;margin:0;padding:0}
+.crece .vs li{margin:6px 0;padding-left:26px;position:relative}
+.crece .vs li::before{position:absolute;left:0;font-weight:800}
+.crece .vs .no li::before{content:"✕";color:var(--muted)}
+.crece .vs .si li::before{content:"✓";color:var(--tra)}
+@media (max-width:700px){.crece .vs{grid-template-columns:minmax(0,1fr)}}
+/* explorador deslizable (regla 15 oct 2026: toda página de cliente lleva su "mueve la edad y ve cuánto crece") */
+.exp{display:grid;gap:12px;background:var(--card);border:2px solid var(--line);border-radius:var(--r);padding:18px}
+.exp-top{display:flex;align-items:center;justify-content:center;gap:14px}
+.exp-top output{font:800 1.6rem/1.1 var(--f-head);text-align:center;min-width:9ch}
+.exp-top output small{display:block;font:700 .85rem/1.3 var(--f-body);color:var(--muted)}
+.exp-ar{width:48px;height:48px;border-radius:50%;padding:0;font-size:1.5rem;line-height:1}
+#expR{width:100%;accent-color:var(--pick);height:32px}
+.exp-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.exp-chips button{min-height:40px;padding:8px 12px;font-size:.9rem}
+.exp-chips button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.exp-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.exp-card{border:2px solid var(--c);border-radius:var(--r);padding:14px;background:var(--cs);min-width:0;container-type:inline-size}
+.exp-card h4{margin:0 0 8px;font-size:1rem;display:flex;align-items:center;gap:8px}
+.exp-card h4 i{width:12px;height:12px;border-radius:50%;background:var(--c)}
+.exp-card .big{font:800 clamp(1.3rem,13cqi,1.9rem)/1.1 var(--f-head);color:var(--c);font-variant-numeric:tabular-nums}
+.exp-card .lbl{font-size:.85rem;color:var(--muted);font-weight:700}
+.exp-card .bar{height:10px;border-radius:6px;background:var(--line);overflow:hidden;margin:6px 0 2px}
+.exp-card .bar i{display:block;height:100%;background:var(--c);transition:width .35s ease}
+.exp-card .row{display:flex;justify-content:space-between;gap:8px;font-size:.9rem;margin-top:6px}
+.exp-card .row b{font-variant-numeric:tabular-nums}
+.exp-card .x{font-weight:800;color:var(--c)}
+#cur line{stroke:var(--pick);stroke-width:2;stroke-dasharray:5 5}
+#cur circle{stroke:var(--card);stroke-width:3}
+/* línea de vida: "pagas pocos años, crece toda la vida" (opcional, D.crece) */
+.crece .rail{position:relative;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:14px;margin-top:6px}
+.crece .rail::before{content:"";position:absolute;left:12px;right:12px;top:15px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--tra),var(--cap))}
+.crece .hito{position:relative;padding-top:42px;min-width:0}
+.crece .hito::before{content:"";position:absolute;top:6px;left:0;width:22px;height:22px;border-radius:50%;background:var(--card);border:4px solid var(--tra)}
+.crece .hito:last-child::before{border-color:var(--cap)}
+.crece .hito .ed{font:800 1.5rem/1 var(--f-head);color:var(--ink)}
+.crece .hito .tt{font-weight:700;margin:6px 0 2px}
+.crece .hito .vv{font:800 clamp(1.2rem,2.2vw,1.6rem)/1.15 var(--f-head);color:var(--tra);font-variant-numeric:tabular-nums}
+.crece .hito p{font-size:.95rem;color:var(--muted);margin:4px 0 0}
+.crece .pagas{display:flex;gap:4px;flex-wrap:wrap;align-items:center;font-weight:700}
+.crece .pagas i{width:14px;height:14px;border-radius:4px;background:var(--tra)}
+.crece .pagas i.o{background:transparent;border:2px solid var(--line)}
+@media (max-width:700px){.crece .rail{grid-template-columns:minmax(0,1fr);gap:0;padding-left:36px}.crece .rail::before{left:9px;right:auto;top:0;bottom:0;width:4px;height:auto;background:linear-gradient(180deg,var(--tra),var(--cap))}
+  .crece .hito{padding:0 0 22px}.crece .hito::before{left:-36px;top:2px}}
+.legado{background:var(--hero);color:var(--hero-ink)}
+.legado h2{color:var(--hero-ink)}
+.legado .sub{color:var(--hero-ink);opacity:.85}
+.leg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.leg{border:1px solid rgba(255,255,255,.18);border-radius:var(--r);padding:18px;display:grid;gap:4px;background:rgba(255,255,255,.05);min-width:0;align-content:space-between;container-type:inline-size}
+.leg span{font-size:.9rem;opacity:.85}
+.leg b{font-family:var(--f-head);font-weight:800;font-size:clamp(1.2rem,13cqi,1.85rem);font-variant-numeric:tabular-nums;overflow-wrap:anywhere;color:var(--leg,#9FB4FF);line-height:1.1}
+.leg.main{background:rgba(255,255,255,.1);border-color:var(--leg,#9FB4FF)}
+.legado .nota{opacity:.8;font-size:.95rem}
+
+/* modo agente */
+.agent{border:2px dashed var(--muted);border-radius:var(--r);padding:20px;display:grid;gap:16px;background:var(--card);margin-bottom:48px}
+.lock{display:flex;gap:8px;flex-wrap:wrap}
+.lock input{flex:1 1 200px;font:400 1rem var(--f-body);padding:12px 14px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink)}
+.err{color:var(--pick);font-weight:700;font-size:.9rem}
+.agent h3{font-family:var(--f-body);font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.qa{display:grid;gap:10px}
+.qa details{background:var(--bg);border-radius:12px;padding:12px 16px}
+.chat,.fb{display:grid;gap:10px}
+.chat textarea,.fb textarea,.fb select{width:100%;font:400 1rem/1.5 var(--f-body);padding:12px 14px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink)}
+.chat-out{white-space:pre-wrap;background:var(--soft);border-radius:12px;padding:14px 16px}
+.ok{color:var(--cap);font-weight:700;font-size:.9rem}
+.primary{background:var(--ink);color:var(--card);border-color:var(--ink)}
+@media (max-width:600px){
+  .tbl{background:none;border:0;overflow:visible}
+  .tbl thead{display:none}
+  .tbl table,.tbl tbody{display:block}
+  .tbl tr{display:grid;gap:6px;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:var(--r);padding:14px 16px;margin-bottom:12px}
+  .tbl td{display:flex;justify-content:space-between;gap:12px;padding:0;border:0;white-space:normal;text-align:right}
+  .tbl td.p{font-size:1.1rem;text-align:left}
+  .tbl td[data-l]::before{content:attr(data-l);color:var(--muted);font-weight:700;font-size:.85rem;text-align:left}
+}
+@media (max-width:700px){section.blk{padding-block:40px}.statement{padding-block:44px}.flow .v{font-size:1.4rem}}
+</style>
+
+<style>.fam-nav{position:relative;z-index:5;display:flex;gap:6px;justify-content:center;padding:10px 12px;background:rgba(16,35,31,.96);font:700 15px/1.2 system-ui,-apple-system,sans-serif}.fam-nav a{color:#E7F0ED;text-decoration:none;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.25)}.fam-nav a.on{background:#D98A1E;border-color:#D98A1E;color:#10231F}</style><nav class="fam-nav" aria-label="Planes de la familia"><a href="./">Mamá · tu Capitalízate</a><a href="papa.html" class="on" aria-current="page">Papá · tu plan de retiro</a></nav><header class="hero" data-chapter="Inicio">
+  <div class="wrap">
+    <div class="topbar"><span class="eyebrow" id="eyebrow"></span>
+      <div class="aa" aria-label="Tamaño de letra"><button type="button" id="aMenos" aria-label="Letra más chica">A−</button><button type="button" id="aMas" aria-label="Letra más grande">A+</button></div></div>
+    <h1 id="h1"></h1>
+    <p class="lead" id="lead"></p>
+    <span class="pill" id="pill"></span>
+    <div class="stage" id="stage" aria-hidden="true"><canvas id="c3d"></canvas></div>
+    <ul class="legend" id="legend"></ul>
+  </div>
+</header>
+
+<main>
+  <section class="statement"><div class="wrap"><p class="st-text" id="st1"></p></div></section>
+
+  <section class="blk" id="caminos" data-chapter="Los caminos"><div class="wrap" style="display:grid;gap:18px">
+    <h2 id="hCam"></h2><p class="sub" id="subCam"></p>
+    <div class="scale" id="escala" hidden></div>
+    <div class="offers" id="offers"></div>
+  </div></section>
+
+  <section class="blk" id="grafica" data-chapter="Tu dinero"><div class="wrap" style="display:grid;gap:18px">
+    <h2>Tu dinero, año con año</h2><p class="sub" id="subGraf"></p>
+    <div class="plot" id="plot"></div>
+    <div class="exp" id="exp" hidden>
+      <div class="exp-top"><button type="button" class="exp-ar" id="expPrev" aria-label="Un año antes">‹</button>
+        <output id="expEd" aria-live="polite"></output><button type="button" class="exp-ar" id="expNext" aria-label="Un año después">›</button></div>
+      <input type="range" id="expR" aria-label="Edad">
+      <div class="exp-chips" id="expC" role="group" aria-label="Saltar a"></div>
+      <div class="exp-cards" id="expO"></div>
+    </div>
+  </div></section>
+
+  <section class="blk" id="cien"><div class="wrap" style="display:grid;gap:18px">
+    <h2>Por cada $100 que metes, ¿cuánto te regresa?</h2><p class="sub" id="subCien"></p>
+    <div class="bars" id="bars"></div>
+  </div></section>
+
+  <section class="blk crece" id="crece" data-chapter="Crece solo" hidden><div class="wrap" style="display:grid;gap:18px">
+    <h2 id="crT"></h2><p class="sub" id="crX"></p><div class="vs" id="crV" hidden></div><div class="pagas" id="crP"></div>
+    <div class="rail" id="crR"></div><p class="muted" id="crN" style="font-size:.95rem"></p>
+  </div></section>
+  <section class="blk legado" id="legado" data-chapter="Lo que les queda" hidden><div class="wrap" style="display:grid;gap:18px">
+    <h2 id="legT"></h2><p class="sub" id="legX"></p>
+    <div class="leg-grid" id="legG"></div><p class="nota" id="legN"></p>
+  </div></section>
+
+  <section class="blk" id="decide" data-chapter="La pregunta"><div class="wrap" style="display:grid;gap:18px">
+    <h2 id="hQ"></h2>
+    <div class="q-opts" id="qOpts"></div>
+    <p class="verdict" id="qOut" hidden></p>
+  </div></section>
+
+  <section class="blk" id="miedos" data-chapter="Tus dudas"><div class="wrap" style="display:grid;gap:18px">
+    <h2>Lo que te quita el pendiente</h2><p class="sub">Toca la pregunta que te ronda.</p>
+    <div class="fears"><div class="chips" id="fearChips"></div><div class="answer" id="fearAns"><span class="q" id="fearQ"></span><p id="fearA"></p></div></div>
+  </div></section>
+
+  <section class="blk" id="anio"><div class="wrap" style="display:grid;gap:14px">
+    <h2>Año con año</h2><p class="sub" id="anoNota"></p>
+    <div class="chips" id="momentos"></div>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>Llevas pagado</th><th>Tu dinero</th><th>Si faltas, reciben</th></tr></thead>
+      <tbody id="tAno"></tbody></table></div>
+    <p class="muted" id="tAnoNota"></p>
+  </div></section>
+
+  <section class="statement"><div class="wrap"><p class="st-text" id="st2"></p></div></section>
+
+  <section class="blk" id="acceso" data-chapter="Cuándo sacar"><div class="wrap" style="display:grid;gap:18px">
+    <h2>¿Cuándo puedo sacar mi dinero?</h2>
+    <div class="access" id="access"></div>
+  </div></section>
+
+  <section class="blk" id="saber"><div class="wrap" style="display:grid;gap:18px">
+    <h2>Antes de firmar, lo que conviene saber</h2><p class="sub">Toca cada tarjeta.</p>
+    <div class="flips" id="flips"></div>
+  </div></section>
+
+  <section class="blk" id="cuando" data-chapter="Cuál conviene"><div class="wrap" style="display:grid;gap:18px">
+    <h2>¿Cuándo conviene cuál?</h2>
+    <div class="when" id="when"></div>
+  </div></section>
+
+  <section class="blk" id="fondo" data-chapter="Preguntas"><div class="wrap" style="display:grid;gap:18px">
+    <h2>Preguntas a fondo</h2>
+    <div class="faq-tools"><label for="faqQ" class="muted" style="font-weight:700">Busca tu duda</label><input id="faqQ" type="search" placeholder="Ej.: impuestos, cancelar, retiro" autocomplete="off"></div>
+    <div class="faq" id="faq"></div><p class="muted" id="faqNada" hidden>No encontré esa duda aquí. Pregúntame directo.</p>
+  </div></section>
+
+  <section class="blk" id="pasos" data-chapter="Siguiente paso"><div class="wrap" style="display:grid;gap:18px">
+    <h2>Cómo seguimos</h2><p class="sub" id="vence"></p>
+    <ol class="steps" id="steps"></ol>
+  </div></section>
+
+  <div class="wrap" style="display:grid;gap:16px">
+    <details class="letras"><summary>Las letras chiquitas</summary><ul class="list" id="letrasL"></ul></details>
+    <p class="sig" id="sig"></p>
+  </div>
+
+  
+</main>
+<a id="cta" href="#" target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
+
+<script id="data" type="application/json">{"clave": "ismael", "titulo_pag": "Papá, tus tres caminos", "eyebrow": "Plan de retiro · Ismael Pérez · 58 años", "titulo": "Papá, tus tres caminos", "lead": "Tres planes de GNP con el mismo cheque. Aquí ves cuántos años pagas, cuánto sacas, cuándo, y qué le queda a mi mamá.", "pill": "Mismo cheque en los tres: cerca de ¤70000¤ el primer año", "firma": "Fernando Dalí Pérez Ibarra · Asesor de seguros GNP · Cualquier duda, pregúntame.", "frases": ["Mismo cheque cada año. Cambian tres cosas: <em>cuántos años pagas<\/em>, cuánto sacas y a quién protege.", "Lo que no se toca, crece. El dinero guardado gana <em>interés sobre interés<\/em> sin interrupciones, y al ser seguro de vida lo sacas sin impuestos."], "hCam": "El mismo cheque, tres caminos", "subCam": "Los tres empiezan con cerca de ¤70000¤ el primer año y suben un poco cada año. Lo que cambia es cuántos años pagas: 5, 7 o 10.", "productos": [{"id": "tra", "tag": "Protección de por vida", "nombre": "Trasciende", "corto": "Trasciende", "anos": 5, "frase": "Mi mamá protegida desde el primer día y de por vida. Pagas solo 5 años y tu dinero sigue creciendo solo.", "metes": "¤70000¤ al año", "metesNota": "solo 5 años · ¤386794¤ en total", "sacasK": "A los 68 tienes", "sacas": "¤553298¤", "sacasNota": "sin impuestos · ganas ¤166504¤ y mi mamá sigue protegida", "sacasNum": 553298, "sacasCorto": "¤553298¤", "sacasCuando": "a los 68 · metiste ¤386794¤", "mini": [["Si faltas, mi mamá recibe", "¤557122¤ desde el día 1"], ["A los 75, sin meter más", "¤877036¤"], ["A los 80", "¤1204530¤"]], "acceso": [["Años 1 a 9", "Solo cancelando, y los primeros años recuperas poco."], ["68 años (año 10)", "Sacas hasta la mitad (¤276640¤) sin impuestos; la otra mitad sigue creciendo."], ["Si no sacas nada", "¤877036¤ a los 75 y ¤1204530¤ a los 80."], ["Siempre", "Mi mamá protegida de por vida, y la protección sube con los años."]], "conviene": ["Lo más importante es que mi mamá quede protegida", "No vas a necesitar el dinero antes de los 68", "Quieres pagar solo 5 años y que siga creciendo solo"], "cuidado": ["Como fumas, GNP pide exámenes y puede haber extraprima", "Si cancelas los primeros años recuperas poco"]}, {"id": "ppr", "tag": "Te regresa impuesto", "nombre": "PPR Consolida", "corto": "PPR", "anos": 7, "frase": "Bajas tu impuesto cada año y a los 65 sacas tu dinero de una vez.", "metes": "¤70160¤ al año", "metesNota": "7 años · ¤545803¤ en total", "sacasK": "A los 65 sacas", "sacas": "¤512839¤", "sacasNota": "de una vez y sin impuestos · y el SAT ya te regresó cerca de ¤103602¤", "sacasNum": 616441, "sacasCorto": "¤512839¤ + SAT", "sacasCuando": "a los 65 · metiste ¤545803¤", "mini": [["Ganas en total", "cerca de ¤70638¤"], ["Si faltas, mi mamá recibe", "tu fondo, pagando ISR"], ["Después de los 65", "se acaba el seguro"]], "acceso": [["Cada año", "El SAT te regresa cerca de ¤14800¤ en tu declaración."], ["Antes de los 65", "Solo cancelando y con castigo: en el año 2 te regresan cerca del 9 %."], ["65 años · desde el 30 de marzo de 2034", "Sacas todo de una vez, sin impuestos (hasta cerca de $3.85 millones)."]], "conviene": ["Quieres bajar tu impuesto cada año, porque sigues facturando y declarando", "A los 65 vas a dejar de facturar o vas a ganar mucho menos", "Quieres un dinero que no puedas tocar hasta los 65"], "cuidado": ["Si a los 65 sigues ganando igual, lo que te regresó el SAT casi se compensa al final", "Mi mamá recibiría el fondo pagando ISR", "El seguro se acaba cuando sacas el dinero"]}, {"id": "cap", "tag": "Ahorro con candado", "nombre": "Capitalízate", "corto": "Capitalízate", "anos": 10, "frase": "Juntas más dinero para ti, guardado 10 años, y lo sacas sin impuestos. Es el que más años pide.", "metes": "¤70000¤ al año", "metesNota": "10 años · ¤880452¤ en total", "sacasK": "A los 68 tienes", "sacas": "¤1163853¤", "sacasNota": "tuyo y sin impuestos · ganas ¤283401¤", "sacasNum": 1163853, "sacasCorto": "¤1163853¤", "sacasCuando": "a los 68 · metiste ¤880452¤", "mini": [["Si lo dejas hasta los 78", "¤2117486¤"], ["Si faltas, mi mamá recibe", "tu ahorro y unos ¤40000¤ más"], ["Antes de los 68", "solo cancelando todo"]], "acceso": [["Años 1 a 9", "Si cancelas te regresan tu ahorro, sin el premio de lealtad (a los 64: ¤529235¤ de ¤476134¤ que pusiste)."], ["68 años (año 10)", "Terminas de pagar. Sacas lo que necesites: una parte o todo, sin impuestos."], ["Si no lo necesitas", "Sigue creciendo: ¤2117486¤ a los 78."]], "conviene": ["Quieres juntar más dinero para ti", "Puedes pagar 10 años y dejarlo quieto hasta los 68", "No te importa que el SAT no te regrese nada cada año"], "cuidado": ["Pide más años de pago que los otros dos", "Número aproximado: falta la cotización a tu edad", "Casi no trae seguro para mi mamá"]}], "cien": {"nota": "Para comparar parejo: lo que tienes al final entre lo que metiste.", "barras": [{"id": "ppr", "l": "PPR a los 65", "v": 113, "n": "contando lo que te regresó el SAT"}, {"id": "cap", "l": "Capitalízate a los 68", "v": 132, "n": "¤1163853¤ por ¤880452¤"}, {"id": "tra", "l": "Trasciende a los 68", "v": 143, "n": "¤553298¤ por ¤386794¤, y además el seguro de por vida"}, {"id": "tra", "l": "Trasciende a los 75", "v": 227, "n": "sin meter un peso más"}]}, "pregunta": {"texto": "¿Qué es lo que más quieres de este dinero?", "opciones": [{"label": "Que el SAT me regrese impuesto cada año", "rec": ["ppr"], "texto": "<b>El PPR.<\/b> Metes ¤545803¤ en 7 años, el SAT te regresa cerca de ¤103602¤ y a los 65 sacas ¤512839¤ de una vez, sin impuestos."}, {"label": "Dejar protegida a mi esposa de por vida", "rec": ["tra"], "texto": "<b>Trasciende.<\/b> Pagas solo 5 años (¤386794¤). Mi mamá queda protegida con ¤557122¤ desde el primer día y de por vida, y a los 68 tienes ¤553298¤."}, {"label": "Juntar más dinero para mí", "rec": ["cap"], "texto": "<b>Capitalízate.<\/b> Pagas 10 años (¤880452¤) y a los 68 tienes ¤1163853¤ tuyos, sin impuestos. Es el que más junta y también el que más años pide."}, {"label": "Las dos: bajar impuesto y proteger a mi esposa", "rec": ["ppr", "tra"], "texto": "<b>Los dos juntos:<\/b> PPR (¤70160¤ el primer año) más Trasciende mínimo (¤52000¤): ¤122160¤ el primer año. Si no alcanza, primero Trasciende."}, {"label": "Lo voy a necesitar antes de los 65", "rec": [], "texto": "<b>Ninguno por ahora.<\/b> Los tres guardan el dinero varios años. Primero tenlo en CETES, donde lo puedes sacar cada año."}]}, "anoNota": "Toca la edad para ver cómo va cada plan.", "momentos": [{"label": "59 años", "vals": {"tra": ["¤70000¤", "$0", "¤557122¤"], "ppr": ["¤70160¤", "casi nada si cancelas", "¤400000¤"], "cap": ["¤70000¤", "¤55739¤ si cancelas", "¤120897¤"]}}, {"label": "64 y 65 años", "vals": {"tra": ["¤386794¤", "¤386907¤ si cancelas", "¤783926¤"], "ppr": ["¤545803¤", "¤512839¤", "¤536764¤ hasta que lo saques"], "cap": ["¤476134¤ (a los 64)", "¤529235¤ si cancelas", "¤613422¤"]}, "nota": "En el PPR, además el SAT ya te regresó cerca de ¤103602¤."}, {"label": "68 años", "vals": {"tra": ["¤386794¤", "¤553298¤ (o sacas la mitad)", "más de ¤783926¤"], "ppr": ["¤545803¤", "ya lo sacaste a los 65", "$0"], "cap": ["¤880452¤", "¤1163853¤", "¤1203704¤"]}, "nota": "En Trasciende, si sacas la mitad (¤276640¤), el seguro de mi mamá también baja a la mitad."}, {"label": "75 a 80 años", "vals": {"tra": ["¤386794¤", "¤877036¤ a los 75 · ¤1204530¤ a los 80", "más de ¤998667¤"], "ppr": ["¤545803¤", "ya lo sacaste a los 65", "$0"], "cap": ["¤880452¤", "¤2117486¤ (a los 78)", "¤2157339¤"]}}], "letras": ["PPR Consolida: cotización Nautilus de GNP del 6 de octubre de 2026 (edad 58, fumador), con prima de $70,160. Vence el 21 de octubre.", "Trasciende: ajustado a $70,000 desde la cotización de $75,000 del 6 de octubre. Capitalízate: ajustado a $70,000 desde otra cotización de Capitalízate de GNP. Las cifras exactas salen al cotizar a tu edad.", "Son proyecciones, no garantías. En Capitalízate el valor depende del rendimiento de las inversiones; los valores garantizados de Trasciende vienen en la póliza.", "PPR: el SAT te regresa cerca del 21 % de lo deducible (tope de $70,000 al año con tu ingreso). Sacarlo de una vez a los 65 es libre de impuestos hasta cerca de $3.85 millones (art. 171 del Reglamento de la LISR). Se saca con 65 años cumplidos: desde el 30 de marzo de 2034.", "Trasciende: los retiros parciales empiezan en el año 10 (68 años), hasta la mitad en el primero y el segundo; retirar baja la protección en la misma proporción. Libre de impuestos por el art. 93 fr. XXI de la LISR.", "Capitalízate (condiciones CNSF-S0043-0129-2014): antes de terminar el plazo de pago solo se cancela completo y se pierde el premio de lealtad; terminado el plazo, retiros por el monto que quieras. Las aportaciones extra se pueden sacar cuando quieras.", "El adelanto por enfermedad en fase terminal de Trasciende se confirma por escrito con GNP antes de firmar.", "Otra forma de bajar impuesto sin aseguradora: tu Afore, con aportaciones complementarias (mismo tope de $70,000)."], "subGraf": "Cuánto vale tu dinero a cada edad en cada plan. Con el mismo cheque de cerca de $70,000 el primer año.", "serie": [{"id": "cap", "l": "Capitalízate", "p": [[59, 92897], [61, 257334], [64, 579355], [68, 1163853], [78, 2117486]]}, {"id": "tra", "l": "Trasciende", "p": [[59, 0], [64, 331325], [65, 386907], [68, 553298], [70, 632402], [75, 877036], [80, 1204530]]}, {"id": "ppr", "l": "PPR", "dy": -12, "p": [[59, 0], [60, 12700], [65, 512839]]}], "miedos": [["Si me muero mañana, ¿qué le queda a mi esposa?", "Con Trasciende, ¤557122¤ desde el primer día y de por vida. Con el PPR, tu fondo, y ella paga ISR al recibirlo. Con Capitalízate, tu ahorro y unos ¤40000¤ más."], ["¿Y si necesito el dinero antes de los 65?", "Los tres lo guardan. El PPR castiga si cancelas (año 2: te regresan cerca del 9 %); Trasciende y Capitalízate, solo cancelando. Lo que puedas necesitar pronto, mejor en CETES."], ["¿El SAT me cobra al final?", "El PPR sacado de una vez a los 65 es libre de impuestos hasta cerca de $3.85 millones. Trasciende y Capitalízate salen sin ISR con 60 años y 5 de póliza."], ["¿Y si a los 65 sigo facturando igual?", "Entonces lo que el SAT te regresó con el PPR casi se compensa al final. Trasciende y Capitalízate no dependen de eso."], ["Fumo, ¿me aceptan?", "Sí. Las cotizaciones ya son de fumador. GNP pide exámenes; extraprima solo si salen hallazgos."]], "flips": [["La devolución del SAT", "Es real cada año, pero si a los 65 sigues ganando igual, casi se compensa al final."], ["Fumar", "Ya está en el precio. GNP pide exámenes; solo hay extraprima si encuentran algo."], ["Capitalízate", "Su número es aproximado: hay que cotizarlo a tu edad antes de decidir."], ["Los retiros de Trasciende", "Empiezan a los 68. Sacar la mitad baja el seguro de mi mamá a la mitad."]], "faq": [["¿Qué es que el PPR sea deducible?", "Lo que metes se resta de tus ingresos en la declaración anual: con tu tasa, te regresan cerca del 21 %, hasta $70,000 al año.", "LISR art. 151 fr. V; expediente fiscal"], ["¿Puedo dejar de pagar el PPR?", "Sí, pero si cancelas antes de los 65 hay castigo: en el año 2 recuperas cerca del 9 % de lo pagado.", "Cotización Nautilus 43221"], ["¿Cuándo puedo sacar el PPR?", "Con 65 años cumplidos: desde el 30 de marzo de 2034. De una vez y sin impuestos hasta cerca de $3.85 millones.", "RLISR art. 171; RMF 3.17.6"], ["¿Qué pasa si saco la mitad de Trasciende?", "La protección de mi mamá también baja a la mitad, y la otra mitad de tu dinero sigue creciendo.", "Condiciones Trasciende cl. 2.1.4"], ["¿Cuándo es el primer retiro de Trasciende?", "En el año 10, a los 68. Antes solo cancelando.", "Nota de la cotización Nautilus"], ["¿Hay algo mejor que el PPR para bajar impuesto?", "Tu Afore, con aportaciones complementarias: mismo tope de $70,000, sin aseguradora.", "LISR art. 151 fr. V"], ["¿Los números están garantizados?", "Son proyecciones. Capitalízate no tiene mínimo garantizado; Trasciende trae tabla de valores garantizados.", "Condiciones de cada producto"], ["¿Por qué Capitalízate pide 10 años?", "Es su plazo mínimo, y con 10 años GNP le abona un premio de lealtad del 50 % de la prima del primer año.", "Condiciones Capitalízate"], ["¿Puedo tener dos planes?", "Sí: PPR (¤70160¤) más Trasciende mínimo (¤52000¤) cubre impuesto y protección. Son ¤122160¤ el primer año.", "Cotizaciones del 6 de octubre"]], "pasos": [["Contesta la pregunta de arriba", "Con tu respuesta sabemos cuál te conviene."], ["Te saco las cotizaciones exactas", "Los tres a ¤70000¤ y a tu edad, antes de que venzan."], ["Firmas y yo me encargo", "Los exámenes, los papeles y que el SAT te regrese lo que toca."]], "vence": "2026-10-21", "wa": "523117408139", "waTexto": "Dalí, ya vi mis planes y tengo una duda"}</script>
+<script>
+/* ---------- contenido: todo sale de DATA ---------- */
+(function(){
+  var D=JSON.parse(document.getElementById("data").textContent);window.__D=D;
+  var $=function(id){return document.getElementById(id);};
+  var k=1,picked=null,mom=0;
+  function mx(n){return "$"+Math.round(n).toLocaleString("es-MX");}
+  /* §n§ se escala con la prima elegida; ¤n¤ es fijo */
+  function t(s){return String(s==null?"":s).replace(/§(-?\d+)§/g,function(_,n){return mx(+n*k);}).replace(/¤(-?\d+)¤/g,function(_,n){return mx(+n);});}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  window.__t=t;
+  var PC={cap:["var(--cap)","var(--cap-soft)"],tra:["var(--tra)","var(--tra-soft)"],ppr:["var(--ppr)","var(--ppr-soft)"]};
+  function cs(id){return 'style="--c:'+PC[id][0]+';--cs:'+PC[id][1]+'"';}
+  try{var b=localStorage.getItem("planBase");if(b)document.documentElement.style.setProperty("--base",b);}catch(e){}
+  function base(d){var cur=parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--base"))||19;cur=Math.max(16,Math.min(26,cur+d));
+    document.documentElement.style.setProperty("--base",cur+"px");try{localStorage.setItem("planBase",cur+"px");}catch(e){}if(window.ScrollTrigger)ScrollTrigger.refresh();}
+  $("aMas").onclick=function(){base(2);};$("aMenos").onclick=function(){base(-2);};
+
+  $("eyebrow").textContent=D.eyebrow;$("h1").textContent=D.titulo;$("lead").textContent=D.lead;
+  $("st1").innerHTML=D.frases[0];$("st2").innerHTML=D.frases[1];
+  $("hCam").textContent=D.hCam;$("subCien").textContent=D.cien.nota;$("hQ").textContent=D.pregunta.texto;
+  $("anoNota").textContent=D.anoNota;$("sig").textContent=D.firma;
+
+  $("qOpts").innerHTML=D.pregunta.opciones.map(function(o,i){return '<button type="button" data-i="'+i+'" aria-pressed="false">'+esc(o.label)+'</button>';}).join("");
+  $("qOpts").onclick=function(e){var b=e.target.closest("button[data-i]");if(!b)return;var o=D.pregunta.opciones[+b.dataset.i];
+    [].forEach.call($("qOpts").children,function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});
+    picked=o.rec;$("qOut").hidden=false;$("qOut").innerHTML=t(o.texto);paint();
+    if(window.gsap&&window.__motion!=="off")gsap.fromTo("#qOut",{y:14,opacity:0},{y:0,opacity:1,duration:.45,ease:"power3.out"});};
+
+  if(D.escala){var es=$("escala");es.hidden=false;
+    es.innerHTML='<span class="muted" style="align-self:center;font-weight:700">¿Cuánto al año?</span>'+D.escala.opciones.map(function(p){return '<button type="button" data-p="'+p+'" aria-pressed="'+(p===D.escala.base)+'">'+mx(p)+'</button>';}).join("");
+    es.onclick=function(e){var b=e.target.closest("button[data-p]");if(!b)return;k=+b.dataset.p/D.escala.base;
+      [].forEach.call(es.querySelectorAll("button"),function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});paint();};}
+
+  $("momentos").innerHTML=D.momentos.map(function(m,i){return '<button type="button" data-i="'+i+'" aria-pressed="'+(i===0)+'">'+esc(m.label)+'</button>';}).join("");
+  $("momentos").onclick=function(e){var b=e.target.closest("button[data-i]");if(!b)return;mom=+b.dataset.i;
+    [].forEach.call($("momentos").children,function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});paintAno();};
+
+  function yrs(n,max){var s="";for(var i=0;i<max;i++)s+='<i class="'+(i<n?"":"off")+'"></i>';return s+'<small>'+n+(n===1?" año":" años")+' pagando</small>';}
+  function paintAno(){var m=D.momentos[mom];
+    $("tAno").innerHTML=D.productos.map(function(p){var v=m.vals[p.id];if(!v)return "";
+      return '<tr '+cs(p.id)+'><td class="p"><span class="dot"></span>'+esc(p.corto)+'</td><td data-l="Llevas pagado">'+t(v[0])+'</td><td data-l="Tu dinero">'+t(v[1])+'</td><td data-l="Si faltas, reciben">'+t(v[2])+'</td></tr>';}).join("");
+    $("tAnoNota").innerHTML=t(m.nota||"");}
+  function paint(){
+    $("pill").innerHTML=t(D.pill);$("subCam").innerHTML=t(D.subCam);
+    var maxY=Math.max.apply(null,D.productos.map(function(p){return p.anos;}));
+    $("legend").innerHTML=D.productos.map(function(p){return '<li '+cs(p.id)+'><span>'+esc(p.corto)+'</span><b>'+t(p.sacasCorto)+'</b><span>'+t(p.sacasCuando)+'</span></li>';}).join("");
+    $("offers").innerHTML=D.productos.map(function(p){
+      return '<article class="offer'+(picked&&picked.indexOf(p.id)>-1?" rec":"")+'" '+cs(p.id)+'><span class="rb">★ El que te conviene según tu respuesta</span>'+
+        '<span class="tag">'+esc(p.tag)+'</span><h3>'+esc(p.nombre)+'</h3><p class="muted">'+t(p.frase)+'</p>'+
+        '<div class="yrs" aria-label="'+p.anos+' años pagando">'+yrs(p.anos,maxY)+'</div>'+
+        '<div class="flow"><span class="k">Metes</span><span class="v">'+t(p.metes)+'</span><span class="n">'+t(p.metesNota)+'</span></div>'+
+        '<span class="arrow" aria-hidden="true">↓</span>'+
+        '<div class="flow"><span class="k">'+esc(p.sacasK)+'</span><span class="v">'+t(p.sacas)+'</span><span class="n">'+t(p.sacasNota)+'</span></div>'+
+        '<div class="mini">'+p.mini.map(function(r){return '<div><span>'+esc(r[0])+'</span><b>'+t(r[1])+'</b></div>';}).join("")+'</div></article>';}).join("");
+    var mx100=Math.max.apply(null,D.cien.barras.map(function(b){return b.v;}))*1.08;
+    $("bars").innerHTML=D.cien.barras.map(function(b){return '<div class="bar" '+cs(b.id)+'><div class="bar-lbl"><span><span class="dot"></span>'+esc(b.l)+'</span><b>$'+b.v+'</b></div>'+
+      '<div class="bar-track" style="--m100:'+(100/mx100*100).toFixed(1)+'%"><div class="bar-fill" style="--w:'+(b.v/mx100*100).toFixed(1)+'%"></div></div><span class="note">'+t(b.n)+'</span></div>';}).join("")+
+      '<p class="note">La línea punteada marca los $100 que metiste.</p>';
+    $("access").innerHTML=D.productos.map(function(p){return '<div class="card" '+cs(p.id)+'><h3><span class="dot"></span>'+esc(p.corto)+'</h3><ol class="timeline">'+
+      p.acceso.map(function(a){return '<li><b>'+t(a[0])+'</b><span>'+t(a[1])+'</span></li>';}).join("")+'</ol></div>';}).join("");
+    $("when").innerHTML=D.productos.map(function(p){return '<div class="card" '+cs(p.id)+'><h3><span class="dot"></span>'+esc(p.corto)+' te conviene si…</h3><ul class="list">'+
+      p.conviene.map(function(x){return "<li>"+t(x)+"</li>";}).join("")+'</ul>'+(p.cuidado&&p.cuidado.length?'<p class="muted" style="font-weight:700">Ojo con:</p><ul class="list">'+
+      p.cuidado.map(function(x){return "<li>"+t(x)+"</li>";}).join("")+'</ul>':'')+'</div>';}).join("");
+    $("letrasL").innerHTML=D.letras.map(function(x){return "<li>"+t(x)+"</li>";}).join("");
+
+    /* gráfica: una línea por plan + lo que metiste (punteada) */
+    if(D.serie){var nar=innerWidth<600,S=D.serie,W=nar?400:720,H=nar?320:340,L=nar?74:76,R=nar?104:128,T=18,B=40,all=[];   /* en celular, una gráfica a su medida: nada de deslizar de lado */S.forEach(function(s){s.p.forEach(function(q){all.push(q);});});
+      var x0=Math.min.apply(null,all.map(function(q){return q[0];})),x1=Math.max.apply(null,all.map(function(q){return q[0];})),y1=Math.max.apply(null,all.map(function(q){return q[1];}))*k*1.06;
+      var X=function(a){return L+(a-x0)/(x1-x0)*(W-L-R);},Y=function(v){return H-B-(v*k)/y1*(H-T-B);};
+      var stp=[100000,200000,250000,500000,1000000].filter(function(v){return y1/v<=5;})[0]||1000000,g="";
+      for(var v=0;v<=y1;v+=stp){g+='<line class="gl" x1="'+L+'" x2="'+(W-R)+'" y1="'+Y(v/k)+'" y2="'+Y(v/k)+'"/><text x="'+(L-8)+'" y="'+(Y(v/k)+4)+'" text-anchor="end">'+(v===0?"$0":v>=1e6?"$"+(v/1e6).toFixed(v%1e6?1:0)+" M":"$"+Math.round(v/1000)+" mil")+'</text>';}
+      /* edades cada 5 años (con todas las de los datos se amontonan en celular) */
+      var ages=[x0];for(var a5=Math.ceil((x0+1)/5)*5;a5<=x1;a5+=5)if(a5-x0>=3)ages.push(a5);ages.forEach(function(a){g+='<text x="'+X(a)+'" y="'+(H-14)+'" text-anchor="middle">'+a+(a===x0?" años":"")+'</text>';});
+      var ln=S.map(function(s){var d=s.p.map(function(q,i){return (i?"L":"M")+X(q[0]).toFixed(1)+","+Y(q[1]).toFixed(1);}).join(" "),e=s.p[s.p.length-1];
+        var col=s.id==="pag"?"":'style="stroke:var(--'+s.id+')"';
+        return '<path class="'+(s.id==="pag"?"pg":"ln")+'" '+col+' d="'+d+'"/>'+s.p.map(function(q,qi){return (s.id==="pag"||(s.p.length>12&&qi<s.p.length-1))?"":'<circle cx="'+X(q[0])+'" cy="'+Y(q[1])+'" r="5" style="fill:var(--'+s.id+')"/>';}).join("")+
+          '<text class="end" x="'+(X(e[0])+10)+'" y="'+(Y(e[1])+(s.dy||5))+'" style="fill:'+(s.id==="pag"?"var(--muted)":"var(--"+s.id+")")+'">'+esc(s.l)+'</text>';}).join("");
+      $("plot").innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Gráfica de cuánto vale tu dinero por edad en cada plan">'+g+ln+'<g id="cur"></g></svg>';
+      window.__plot={X:X,Y:Y,T:T,B:B,H:H,x0:x0,x1:x1};if(window.__exp)window.__exp();
+      $("subGraf").innerHTML=t(D.subGraf||"");}
+
+  /* explorador: mueve la edad y ve cuánto llevas pagado, cuánto vale y cuánto protege, en cada plan (necesita D.tabla) */
+  if(D.tabla){(function(){var Tb=D.tabla,ids=D.productos.map(function(p){return p.id;}).filter(function(id){return Tb[id];});
+    var ages=Tb[ids[0]].map(function(r){return r[0];}),r=$("expR"),cur=0;$("exp").hidden=false;
+    r.min=0;r.max=ages.length-1;r.step=1;r.value=0;
+    function row(id,i){var a=Tb[id];return a[Math.min(i,a.length-1)];}
+    $("expC").innerHTML=(D.tablaSaltos||[]).map(function(j){var i=ages.indexOf(j[0]);return i<0?"":'<button type="button" data-i="'+i+'" aria-pressed="false">'+esc(j[1])+'</button>';}).join("");
+    function show(i){cur=Math.max(0,Math.min(ages.length-1,i));r.value=cur;var ed=ages[cur];
+      $("expEd").innerHTML=ed+" años<small>"+(cur===0?"hoy, primer año":"año "+(cur+1)+" de tu plan")+"</small>";
+      [].forEach.call($("expC").children,function(b){b.setAttribute("aria-pressed",+b.dataset.i===cur?"true":"false");});
+      var maxV=0;ids.forEach(function(id){maxV=Math.max(maxV,row(id,ages.length-1)[2],row(id,ages.length-1)[1]);});
+      $("expO").innerHTML=D.productos.filter(function(p){return Tb[p.id];}).map(function(p){var q=row(p.id,cur),x=q[1]?q[2]/q[1]:0;
+        return '<div class="exp-card" '+cs(p.id)+'><h4><i></i>'+esc(p.corto)+'</h4><div class="lbl">Tu dinero si lo necesitaras</div><div class="big">'+mx(q[2]*k)+'</div>'+
+          '<div class="bar"><i style="width:'+(q[2]/maxV*100).toFixed(1)+'%"></i></div>'+
+          '<div class="row"><span>Llevas pagado</span><b>'+mx(q[1]*k)+'</b></div>'+
+          '<div class="row"><span>Por cada $100 que metiste</span><b class="x">'+(q[2]?"$"+Math.round(x*100):"$0")+'</b></div>'+
+          '<div class="row"><span>Si faltas, reciben</span><b>'+mx(q[3]*k)+'</b></div></div>';}).join("");
+      var P=window.__plot,c=$("cur");if(P&&c&&ed>=P.x0&&ed<=P.x1){var X=P.X(ed);
+        c.innerHTML='<line x1="'+X+'" x2="'+X+'" y1="'+P.T+'" y2="'+(P.H-P.B)+'"/>'+ids.map(function(id){var v=row(id,cur)[2];return '<circle cx="'+X+'" cy="'+P.Y(v)+'" r="7" style="fill:var(--'+id+')"/>';}).join("");}}
+    window.__exp=function(){show(cur);};
+    r.addEventListener("input",function(){show(+r.value);});
+    $("expPrev").onclick=function(){show(cur-1);};$("expNext").onclick=function(){show(cur+1);};
+    $("expC").onclick=function(e){var b=e.target.closest("button[data-i]");if(b)show(+b.dataset.i);};
+    show(Math.max(0,ages.indexOf(D.tablaInicio||ages[0])));})();}
+    if(D.crece){var C=D.crece;$("crece").hidden=false;$("crT").textContent=C.titulo;$("crX").innerHTML=t(C.texto);$("crN").innerHTML=t(C.nota||"");
+      $("crP").innerHTML=Array.apply(null,{length:C.anosTotales||10}).map(function(_,i){return '<i class="'+(i<C.anosPago?"":"o")+'"></i>';}).join("")+'<span style="margin-left:8px">'+esc(C.pagasTexto||"")+'</span>';
+      if(C.vs){$("crV").hidden=false;$("crV").innerHTML=C.vs.map(function(v,i){return '<div class="'+(i?"si":"no")+'"><h3>'+esc(v[0])+'</h3><ul>'+v[1].map(function(x){return "<li>"+t(x)+"</li>";}).join("")+'</ul></div>';}).join("");}
+      $("crR").style.setProperty("--n",C.hitos.length);
+      $("crR").innerHTML=C.hitos.map(function(h){return '<div class="hito"><div class="ed">'+esc(h[0])+'</div><div class="tt">'+esc(h[1])+'</div><div class="vv">'+t(h[2])+'</div><p>'+t(h[3])+'</p></div>';}).join("");}
+    if(D.legado){$("legado").hidden=false;$("legT").textContent=D.legado.titulo;$("legX").innerHTML=t(D.legado.texto);$("legN").innerHTML=t(D.legado.nota||"");
+      $("legG").innerHTML=D.legado.items.map(function(x,i){return '<div class="leg'+(i===0?" main":"")+'"><span>'+esc(x[0])+'</span><b class="v">'+t(x[1])+'</b></div>';}).join("");}
+    paintAno();
+    if(window.__onPaint)window.__onPaint();
+  }
+  paint();
+  var narNow=innerWidth<600;addEventListener("resize",function(){var n=innerWidth<600;if(n!==narNow){narNow=n;paint();}});
+
+
+  /* miedos, tarjetas, preguntas a fondo, pasos, vencimiento y WhatsApp */
+  if(D.miedos){$("fearChips").innerHTML=D.miedos.map(function(m,i){return '<button type="button" class="chip" data-i="'+i+'" aria-pressed="'+(i===0)+'">'+esc(m[0])+'</button>';}).join("");
+    function fear(i){$("fearQ").textContent=D.miedos[i][0];$("fearA").innerHTML=t(D.miedos[i][1]);}
+    fear(0);$("fearChips").onclick=function(e){var b=e.target.closest("button[data-i]");if(!b)return;[].forEach.call($("fearChips").children,function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});fear(+b.dataset.i);
+      if(window.gsap&&window.__motion!=="off")gsap.fromTo("#fearQ,#fearA",{y:14,opacity:0},{y:0,opacity:1,duration:.45,ease:"power3.out",stagger:.06});};}
+  if(D.flips)$("flips").innerHTML=D.flips.map(function(f){return '<button type="button" class="flip" aria-pressed="false"><span class="in"><span class="f"><b>'+esc(f[0])+'</b><small>Toca para ver</small></span><span class="b">'+t(f[1])+'</span></span></button>';}).join("");
+  $("flips").onclick=function(e){var f=e.target.closest(".flip");if(f)f.setAttribute("aria-pressed",f.getAttribute("aria-pressed")==="true"?"false":"true");};
+  if(D.faq){$("faq").innerHTML=D.faq.map(function(q){return '<details data-s="'+esc((q[0]+" "+q[1]).toLowerCase())+'"><summary>'+esc(q[0])+'</summary><p>'+t(q[1])+'<span class="src">'+esc(q[2]||"")+'</span></p></details>';}).join("");
+    $("faqQ").oninput=function(){var v=this.value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""),n=0;
+      [].forEach.call($("faq").children,function(d){var ok=!v||d.dataset.s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").indexOf(v)>-1;d.hidden=!ok;if(ok)n++;});$("faqNada").hidden=n>0;};}
+  if(D.pasos)$("steps").innerHTML=D.pasos.map(function(p){return '<li><b>'+esc(p[0])+'</b><span>'+t(p[1])+'</span></li>';}).join("");
+  if(D.vence){var dv=Math.ceil((new Date(D.vence+"T23:59:00")-new Date())/864e5);
+    $("vence").innerHTML=dv>0?'<span class="countdown">⏳ La cotización vence en '+dv+(dv===1?" día":" días")+'</span>':'<span class="countdown">La cotización ya venció: te saco una nueva</span>';}
+  if(D.wa){$("cta").href="https://wa.me/"+D.wa+"?text="+encodeURIComponent(D.waTexto||"Hola Dalí, vi mi plan y tengo una duda");}else $("cta").remove();
+  
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ---------- portada 3D: una columna por plan, alta según lo que sacas. Sin WebGL o con animación apagada, la leyenda dice lo mismo. ---------- */
+(function(){
+  var D=window.__D,stage=document.getElementById("stage"),cv=document.getElementById("c3d");
+  if(!window.THREE||window.__motion==="off"){stage.hidden=true;return;}
+  var gl=false;try{gl=!!(cv.getContext("webgl")||cv.getContext("experimental-webgl"));}catch(e){}
+  if(!gl){stage.hidden=true;return;}
+  var T=THREE,r=new T.WebGLRenderer({canvas:cv,antialias:!window.__lowfx,alpha:true});r.setPixelRatio(window.__dpr());
+  var sc=new T.Scene(),cam=new T.PerspectiveCamera(35,1,.1,100);cam.position.set(0,3.2,9.5);cam.lookAt(0,1.4,0);
+  sc.add(new T.AmbientLight(0xffffff,.55));var dl=new T.DirectionalLight(0xffffff,.9);dl.position.set(4,8,6);sc.add(dl);
+  var root=getComputedStyle(document.documentElement),grp=new T.Group();sc.add(grp);
+  var P=D.productos,max=Math.max.apply(null,P.map(function(p){return p.sacasNum;})),cols=[],gap=2.1,x0=-(P.length-1)*gap/2;
+  P.forEach(function(p,i){var col=new T.Color((root.getPropertyValue("--"+p.id)||"#888").trim());
+    var h=Math.max(.25,p.sacasNum/max*3.6),g=new T.BoxGeometry(1.2,1,1.2),m=new T.MeshStandardMaterial({color:col,roughness:.45,metalness:.1});
+    var b=new T.Mesh(g,m);b.position.set(x0+i*gap,0,0);b.userData.h=h;b.scale.y=.001;grp.add(b);cols.push(b);
+    var base=new T.Mesh(new T.CylinderGeometry(.95,.95,.08,40),new T.MeshStandardMaterial({color:col,transparent:true,opacity:.25}));base.position.set(b.position.x,0,0);grp.add(base);});
+  function size(){var w=stage.clientWidth,h=stage.clientHeight;r.setSize(w,h,false);cam.aspect=w/h;cam.position.z=w<520?12.5:9.5;cam.updateProjectionMatrix();}
+  size();addEventListener("resize",size);
+  var t0=performance.now(),vis=true,raf=0,adapt=window.__adapt(r,size),soft=window.__motion==="soft";
+  new IntersectionObserver(function(es){vis=es[0].isIntersecting;if(vis&&!raf)raf=requestAnimationFrame(loop);}).observe(stage);
+  function loop(now){raf=0;adapt(now);var e=Math.min(1,(now-t0)/1800),ease=1-Math.pow(1-e,3);
+    cols.forEach(function(b,i){var k=Math.min(1,Math.max(0,ease*1.25-i*.12));b.scale.y=Math.max(.001,b.userData.h*k);b.position.y=b.scale.y/2;});
+    grp.rotation.y=soft?-.25:Math.sin(now/3200)*.35-.15;r.render(sc,cam);if(vis)raf=requestAnimationFrame(loop);}
+  raf=requestAnimationFrame(loop);
+  window.__on3d=function(){max=Math.max.apply(null,P.map(function(p){return p.sacasNum;}));};
+})();
+
+/* ---------- movimiento: frases que se encienden, tarjetas que se levantan, barras que se llenan, línea de tiempo ---------- */
+(function(){
+  var G=window.gsap,ST=window.ScrollTrigger,mode=window.__motion,soft=mode==="soft";
+  var $$=function(s){return [].slice.call(document.querySelectorAll(s));};
+  /* botón de animaciones y #diag, en cualquier modo */
+  var os=!!window.__osReduce,pref=null;try{pref=localStorage.getItem("anim");}catch(e){}
+  if(os||pref){var mb=document.createElement("button");mb.type="button";mb.className="motion-toggle";mb.textContent=mode==="full"?"Reducir animaciones":"✨ Activar animaciones";
+    mb.onclick=function(){try{if(mode==="full"){if(os)localStorage.removeItem("anim");else localStorage.setItem("anim","off");}else localStorage.setItem("anim","full");}catch(e){}location.reload();};document.body.appendChild(mb);}
+  if(/diag/.test(location.hash)){var bx=document.createElement("div");bx.className="diag";bx.textContent="Modo: "+mode+" · GSAP: "+(G?"sí":"NO")+" · Three: "+(window.THREE?"sí":"NO")+"\nErrores: "+((window.__errs||[]).join(" | ")||"ninguno");document.body.appendChild(bx);}
+
+  /* riel de capítulos y WhatsApp fijo */
+  var chs=$$("[data-chapter]").filter(function(c){return !c.hidden;}),rail=null,dots=[];   /* las secciones apagadas no van al riel */
+  if(chs.length>3){rail=document.createElement("nav");rail.className="chapters";rail.setAttribute("aria-label","Capítulos");
+    rail.innerHTML=chs.map(function(c,i){if(!c.id)c.id="cap-"+i;return '<a href="#'+c.id+'"><i></i><span>'+c.dataset.chapter+'</span></a>';}).join("");document.body.appendChild(rail);dots=$$(".chapters a");
+    dots.forEach(function(d,i){d.addEventListener("click",function(e){e.preventDefault();if(window.__lenis)window.__lenis.scrollTo(chs[i],{offset:-20,duration:1.3});else chs[i].scrollIntoView({behavior:"smooth"});});});}
+  var hero=document.querySelector(".hero"),tk=false;
+  function ui(){tk=false;var past=hero.getBoundingClientRect().bottom<innerHeight*.3,end=(innerHeight+scrollY)>=document.documentElement.scrollHeight-160;
+    document.body.classList.toggle("past-hero",past);document.body.classList.toggle("at-end",end);
+    if(rail){var cur=0;chs.forEach(function(c,i){if(c.getBoundingClientRect().top<innerHeight*.45)cur=i;});dots.forEach(function(d,i){d.classList.toggle("on",i===cur);d.classList.toggle("done",i<cur);});}}
+  addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(ui);}},{passive:true});ui();
+  if(!G||!ST||mode==="off")return;
+  G.registerPlugin(ST);
+  /* scroll suave en laptop, como en las páginas de seguros (Lenis); en celular el scroll nativo */
+  var fine=window.matchMedia&&matchMedia("(pointer: fine)").matches;
+  if(window.Lenis&&mode==="full"&&fine&&!window.__lowfx){var len=new Lenis({duration:1.15,smoothWheel:true});window.__lenis=len;len.on("scroll",ST.update);G.ticker.add(function(t){len.raf(t*1000);});G.ticker.lagSmoothing(0);}
+  G.from(".hero h1,.hero .lead,.hero .pill,.legend li",{y:soft?0:26,opacity:0,duration:.9,ease:"power3.out",stagger:.08,delay:.1,clearProps:"opacity,transform"});
+  $$(".st-text").forEach(function(p){var out="";p.innerHTML.replace(/(<[^>]+>)|([^<\s]+)|(\s+)/g,function(m,tag,w){if(tag)out+=tag;else if(w)out+='<span class="sw">'+w+'</span>';else out+=" ";return m;});
+    p.innerHTML=out;G.fromTo(p.querySelectorAll(".sw"),soft?{opacity:.15}:{opacity:.15,rotateX:-70,y:"0.3em",transformPerspective:600,transformOrigin:"50% 100%"},
+      {opacity:1,rotateX:0,y:0,ease:"none",stagger:.12,scrollTrigger:{trigger:p,start:"top 85%",end:"bottom 45%",scrub:.7}});
+    var em=p.querySelectorAll("em");if(em.length)G.fromTo(em,{"--hl":"0%"},{"--hl":"100%",ease:"none",scrollTrigger:{trigger:p,start:"center 70%",end:"bottom 45%",scrub:.7}});});
+
+  /* números que cuentan al aparecer (solo la primera vez) */
+  $$(".flow .v,.legend b,.leg b").forEach(function(el){var m=el.textContent.match(/\$([\d,]+)/);if(!m)return;var n=+m[1].replace(/,/g,"");if(n<1000)return;var pre=el.textContent;
+    ST.create({trigger:el,start:"top 92%",once:true,onEnter:function(){var o={v:0};G.to(o,{v:n,duration:soft?.6:1.4,ease:"power2.out",onUpdate:function(){el.textContent=pre.replace(m[0],"$"+Math.round(o.v).toLocaleString("es-MX"));},onComplete:function(){el.textContent=pre;}});}});});
+  /* la gráfica se dibuja */
+  function drawPlot(){var ps=$$("#plot path.ln"),dots=$$("#plot circle,#plot text.end");if(!ps.length)return;
+    ps.forEach(function(p){var Ln=p.getTotalLength();p.style.strokeDasharray=Ln;p.style.strokeDashoffset=Ln;});G.set(dots,{opacity:0});
+    G.to(ps,{strokeDashoffset:0,duration:1.6,ease:"power2.inOut",stagger:.2,onComplete:function(){ps.forEach(function(p){p.style.strokeDasharray="";p.style.strokeDashoffset="";});}});G.to(dots,{opacity:1,duration:.5,stagger:.03,delay:1});}
+  var plotSeen=false;ST.create({trigger:"#plot",start:"top 80%",once:true,onEnter:function(){plotSeen=true;drawPlot();}});
+  window.__plotRedraw=function(){if(plotSeen)drawPlot();};
+  $$(".steps li").forEach(function(li){ST.create({trigger:li,start:"top 75%",onEnter:function(){li.classList.add("lit");},onLeaveBack:function(){li.classList.remove("lit");}});});
+  var armed=false;
+  function arm(){
+    var rise=$$(".offer,.when .card,.access .card,.tbl,.verdict,.flip,.faq details,.answer").filter(function(el){return !el.__risen&&el.getBoundingClientRect().top>innerHeight;});
+    rise.forEach(function(el){el.__risen=1;});
+    if(rise.length){G.set(rise,soft?{opacity:0,y:16}:{opacity:0,y:56,rotateX:24,transformPerspective:900,transformOrigin:"50% 100%"});
+      ST.batch(rise,{start:"top 92%",once:true,onEnter:function(b){G.to(b,{opacity:1,y:0,rotateX:0,duration:.95,ease:"power3.out",stagger:.08,overwrite:true,clearProps:"transform,opacity"});}});}
+    var fills=$$(".bar-fill");
+    if(!armed){fills.forEach(function(f){G.set(f,{width:0});});ST.create({trigger:"#bars",start:"top 80%",once:true,onEnter:function(){armed=true;G.to(".bar-fill",{width:function(i,el){return el.style.getPropertyValue("--w");},duration:1.3,ease:"power3.out",stagger:.15});}});}
+    $$(".timeline").forEach(function(tl){if(tl.__tl)return;tl.__tl=1;var line=document.createElement("span");line.className="tl-fill";tl.appendChild(line);
+      G.fromTo(line,{scaleY:0},{scaleY:1,ease:"none",scrollTrigger:{trigger:tl,start:"top 78%",end:"bottom 55%",scrub:.6}});
+      tl.querySelectorAll("li").forEach(function(li){ST.create({trigger:li,start:"top 70%",onEnter:function(){li.classList.add("lit");},onLeaveBack:function(){li.classList.remove("lit");}});});});
+  }
+  arm();
+  window.__onPaint=function(){ST.getAll().forEach(function(s){if(s.trigger&&s.trigger.closest&&s.trigger.closest(".timeline"))s.kill();});
+    $$(".timeline").forEach(function(tl){tl.__tl=0;});if(armed)$$(".bar-fill").forEach(function(f){f.style.width="";});arm();if(window.__plotRedraw)window.__plotRedraw();ST.refresh();};
+  addEventListener("load",function(){ST.refresh();});
+})();
+</script>

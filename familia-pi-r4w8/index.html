@@ -1,0 +1,938 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Capitaliza de María Dalia</title>
+<script>(function(){var d=document.documentElement,R=false,p=null,big=null;try{R=matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}try{p=localStorage.getItem("anim");big=localStorage.getItem("letra")}catch(e){}if(big==="1")d.classList.add("big");var lo=(navigator.hardwareConcurrency||8)<=4||(navigator.deviceMemory||8)<=4;window.__lowfx=lo;if(lo)d.classList.add("lowfx");window.__dpr=function(){var c=false;try{c=matchMedia("(pointer: coarse)").matches}catch(e){}return Math.min(window.devicePixelRatio||1,c?1.5:(lo?1:1.5))};window.__adapt=function(r,resize,onSlow){var n=0,t=0,l=0,done=0;return function(now){if(done)return;var dt=now-l;if(l&&dt<200){t+=dt;n++}l=now;if(n>=45){done=1;if(t/n>24){if(r.getPixelRatio()>1){r.setPixelRatio(1);if(resize)resize()}if(onSlow)onSlow()}}}};window.__osReduce=R;window.__motion=p==="full"?"full":p==="off"?"off":(R?"soft":"full");d.classList.add("mo-"+window.__motion);window.__errs=[];addEventListener("error",function(e){window.__errs.push((e.message||("no cargó: "+((e.target&&(e.target.src||e.target.href))||"?")))+(e.filename?" @"+e.filename.split("/").pop()+":"+e.lineno:""))},true);})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+  /* Layout: una columna de lectura con letra grande, ordenada por las cuatro preguntas que ella se hace
+     (cuánto tengo, cuándo lo saco, qué gano, qué más puedo hacer); todo el detalle técnico baja a "Las letras chiquitas".
+     Misma identidad y capa de movimiento que la página de pólizas de Ismael y Martín. */
+  :root{
+    --paper:#F3F6F4; --card:#FFFFFF; --wash:#E4EDE9;
+    --ink:#10231F; --ink-2:#3D5550; --ink-3:#6B827C;
+    --pine:#1F5C55; --pine-wash:#D5E7E2;
+    --marigold:#D98A1E; --marigold-ink:#8A5208; --marigold-wash:#FBEBD2;
+    --rose:#B4483A; --rose-wash:#F8E1DD;
+    --line:#CFDDD8; --ok:#2D7A4F; --ok-wash:#DCEFE3; --warn:#9A5B0B; --warn-wash:#FBEBD2;
+    --hero:#10231F; --hero-ink:#F3F6F4; --hero-2:#C9D6D2;
+    --night:#0B1A17; --night-2:#16372F; --on-night:#E7F0ED; --on-night-2:#AFC3BD; --gold:#F2B04F;
+    --shadow:0 1px 2px rgba(16,35,31,.06),0 18px 40px -28px rgba(16,35,31,.45);
+    --f-display:"Bricolage Grotesque",Georgia,sans-serif;
+    --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      color-scheme:dark;
+      --paper:#0D1614; --card:#14201D; --wash:#1A2925;
+      --ink:#E7F0ED; --ink-2:#AFC3BD; --ink-3:#7D958F;
+      --pine:#6FC2B6; --pine-wash:#163330;
+      --marigold:#F2B04F; --marigold-ink:#F7C980; --marigold-wash:#34260F;
+      --rose:#EE8878; --rose-wash:#371A16;
+      --line:#24342F; --ok:#6FCB95; --ok-wash:#15301F; --warn:#F2B04F; --warn-wash:#34260F;
+      --hero:#1A2925; --hero-ink:#E7F0ED; --hero-2:#AFC3BD;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 18px 40px -28px rgba(0,0,0,.9);
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --paper:#0D1614; --card:#14201D; --wash:#1A2925;
+    --ink:#E7F0ED; --ink-2:#AFC3BD; --ink-3:#7D958F;
+    --pine:#6FC2B6; --pine-wash:#163330;
+    --marigold:#F2B04F; --marigold-ink:#F7C980; --marigold-wash:#34260F;
+    --rose:#EE8878; --rose-wash:#371A16;
+    --line:#24342F; --ok:#6FCB95; --ok-wash:#15301F; --warn:#F2B04F; --warn-wash:#34260F;
+    --hero:#1A2925; --hero-ink:#E7F0ED; --hero-2:#AFC3BD;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 18px 40px -28px rgba(0,0,0,.9);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;font-size:100%}
+  html.big{font-size:116%}
+  html.mo-full{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:1.19rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding-inline:20px}
+  :focus-visible{outline:3px solid var(--marigold);outline-offset:3px;border-radius:6px}
+  h1,h2,h3{font-family:var(--f-display);letter-spacing:-.02em;text-wrap:balance;margin:0}
+  h1{font-size:clamp(2.2rem,6.4vw,3.7rem);line-height:1.04;font-weight:800;margin-bottom:16px}
+  h2{font-size:clamp(1.85rem,4.6vw,2.6rem);line-height:1.08;font-weight:800}
+  h3{font-size:1.35rem;line-height:1.25;font-weight:700}
+  p{margin:0 0 12px;max-width:62ch}
+  b{font-weight:700}
+  .muted{color:var(--ink-3);font-size:1rem}
+  .money{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+
+  /* barra de secciones */
+  .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .top-in{display:flex;align-items:center;gap:10px}
+  .top nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-block:10px;flex:1;min-width:0}
+  .top nav::-webkit-scrollbar{display:none}
+  .top nav a{color:var(--ink-2);text-decoration:none;font-size:.95rem;font-weight:700;padding:7px 14px;border-radius:999px;white-space:nowrap;border:1px solid var(--line);background:var(--card);transition:background .25s,color .25s,border-color .25s}
+  .top nav a:hover{border-color:var(--pine);color:var(--ink)}
+  .top nav a.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .size{flex:none;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 12px;white-space:nowrap}
+  .size[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  /* hero oscuro con escenario 3D */
+  .hero{background:radial-gradient(110% 90% at 85% 15%,var(--night-2),var(--night) 62%);color:var(--on-night);padding-block:34px 46px;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:28px;align-items:center}
+  .eyebrow{font-family:var(--f-mono);font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+  .hero h1{color:var(--on-night)}
+  .lede{font-size:1.3rem;color:var(--on-night-2);max-width:34ch;margin:0}
+  .lede b{color:var(--on-night)}
+  .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-weight:700;font-size:1.05rem;border-radius:999px;padding:13px 22px;transition:transform .2s,background .2s}
+  .btn.primary{background:var(--gold);color:#1C1406}
+  .btn.primary:hover{transform:translateY(-2px)}
+  .btn.ghost{border:1.5px solid color-mix(in srgb,var(--on-night) 35%,transparent);color:var(--on-night)}
+  .btn.ghost:hover{border-color:var(--gold)}
+  .stage{position:relative;aspect-ratio:1/1;width:100%;max-width:100%}
+  .stage::before{content:"";position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--gold) 26%,transparent),transparent 66%);pointer-events:none}
+  .stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .stage-fallback{position:absolute;inset:0;display:grid;place-items:center}
+  .stage.live .stage-fallback{display:none}
+  .legend3d{position:absolute;left:0;right:0;bottom:2%;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;pointer-events:none}
+  .tag{font-family:var(--f-mono);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:4px 10px;white-space:nowrap;background:var(--marigold-wash);color:var(--marigold-ink)}
+  .tag.pine{background:var(--pine-wash);color:var(--pine)}
+  .tag.rose{background:var(--rose-wash);color:var(--rose)}
+  .tag.ok{background:var(--ok-wash);color:var(--ok)}
+  @media (max-width:760px){
+    .hero{padding-block:8px 34px}
+    .hero-grid{grid-template-columns:minmax(0,1fr);gap:4px}
+    .stage{order:-1;aspect-ratio:auto;height:min(38svh,300px)}
+    .btn{flex:1 1 auto}
+  }
+
+  /* los tres números */
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;padding-top:30px}
+  .tile{border-radius:20px;padding:20px 22px;display:flex;flex-direction:column;gap:4px;border:1px solid var(--line);background:var(--card);box-shadow:var(--shadow);min-width:0}
+  .tile.main{background:var(--hero);border-color:var(--hero);color:var(--hero-ink)}
+  .tile .k{font-family:var(--f-mono);font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--pine)}
+  .tile.main .k{color:var(--gold)}
+  .tile b{font-family:var(--f-mono);font-size:clamp(1.8rem,4vw,2.2rem);font-weight:600;font-variant-numeric:tabular-nums;line-height:1.15}
+  .tile small{color:var(--ink-2);font-size:1rem;line-height:1.45}
+  .tile.main small{color:var(--hero-2)}
+  .left{display:inline-block;margin-top:6px;align-self:flex-start;font-family:var(--f-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--rose-wash);color:var(--rose);border-radius:999px;padding:3px 10px}
+
+  section{padding-block:60px 8px;scroll-margin-top:70px}
+  .q-num{display:inline-block;font-family:var(--f-mono);font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--marigold-ink);background:var(--marigold-wash);border-radius:999px;padding:4px 12px;margin-bottom:12px}
+  .sec-sub{color:var(--ink-2);margin:10px 0 22px;max-width:56ch;font-size:1.2rem}
+
+  /* calculadora: cuánto tengo */
+  .calc{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
+  .calc-pick{padding:20px 22px 16px;border-bottom:1px solid var(--line);display:grid;gap:14px}
+  .calc-when{display:flex;align-items:center;gap:12px}
+  .calc-when output{flex:1;min-width:0;text-align:center;font-family:var(--f-display);font-weight:800;font-size:clamp(1.5rem,4.6vw,2.1rem);line-height:1.1}
+  .calc-when output small{display:block;font-family:var(--f-body);font-weight:400;font-size:1rem;color:var(--ink-2);margin-top:4px}
+  .arrow{flex:none;width:56px;height:56px;border-radius:50%;border:2px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;font-size:1.5rem;font-weight:700;cursor:pointer;display:grid;place-items:center;line-height:1}
+  .arrow:hover{border-color:var(--pine)}
+  .arrow:disabled{opacity:.35;cursor:default}
+  input[type=range]{width:100%;height:44px;background:transparent;-webkit-appearance:none;appearance:none;margin:0;cursor:pointer}
+  input[type=range]::-webkit-slider-runnable-track{height:10px;border-radius:999px;background:linear-gradient(90deg,var(--pine) var(--p,0%),var(--wash) var(--p,0%))}
+  input[type=range]::-moz-range-track{height:10px;border-radius:999px;background:var(--wash)}
+  input[type=range]::-moz-range-progress{height:10px;border-radius:999px;background:var(--pine)}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:34px;height:34px;border-radius:50%;background:var(--gold);border:4px solid var(--card);box-shadow:0 2px 8px rgba(0,0,0,.3);margin-top:-12px}
+  input[type=range]::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:var(--gold);border:4px solid var(--card);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chips button{font:inherit;font-size:1rem;font-weight:700;cursor:pointer;background:var(--card);color:var(--ink-2);border:2px solid var(--line);border-radius:999px;padding:8px 16px}
+  .chips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .calc-out{padding:22px;display:grid;gap:18px}
+  .big-num{display:grid;gap:2px}
+  .big-num .k{font-family:var(--f-mono);font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--pine)}
+  .big-num b{font-family:var(--f-mono);font-weight:600;font-variant-numeric:tabular-nums;font-size:clamp(2.6rem,9vw,4rem);line-height:1.05;color:var(--ink)}
+  .big-num small{color:var(--ink-2);font-size:1rem}
+  .bars{display:grid;gap:12px}
+  .bar{display:grid;gap:4px}
+  .bar-lbl{display:flex;justify-content:space-between;gap:12px;font-size:1.02rem;flex-wrap:wrap}
+  .bar-lbl b{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-weight:600}
+  .bar-track{height:18px;border-radius:999px;background:var(--wash);overflow:hidden}
+  .bar-fill{height:100%;border-radius:999px;width:0;transition:width .7s cubic-bezier(.2,.8,.2,1)}
+  .bar.paid .bar-fill{background:var(--ink-3)}
+  .bar.mine .bar-fill{background:linear-gradient(90deg,var(--pine),var(--gold))}
+  .bar.out .bar-fill{background:var(--rose)}
+  html.mo-off .bar-fill{transition:none}
+  .verdict{border-radius:16px;padding:14px 18px;font-size:1.1rem;background:var(--pine-wash);color:var(--ink)}
+  .verdict.careful{background:var(--rose-wash)}
+
+  /* frases de capítulo */
+  .statement{padding-block:clamp(64px,12vw,150px);position:relative;overflow:hidden}
+  .statement::before{content:"";position:absolute;inset:auto -20% -40% -20%;height:70%;background:radial-gradient(50% 60% at 50% 100%,color-mix(in srgb,var(--marigold) 14%,transparent),transparent 70%);pointer-events:none}
+  .st-in{display:grid;justify-items:center;text-align:center;position:relative}
+  .st-text{font-family:var(--f-display);font-weight:800;font-size:clamp(2rem,6vw,4.4rem);line-height:1.06;letter-spacing:-.035em;max-width:16ch;text-wrap:balance;margin:0 auto}
+  .st-text em{font-style:normal;color:var(--marigold-ink);position:relative;white-space:nowrap;--hl:100%}
+  .st-text em::after{content:"";position:absolute;left:-.06em;right:-.06em;bottom:.04em;height:.3em;background:color-mix(in srgb,var(--marigold) 32%,transparent);border-radius:.1em;z-index:-1;transform-origin:0 50%;transform:scaleX(calc(var(--hl) / 100%))}
+  .st-text .sw{display:inline-block}
+
+  /* línea del tiempo */
+  .timeline{list-style:none;margin:0;padding:10px 0;display:grid;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;position:relative}
+  .timeline::before,.tl-fill{content:"";position:absolute;left:31px;top:30px;bottom:30px;width:3px;border-radius:2px;background:var(--line)}
+  .tl-fill{background:linear-gradient(180deg,var(--pine),var(--marigold));transform-origin:50% 0;transform:scaleY(0)}
+  .timeline li{position:relative;display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px;padding:14px 22px 14px 62px}
+  .timeline li::before{content:"";position:absolute;left:23px;top:20px;width:18px;height:18px;border-radius:50%;background:var(--card);border:3px solid var(--marigold);transition:transform .5s cubic-bezier(.2,.8,.2,1.6),background .4s,box-shadow .5s;z-index:1}
+  .timeline li.lit::before,.timeline li.done::before{background:var(--marigold);transform:scale(1.12);box-shadow:0 0 0 6px var(--marigold-wash)}
+  .timeline li.goal{background:var(--marigold-wash)}
+  .timeline .when{font-family:var(--f-mono);font-weight:600;font-size:.98rem;color:var(--marigold-ink)}
+  .timeline .what{font-size:1.08rem;color:var(--ink-2)}
+  .timeline .what b{color:var(--ink);display:block}
+  @media (max-width:520px){.timeline li{grid-template-columns:1fr;gap:2px}}
+
+  .h3gap{margin:36px 0 14px}
+  .three{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+  .opt3{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;display:grid;gap:8px;align-content:start;min-width:0}
+  .opt3 .n{font-family:var(--f-display);font-weight:800;font-size:2rem;line-height:1;color:var(--marigold)}
+  .opt3 p{margin:0;color:var(--ink-2);font-size:1.05rem}
+
+  /* el premio: qué se pierde si te sales */
+  .premio{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:6px}
+  .pz{border-radius:16px;padding:14px 12px;display:grid;gap:4px;text-align:center;border:1px solid var(--line);background:var(--card);min-width:0}
+  .pz b{font-family:var(--f-mono);font-size:1.4rem;font-weight:600}
+  .pz span{font-size:.95rem;color:var(--ink-2);line-height:1.35}
+  .pz.p100 b{color:var(--rose)} .pz.p50 b{color:var(--warn)} .pz.p25 b{color:var(--warn)} .pz.p0{background:var(--ok-wash);border-color:color-mix(in srgb,var(--ok) 40%,var(--line))} .pz.p0 b{color:var(--ok)}
+  @media (max-width:560px){.premio{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+  /* beneficios */
+  .perks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:12px}
+  .perk{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 22px;box-shadow:var(--shadow);display:grid;gap:8px;align-content:start;min-width:0}
+  .perk .amt{font-family:var(--f-mono);font-weight:600;font-size:1.6rem;color:var(--pine);font-variant-numeric:tabular-nums;line-height:1.1}
+  .perk p{margin:0;color:var(--ink-2);font-size:1.05rem}
+  .perk.feat{background:var(--hero);border-color:var(--hero);color:var(--hero-ink)}
+  .perk.feat .amt{color:var(--gold)}
+  .perk.feat p{color:var(--hero-2)}
+  .perk.feat .tag{background:color-mix(in srgb,var(--gold) 22%,transparent);color:var(--gold)}
+
+  /* complementar */
+  .plus-list{display:grid;gap:12px}
+  .plus{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 18px;align-items:start}
+  .plus.rec{border:2px solid var(--pine);box-shadow:var(--shadow)}
+  .plus h3{grid-column:1}
+  .plus .tag{grid-column:2;grid-row:1;justify-self:end}
+  .plus p{grid-column:1/-1;margin:0;color:var(--ink-2);font-size:1.08rem;max-width:none}
+  .plus p b{color:var(--ink)}
+  .plus .go{grid-column:1/-1;justify-self:start;text-decoration:none;font-weight:700;font-size:1rem;background:var(--ink);color:var(--paper);border-radius:999px;padding:10px 18px;margin-top:4px}
+  @media (max-width:520px){.plus{grid-template-columns:1fr}.plus .tag{grid-column:1;grid-row:auto;justify-self:start;order:-1}}
+
+  /* dudas */
+  .fears{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+  .fear{font:inherit;font-size:1.08rem;font-weight:700;cursor:pointer;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:999px;padding:12px 20px;text-align:left;transition:border-color .15s,background .15s}
+  .fear:hover{border-color:var(--pine)}
+  .fear[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .answer{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--marigold);border-radius:20px;padding:24px 26px;box-shadow:var(--shadow);display:grid;gap:10px;min-height:170px}
+  .answer .aq{font-family:var(--f-display);font-size:1.5rem;font-weight:700;line-height:1.2}
+  .answer .aa{font-size:1.2rem;color:var(--ink-2);margin:0}
+
+  /* si necesitas algo */
+  .sos{background:var(--hero);color:var(--hero-ink);border-radius:24px;padding:26px;display:grid;gap:18px}
+  .sos p{color:var(--hero-2);margin:0}
+  .sos p b{color:var(--hero-ink)}
+  .sos .big{font-family:var(--f-mono);font-size:clamp(2rem,6.4vw,2.9rem);font-weight:600;letter-spacing:.02em;font-variant-numeric:tabular-nums;line-height:1.1;user-select:all}
+  .sos .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .copy{font:inherit;font-family:var(--f-mono);font-size:1rem;font-weight:600;cursor:pointer;background:var(--wash);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:8px 14px;font-variant-numeric:tabular-nums}
+  .copy:hover{border-color:var(--pine)}
+  .copy.done{background:var(--ok-wash);border-color:var(--ok);color:var(--ok)}
+  .sos .copy{background:transparent;color:var(--hero-ink);border-color:color-mix(in srgb,var(--hero-ink) 35%,transparent)}
+  .steps{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:10px;counter-reset:s}
+  .steps li{counter-increment:s;display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 20px}
+  .steps li::before{content:counter(s);font-family:var(--f-mono);font-weight:600;font-size:1.05rem;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--pine-wash);color:var(--pine);transition:background .4s,color .4s,transform .4s cubic-bezier(.2,.8,.2,1.6)}
+  .steps li.lit::before{background:var(--marigold);color:#1C1406;transform:scale(1.08)}
+  .steps li b{display:block;font-size:1.15rem}
+  .steps li span{color:var(--ink-2);font-size:1.05rem}
+  .thanks{margin-top:40px;background:var(--pine-wash);border-radius:22px;padding:24px 26px;font-size:1.2rem}
+  .thanks p{margin:0 0 8px}
+  .thanks .sig{font-family:var(--f-display);font-weight:800;font-size:1.5rem;margin:0}
+
+  /* las letras chiquitas */
+  #letras{padding-top:80px}
+  .fine-head{border-top:2px dashed var(--line);padding-top:28px}
+  .letras{display:grid;gap:8px;margin-top:6px}
+  .letra{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .letra[open]{border-color:color-mix(in srgb,var(--pine) 45%,var(--line));box-shadow:var(--shadow)}
+  .letra > summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:700;font-size:1.08rem;line-height:1.35;display:grid;grid-template-columns:minmax(0,1fr) 22px;gap:12px;align-items:start}
+  .letra > summary::-webkit-details-marker{display:none}
+  .letra > summary::after{content:"+";font-family:var(--f-mono);font-size:1.3rem;line-height:1;color:var(--pine);transition:transform .3s;justify-self:end}
+  .letra[open] > summary::after{transform:rotate(45deg)}
+  .letra > summary:hover{background:var(--wash)}
+  .letra-body{padding:0 18px 18px;overflow:hidden;font-size:1rem;color:var(--ink-2)}
+  .letra-body p{margin:0 0 10px;max-width:none}
+  .letra-body p b{color:var(--ink)}
+  .letra-body h4{font-family:var(--f-display);font-size:1.05rem;color:var(--ink);margin:16px 0 6px}
+  .tscroll{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;margin:10px 0}
+  table{border-collapse:collapse;width:100%;font-size:.95rem;color:var(--ink)}
+  th,td{padding:10px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  tr:last-child td{border-bottom:0}
+  thead th{font-family:var(--f-mono);font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);background:var(--wash)}
+  td.num,th.num{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .yrs{min-width:560px}
+  tr.tot td{background:var(--marigold-wash);font-weight:700}
+
+  footer{padding-block:40px 70px;color:var(--ink-3);font-size:.9rem}
+  footer p{max-width:76ch}
+  footer b{color:var(--ink)}
+
+  .spot{transition:transform .25s ease-out}
+  .motion-toggle{position:fixed;left:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:70;font:inherit;font-size:.9rem;font-weight:700;cursor:pointer;border:1px solid color-mix(in srgb,var(--gold) 50%,transparent);background:var(--night);color:var(--on-night);border-radius:999px;padding:10px 16px;box-shadow:0 12px 30px -12px rgba(0,0,0,.6)}
+  .diag{position:fixed;inset:auto 10px 10px 10px;z-index:1000;background:#0B1A17;color:#E7F0ED;border:1px solid #F2B04F;border-radius:16px;padding:16px;font:13px/1.5 "IBM Plex Mono",monospace;max-height:70vh;overflow:auto;white-space:pre-wrap;word-break:break-word}
+  .diag b{color:#F2B04F}.diag button{float:right;font:inherit;background:#F2B04F;color:#1C1406;border:0;border-radius:999px;padding:4px 12px;cursor:pointer}
+  html.lowfx .top{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--paper)}
+  html.mo-off .timeline li::before,html.mo-off .steps li::before{transition:none}
+  @media (prefers-reduced-motion: reduce){html.mo-soft .bar-fill{transition-duration:.2s}}
+</style>
+
+<style>.fam-nav{position:relative;z-index:5;display:flex;gap:6px;justify-content:center;padding:10px 12px;background:rgba(16,35,31,.96);font:700 15px/1.2 system-ui,-apple-system,sans-serif}.fam-nav a{color:#E7F0ED;text-decoration:none;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.25)}.fam-nav a.on{background:#D98A1E;border-color:#D98A1E;color:#10231F}</style><nav class="fam-nav" aria-label="Planes de la familia"><a href="./" class="on" aria-current="page">Mamá · tu Capitalízate</a><a href="papa.html">Papá · tu plan de retiro</a></nav><div class="top">
+  <div class="wrap top-in">
+    <nav aria-label="Secciones">
+      <a href="#cuanto">¿Cuánto tengo?</a>
+      <a href="#cuando">¿Cuándo lo saco?</a>
+      <a href="#beneficios">Mis beneficios</a>
+      <a href="#mas">¿Algo más?</a>
+      <a href="#dudas">Mis dudas</a>
+      <a href="#ayuda">Si necesito algo</a>
+      <a href="#letras">Letras chiquitas</a>
+    </nav>
+    <button class="size" id="size" type="button" aria-pressed="false" title="Hacer la letra más grande">Aa+</button>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">GNP Capitaliza · Póliza 727165276</p>
+      <h1>Tu ahorro, mamá</h1>
+      <p class="lede">Ahorras <b>$30,000 al año, 10 años</b>. En 2036 podrías tener <b>cerca de medio millón de pesos</b>. Y mientras tanto, mi papá está protegido.</p>
+      <div class="btns"><a class="btn primary" href="#cuanto">¿Cuánto tengo?</a><a class="btn ghost" href="#cuando">¿Cuándo lo saco?</a></div>
+    </div>
+    <div class="stage" id="stage" aria-hidden="true">
+      <canvas id="scene"></canvas>
+      <div class="stage-fallback"><div class="legend3d" style="position:static"><span class="tag">10 pagos</span><span class="tag rose">Protección</span><span class="tag pine">Premio</span></div></div>
+      <div class="legend3d"><span class="tag">10 pagos</span><span class="tag rose">Protección</span><span class="tag pine">Premio</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="tiles">
+    <div class="tile main"><span class="k">Pagas al año</span><b data-count="31300">$31,300</b><small>$30,000 son tu ahorro y $1,300 tu protección.</small></div>
+    <div class="tile"><span class="k">Podrías tener en 2036</span><b data-count="498794">$498,794</b><small>Si terminas los 10 años. Es proyección de GNP, no garantía.</small></div>
+    <div class="tile"><span class="k">Tu próximo pago</span><b>24 abr 2027</b><small>Un poco más que este año. Yo te aviso el monto.</small><span class="left" data-due="2027-04-24"></span></div>
+  </div>
+
+  <!-- ============ 1. CUÁNTO TENGO ============ -->
+  <section id="cuanto">
+    <span class="q-num">Pregunta 1</span>
+    <h2>¿Cuánto tengo?</h2>
+    <p class="sec-sub">Mueve el año y mira cómo crece tu dinero. Empieza en hoy, tu primer año.</p>
+
+    <div class="calc" id="calc">
+      <div class="calc-pick">
+        <div class="calc-when">
+          <button class="arrow" type="button" id="prev" aria-label="Año anterior">‹</button>
+          <output id="when" for="yr" aria-live="polite">Abril de 2027<small>Al cumplir 1 año de tu plan</small></output>
+          <button class="arrow" type="button" id="next" aria-label="Año siguiente">›</button>
+        </div>
+        <input type="range" id="yr" min="0" max="11" step="1" value="0" aria-label="Año de tu plan">
+        <div class="chips" role="group" aria-label="Saltar a">
+          <button type="button" data-i="0" aria-pressed="true">Hoy</button>
+          <button type="button" data-i="4" aria-pressed="false">2031</button>
+          <button type="button" data-i="9" aria-pressed="false">2036 · terminas</button>
+          <button type="button" data-i="11" aria-pressed="false">2046</button>
+        </div>
+      </div>
+      <div class="calc-out">
+        <div class="big-num"><span class="k">Tu dinero si terminas el plan</span><b id="c-mine">$39,813</b><small>Tu ahorro más el premio que pone GNP.</small></div>
+        <div class="bars">
+          <div class="bar paid"><div class="bar-lbl"><span>Lo que llevas pagado</span><b id="c-paid">$31,354</b></div><div class="bar-track"><div class="bar-fill" id="b-paid"></div></div></div>
+          <div class="bar mine"><div class="bar-lbl"><span>Tu dinero si terminas</span><b id="c-mine2">$39,813</b></div><div class="bar-track"><div class="bar-fill" id="b-mine"></div></div></div>
+          <div class="bar out"><div class="bar-lbl"><span>Si te salieras ese año</span><b id="c-out">$23,888</b></div><div class="bar-track"><div class="bar-fill" id="b-out"></div></div></div>
+        </div>
+        <p class="verdict careful" id="c-say">Es el año más caro del plan. Si te salieras ahora, recibirías menos de lo que pagaste. Por eso conviene seguir.</p>
+        <p class="muted" style="margin:0">Proyección de GNP con lo que han rendido estas inversiones en 5 años (7.46 % al año). Lo de hoy, exacto, lo ves en la app Soy Cliente GNP.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="statement"><div class="st-in"><p class="st-text">Ahorras diez años. <em>El dinero es tuyo.</em></p></div></div>
+
+  <!-- ============ 2. CUÁNDO LO SACO ============ -->
+  <section id="cuando">
+    <span class="q-num">Pregunta 2</span>
+    <h2>¿Cuándo lo puedo sacar?</h2>
+    <p class="sec-sub">El 24 de abril de 2036, cuando tengas 68 años. Este es tu camino hasta ahí.</p>
+
+    <ol class="timeline">
+      <li class="done"><span class="when">24 abr 2026</span><span class="what"><b>Primer pago. Hecho.</b>Es el año más caro del plan, y ya pasó.</span></li>
+      <li><span class="when">24 abr 2027</span><span class="what"><b>Segundo pago</b>Un poco más que el primero, porque sube con la inflación. <span class="left" data-due="2027-04-24"></span></span></li>
+      <li><span class="when">Abril 2030</span><span class="what"><b>4 años</b>Desde aquí, si un día te salieras, ya recuperas lo que pagaste.</span></li>
+      <li><span class="when">Agosto 2032</span><span class="what"><b>Cumples 65</b>Tu pago deja de subir con la inflación.</span></li>
+      <li><span class="when">24 abr 2035</span><span class="what"><b>Último pago</b>El número 10. Después ya no pagas nada.</span></li>
+      <li class="goal"><span class="when">24 abr 2036</span><span class="what"><b>Tu dinero está listo: cerca de $498,794</b>Con el premio completo y sin impuestos.</span></li>
+    </ol>
+
+    <h3 class="h3gap">En 2036 tú decides</h3>
+    <div class="three">
+      <div class="opt3"><span class="n">1</span><h3>Sacarlo todo</h3><p>Te lo depositan completo, con el premio.</p></div>
+      <div class="opt3"><span class="n">2</span><h3>Sacar una parte</h3><p>Usas lo que necesites y el resto sigue creciendo.</p></div>
+      <div class="opt3"><span class="n">3</span><h3>Dejarlo crecer</h3><p>Sin pagar nada más: cerca de <b>$672,794</b> en 2041 y <b>$907,494</b> en 2046.</p></div>
+    </div>
+
+    <h3 class="h3gap">¿Y antes de 2036?</h3>
+    <p>Sí se puede, pero te sales del plan: <b>pierdes la protección y parte del premio</b>. Esto es lo que se pierde del premio según cuándo te salgas:</p>
+    <div class="premio">
+      <div class="pz p100"><b>Todo</b><span>Años 1 y 2</span></div>
+      <div class="pz p50"><b>La mitad</b><span>Años 3 a 5</span></div>
+      <div class="pz p25"><b>Una cuarta parte</b><span>Años 6 a 10</span></div>
+      <div class="pz p0"><b>Nada</b><span>Si terminas</span></div>
+    </div>
+    <p class="muted" style="margin-top:12px">Para emergencias conviene tener un guardadito aparte, en el banco. Así este ahorro no se toca.</p>
+  </section>
+
+  <!-- ============ 3. BENEFICIOS ============ -->
+  <section id="beneficios">
+    <span class="q-num">Pregunta 3</span>
+    <h2>¿Qué beneficios tengo yo aquí?</h2>
+    <p class="sec-sub">Además de tu ahorro, esto es lo que ya tienes por tener tu plan.</p>
+
+    <div class="perks">
+      <div class="perk feat"><span class="tag">Premio de Lealtad</span><span class="amt" data-count="27291">$27,291</span><p>Dinero que GNP pone de su bolsa por terminar tus 10 años. Ya crecido en 2036.</p></div>
+      <div class="perk"><span class="tag ok">Sin impuestos</span><span class="amt">$0 al SAT</span><p>En 2036 tendrás 68 años y 10 de plan: lo sacas sin pagar impuestos, porque tú pagas tu plan.</p></div>
+      <div class="perk"><span class="tag rose">Protección</span><span class="amt">Mi papá cuidado</span><p>Si llegaras a faltar, él recibe $12,000, todo tu ahorro y el premio, sin impuestos. Y $3,600 por adelantado, en cuanto avise.</p></div>
+      <div class="perk"><span class="tag rose">Si enfermas grave</span><span class="amt">$3,600</span><p>Si te diagnostican una enfermedad en fase terminal, puedes pedir este adelanto.</p></div>
+      <div class="perk"><span class="tag pine">Doctor</span><span class="amt">Gratis</span><p>Videoconsulta con médico que te manda la receta al correo, y orientación por teléfono las 24 horas.</p></div>
+      <div class="perk"><span class="tag pine">Tu cuenta</span><span class="amt">En tu celular</span><p>En la app Soy Cliente GNP ves cuánto llevas, tus pagos y tu estado de cuenta.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 4. COMPLEMENTAR ============ -->
+  <section id="mas">
+    <span class="q-num">Pregunta 4</span>
+    <h2>¿Lo puedo complementar con algo más?</h2>
+    <p class="sec-sub">Sí. Tu plan ya cubre el ahorro. Estas son dos cosas que lo completan.</p>
+
+    <div class="plus-list">
+      <div class="plus">
+        <h3>Ahorrar más aquí mismo</h3><span class="tag">Opcional</span>
+        <p>Se agrega una segunda prima de ahorro a tu plan, <b>con su propio Premio de Lealtad</b>. Lo vemos con un monto que puedas pagar sin falta cada año.</p>
+      </div>
+      <div class="plus">
+        <h3>Un guardadito aparte</h3><span class="tag pine">Para emergencias</span>
+        <p>Unos meses de gastos en el banco, para sacarlos cuando quieras. Así nunca tienes que tocar este ahorro antes de tiempo ni perder el premio.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="statement"><div class="st-in"><p class="st-text">Lo único importante: <em>terminar los 10 años.</em></p></div></div>
+
+  <!-- ============ DUDAS ============ -->
+  <section id="dudas">
+    <h2>Toca lo que te preocupa</h2>
+    <p class="sec-sub">Una respuesta corta para cada duda.</p>
+    <div class="fears" role="group" aria-label="Preocupaciones">
+      <button class="fear" type="button" data-f="0" aria-pressed="false">¿Y si se me pasa un pago?</button>
+      <button class="fear" type="button" data-f="1" aria-pressed="false">¿Y si pierdo dinero?</button>
+      <button class="fear" type="button" data-f="2" aria-pressed="false">¿Y si yo faltara?</button>
+      <button class="fear" type="button" data-f="3" aria-pressed="false">¿Y si necesito el dinero antes?</button>
+      <button class="fear" type="button" data-f="4" aria-pressed="false">¿Por qué sube el pago?</button>
+      <button class="fear" type="button" data-f="5" aria-pressed="false">¿De verdad vale la pena?</button>
+    </div>
+    <div class="answer" aria-live="polite"><div class="aq" id="aq"></div><p class="aa" id="aa"></p></div>
+    <script type="application/json" id="fears-data">[["¿Y si se me pasa un pago?","Tienes 6 meses para ponerte al corriente sin perder el premio, y la protección sigue mientras tanto. Avísame antes y lo vemos."],["¿Y si pierdo dinero?","Tu ahorro está en UDIs: bonos del gobierno que suben con la inflación. Es de lo más seguro que tiene el plan."],["¿Y si yo faltara?","Mi papá recibe $12,000, todo tu ahorro y el premio que lleves, sin impuestos. Y puede pedir $3,600 por adelantado para lo inmediato."],["¿Y si necesito el dinero antes?","Puedes salirte y recibir lo que llevas, pero pierdes la protección y parte del premio. Por eso conviene un guardadito aparte para emergencias."],["¿Por qué sube el pago?","Se ajusta con la inflación cada abril para que tu ahorro no pierda valor. Deja de subir cuando cumplas 65."],["¿De verdad vale la pena?","Ya pagaste el año más caro. Si terminas, la proyección es de casi $500,000 en 2036, con unos $27,000 de premio que pone GNP, y sin impuestos."]]</script>
+  </section>
+
+  <!-- ============ AYUDA ============ -->
+  <section id="ayuda">
+    <h2>Si necesito algo</h2>
+    <p class="sec-sub">Primero márcame a mí, mamá. Para el doctor por videollamada, esta es la línea de GNP.</p>
+    <div class="sos">
+      <div>
+        <p>Línea GNP · 24 horas · <b>doctor: opción 2-1</b></p>
+        <div class="big">55 5227 9000</div>
+      </div>
+      <div class="row">
+        <button class="copy" type="button" data-copy="5552279000">Copiar número</button>
+        <button class="copy" type="button" data-copy="727165276">Copiar mi póliza: 727165276</button>
+      </div>
+    </div>
+
+    <h3 class="h3gap">Lo que sigue</h3>
+    <ol class="steps">
+      <li><div><b>Registrarte en Soy Cliente GNP</b><span>Para ver tu ahorro en el celular. Lo hacemos juntos en 10 minutos.</span></div></li>
+      <li><div><b>Tu segundo pago, el 24 de abril de 2027</b><span>Unas semanas antes te aviso el monto exacto.</span></div></li>
+      <li><div><b>Una revisión cada abril</b><span>Antes de pagar, vemos juntos cómo va tu ahorro.</span></div></li>
+    </ol>
+
+    <div class="thanks">
+      <p>Gracias por todo, mamá, y por confiar en mí para cuidar tu ahorro. Aquí voy a estar cada año para revisarlo contigo.</p>
+      <p class="sig">Dalí</p>
+    </div>
+  </section>
+
+  <!-- ============ LETRAS CHIQUITAS ============ -->
+  <section id="letras">
+    <div class="fine-head">
+      <span class="q-num">Para leer con calma</span>
+      <h2>Las letras chiquitas</h2>
+      <p class="sec-sub">Todo el detalle de tu plan, por si lo quieres revisar tú o con alguien de confianza. Toca cada tema para abrirlo.</p>
+    </div>
+
+    <div class="letras">
+      <details class="letra"><summary>Tu póliza completa</summary><div class="letra-body">
+        <div class="tscroll"><table><tbody>
+          <tr><td>Producto</td><td><b>Capitaliza</b>, seguro de vida con ahorro de GNP</td></tr>
+          <tr><td>Póliza</td><td class="num" style="text-align:left">727165276</td></tr>
+          <tr><td>Contratante y asegurada</td><td>María Dalia Ibarra Delgado</td></tr>
+          <tr><td>Pagas</td><td>Una vez al año, cada 24 de abril, de 2026 a 2035 (10 pagos)</td></tr>
+          <tr><td>Pago de 2026</td><td>$31,299.96: ahorro $30,000 y protección $1,299.96</td></tr>
+          <tr><td>Tu ahorro se invierte en</td><td>100 % UDIs a mediano plazo</td></tr>
+          <tr><td>Fondo de ahorro vence</td><td>24 de abril de 2036</td></tr>
+          <tr><td>Protección si faltas</td><td>$12,000, más todo tu ahorro y el premio</td></tr>
+          <tr><td>Anticipos</td><td>$3,600 al avisar del fallecimiento y $3,600 por enfermedad en fase terminal</td></tr>
+          <tr><td>Beneficiario</td><td>Mi papá, el 100 %. Si él ya no estuviera, yo.</td></tr>
+          <tr><td>La póliza dura</td><td>Hasta que cumplas 100 años</td></tr>
+        </tbody></table></div>
+      </div></details>
+
+      <details class="letra"><summary>Año por año: cuánto pagas y cuánto llevas</summary><div class="letra-body">
+        <div class="tscroll"><table class="yrs">
+          <thead><tr><th>Año</th><th class="num">Pagas ese año</th><th class="num">Llevas pagado</th><th class="num">Tu ahorro con premio</th><th class="num">Si te sales</th></tr></thead>
+          <tbody id="yrs-body"></tbody>
+        </table></div>
+        <p>«Si te sales» es lo que recibirías si cancelaras ese año: es menor porque el premio completo solo se gana al terminar. La proyección sube tu pago con la inflación los 10 años; en tu póliza ese ajuste se detiene a los 65, así que pagarás un poco menos y el saldo final saldrá algo más bajo.</p>
+        <p>Con la tasa histórica de 10 años (7.01 %), la misma proyección da <b>$487,159</b> en 2036, con un premio de $26,193.</p>
+      </div></details>
+
+      <details class="letra"><summary>El Premio de Lealtad, a detalle</summary><div class="letra-body">
+        <p>Es el 50 % de tu primer año de ahorro, unos $15,000, que GNP pone por comprometerte a ahorrar 10 años y que crece junto con tu fondo hasta unos $27,291 en 2036. Aplica sobre el primer año de cada prima de ahorro.</p>
+        <div class="tscroll"><table>
+          <thead><tr><th>Si dejas de pagar en…</th><th class="num">Pierdes del premio</th></tr></thead>
+          <tbody>
+            <tr><td>Los años 1 o 2</td><td class="num">100 %</td></tr>
+            <tr><td>Los años 3 a 5</td><td class="num">50 %</td></tr>
+            <tr><td>Los años 6 a 10</td><td class="num">25 %</td></tr>
+            <tr><td>Si terminas los 10 años</td><td class="num">0 %</td></tr>
+          </tbody>
+        </table></div>
+        <p>Si un año se te pasa el pago, tienes 6 meses para ponerte al corriente, con intereses, sin perder nada del premio.</p>
+      </div></details>
+
+      <details class="letra"><summary>Lo que de verdad rinde y lo que cuesta el plan</summary><div class="letra-body">
+        <p>Las tasas de 7.46 % y 7.01 % son lo que rinde la inversión. A tu bolsa le queda un poco menos, por los costos del plan y la parte de protección.</p>
+        <div class="tscroll"><table>
+          <thead><tr><th>Si sacas el dinero en…</th><th class="num">Rendimiento anual de tu dinero</th></tr></thead>
+          <tbody>
+            <tr><td>2036, al terminar los 10 años</td><td class="num">≈ 5.4 %</td></tr>
+            <tr><td>2041, a los 15 años</td><td class="num">≈ 5.7 %</td></tr>
+            <tr><td>2046, a los 20 años</td><td class="num">≈ 5.9 %</td></tr>
+          </tbody>
+        </table></div>
+        <div class="tscroll"><table>
+          <thead><tr><th>Costos del plan, según tu póliza</th><th class="num">Cuánto</th></tr></thead>
+          <tbody>
+            <tr><td>Primer año</td><td class="num">25 % de tu ahorro</td></tr>
+            <tr><td>Segundo año</td><td class="num">10 %</td></tr>
+            <tr><td>Del tercero en adelante</td><td class="num">2 %</td></tr>
+            <tr><td>Administración del fondo</td><td class="num">0.10 % al mes</td></tr>
+          </tbody>
+        </table></div>
+        <p>El Premio de Lealtad compensa casi completos los costos de entrada. Por eso este plan conviene terminarlo, y mientras más tiempo dejes el dinero, mejor rinde.</p>
+      </div></details>
+
+      <details class="letra"><summary>Los impuestos</summary><div class="letra-body">
+        <p>Lo que pagan los seguros de vida al asegurado está libre de ISR cuando se cobra a partir de los 60 años, con al menos 5 años de póliza y si la prima la paga la propia asegurada. En 2036 tendrás 68 años y 10 de póliza, y el plan lo pagas tú.</p>
+        <p>Si faltaras, lo que recibe mi papá como beneficiario tampoco paga impuestos. Antes de 2036 lo revisamos juntos con la ley de ese momento.</p>
+      </div></details>
+
+      <details class="letra"><summary>Qué pasa si…</summary><div class="letra-body">
+        <h4>…llego a 2036</h4><p>Ya no pagas más. Puedes sacar tu ahorro completo con el premio, sacar solo una parte o dejarlo crecer. Si lo dejas, sigue creciendo y la protección sigue vigente.</p>
+        <h4>…necesito dinero antes</h4><p>Puedes cancelar y recibir lo que llevas, pero pierdes la protección y parte del premio. Antes del año 4 recibirías menos de lo que pagaste.</p>
+        <h4>…se me pasa un pago</h4><p>La protección sigue vigente y tienes 6 meses para ponerte al corriente sin perder el premio.</p>
+        <h4>…llegara a faltar</h4><p>Mi papá recibe los $12,000 de protección, todo tu ahorro y el premio acumulados hasta ese momento. Puede pedir $3,600 por adelantado en cuanto avise.</p>
+        <h4>…quiero ahorrar más</h4><p>Se agrega una segunda prima de ahorro con su propio Premio de Lealtad. Lo que podrías ocupar pronto conviene tenerlo aparte, en el banco.</p>
+      </div></details>
+
+      <details class="letra"><summary>Lo que podríamos ajustar</summary><div class="letra-body">
+        <div class="tscroll"><table>
+          <thead><tr><th>Opción</th><th>Qué es</th><th>Mi recomendación</th></tr></thead>
+          <tbody>
+            <tr><td>Mover una parte a Vida Activa 2035</td><td>Una mezcla de bonos y bolsa que se vuelve más conservadora conforme se acerca 2036</td><td>Opcional, 20 a 30 %. Puede rendir más, pero sube y baja</td></tr>
+            <tr><td>Ahorrar más</td><td>Una segunda prima de ahorro, con su propio Premio de Lealtad</td><td>Sí, con un monto que puedas pagar sin falta los 10 años</td></tr>
+          </tbody>
+        </table></div>
+        <p>Si no movemos nada, está bien como está. Lo importante es terminar los 10 años.</p>
+      </div></details>
+
+      <details class="letra"><summary>Doctor, ambulancia y la app</summary><div class="letra-body">
+        <p><b>Médica Móvil:</b> videoconsulta con médico general que puede recetar y manda la receta al correo, gratis. Orientación médica por teléfono las 24 horas, gratis. Doctor a domicilio y ambulancia con precio preferencial. Todo al 55 5227 9000, opción 2-1.</p>
+        <p><b>App Soy Cliente GNP:</b> cuánto llevas ahorrado, estado de cuenta y pagos. Desde ahí también se puede cambiar dónde se invierte tu ahorro, si algún día lo decidimos.</p>
+      </div></details>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p><b>Fernando Dalí Pérez Ibarra</b> · Tu agente de seguros GNP</p>
+  <p>Basado en la póliza GNP Capitaliza 727165276 y en la proyección con la que se contrató (13 de abril de 2026, tasa histórica de 5 años 7.46 %, inflación 4 %). Condiciones generales CNSF-S0043-0129-2014.</p>
+  <p>Las proyecciones son ilustrativas y no están garantizadas: lo que se acredite depende del comportamiento de los mercados. Documento informativo; no sustituye a la póliza.</p>
+</footer>
+
+<script>
+(function(){
+  /* proyección de la póliza: año, pagas ese año, llevas pagado, ahorro con premio, si te sales */
+  var Y = [[1,31354,31354,39813,23888],[2,32608,63962,72080,55173],[3,33912,97875,110286,92336],[4,35269,133144,152199,133142],[5,36680,169823,198101,177869],[6,38147,207970,248295,226815],[7,39673,247643,303104,280299],[8,41260,288903,362873,338661],[9,42910,331813,427971,402266],[10,44627,376439,498794,498794],[15,0,376439,672794,672794],[20,0,376439,907494,907494]];
+  var MAX = 907494;
+  function fmt(n){ return '$' + Math.round(n).toLocaleString('es-MX'); }
+
+  /* tabla de las letras chiquitas, desde los mismos datos */
+  var tb = document.getElementById('yrs-body');
+  if (tb) tb.innerHTML = Y.map(function(r){
+    var lbl = r[0] <= 10 ? r[0] + ' · abril ' + (2026 + r[0]) : r[0] + ' · ' + (2026 + r[0]) + ', si lo dejas';
+    return '<tr' + (r[0] === 10 ? ' class="tot"' : '') + '><td class="num" style="text-align:left">' + lbl + '</td><td class="num">' + (r[1] ? fmt(r[1]) : '—') + '</td><td class="num">' + fmt(r[2]) + '</td><td class="num">' + fmt(r[3]) + '</td><td class="num">' + fmt(r[4]) + '</td></tr>';
+  }).join('');
+
+  /* la calculadora de "¿cuánto tengo?" */
+  var yr = document.getElementById('yr'), when = document.getElementById('when'), say = document.getElementById('c-say');
+  var chips = [].slice.call(document.querySelectorAll('.chips button'));
+  var prev = document.getElementById('prev'), next = document.getElementById('next');
+  var shown = {mine:Y[0][3], paid:Y[0][2], out:Y[0][4]};
+  function sayFor(i){
+    var a = Y[i][0];
+    if (a === 1) return ['Es el año más caro del plan. Si te salieras ahora, recibirías menos de lo que pagaste. Por eso conviene seguir.', true];
+    if (a < 4) return ['Si te salieras este año, todavía recibirías menos de lo que pagaste. Ya falta poco.', true];
+    if (a === 4) return ['Desde aquí, si te salieras, ya recuperas lo que pagaste.', false];
+    if (a < 10) return ['Tu dinero ya es más de lo que has pagado. Si terminas, el premio es tuyo completo.', false];
+    if (a === 10) return ['Terminaste tus 10 años: el premio es tuyo completo y lo sacas sin impuestos.', false];
+    return ['Ya no pagas nada desde 2035 y tu dinero sigue creciendo solo.', false];
+  }
+  function tween(key, id1, id2, to){
+    var els = [document.getElementById(id1), id2 && document.getElementById(id2)].filter(Boolean);
+    var G = window.gsap;
+    if (G && window.__motion !== 'off') {
+      var o = {v:shown[key]};
+      G.to(o, {v:to, duration:.6, ease:'power2.out', overwrite:true, onUpdate:function(){ els.forEach(function(e){ e.textContent = fmt(o.v); }); }});
+    } else els.forEach(function(e){ e.textContent = fmt(to); });
+    shown[key] = to;
+  }
+  function render(i){
+    var r = Y[i], a = r[0];
+    yr.value = i;
+    yr.style.setProperty('--p', (i / 11 * 100) + '%');
+    when.innerHTML = 'Abril de ' + (2026 + a) + '<small>' + (a === 1 ? 'Al cumplir 1 año de tu plan' : a <= 10 ? 'Al cumplir ' + a + ' años de tu plan' : a + ' años después de empezar, sin pagar desde 2035') + '</small>';
+    tween('mine', 'c-mine', 'c-mine2', r[3]);
+    tween('paid', 'c-paid', null, r[2]);
+    tween('out', 'c-out', null, r[4]);
+    document.getElementById('b-paid').style.width = (r[2] / MAX * 100) + '%';
+    document.getElementById('b-mine').style.width = (r[3] / MAX * 100) + '%';
+    document.getElementById('b-out').style.width = (r[4] / MAX * 100) + '%';
+    var s = sayFor(i); say.textContent = s[0]; say.classList.toggle('careful', s[1]);
+    chips.forEach(function(c){ c.setAttribute('aria-pressed', +c.getAttribute('data-i') === i ? 'true' : 'false'); });
+    prev.disabled = i === 0; next.disabled = i === 11;
+  }
+  yr.addEventListener('input', function(){ render(+yr.value); });
+  prev.addEventListener('click', function(){ render(Math.max(0, +yr.value - 1)); });
+  next.addEventListener('click', function(){ render(Math.min(11, +yr.value + 1)); });
+  chips.forEach(function(c){ c.addEventListener('click', function(){ render(+c.getAttribute('data-i')); }); });
+  render(0);
+
+  /* dudas */
+  var data = JSON.parse(document.getElementById('fears-data').textContent);
+  var fb = [].slice.call(document.querySelectorAll('.fear'));
+  function show(i){
+    document.getElementById('aq').textContent = '«' + data[i][0] + '»';
+    document.getElementById('aa').textContent = data[i][1];
+    fb.forEach(function(b){ b.setAttribute('aria-pressed', +b.dataset.f === i ? 'true' : 'false'); });
+  }
+  fb.forEach(function(b){ b.addEventListener('click', function(){ show(+b.dataset.f); }); });
+  show(0);
+
+  /* copiar */
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click', function(){
+      var v = b.getAttribute('data-copy'), label = b.textContent;
+      function ok(){ b.classList.add('done'); b.textContent = 'Copiado'; setTimeout(function(){ b.classList.remove('done'); b.textContent = label; }, 1400); }
+      function fallback(){ var r = document.createRange(); r.selectNodeContents(b); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+      try { navigator.clipboard.writeText(v).then(ok, fallback); } catch(e){ fallback(); }
+    });
+  });
+
+  /* días que faltan */
+  document.querySelectorAll('[data-due]').forEach(function(el){
+    var p = el.getAttribute('data-due').split('-'), due = new Date(+p[0], +p[1]-1, +p[2]), now = new Date();
+    now = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var d = Math.round((due - now) / 86400000);
+    el.textContent = d > 1 ? 'Faltan ' + d + ' días' : d === 1 ? 'Falta 1 día' : d === 0 ? 'Es hoy' : 'Ya pasó';
+  });
+
+  /* letra más grande */
+  var sz = document.getElementById('size'), root = document.documentElement;
+  sz.setAttribute('aria-pressed', root.classList.contains('big') ? 'true' : 'false');
+  sz.addEventListener('click', function(){
+    var on = root.classList.toggle('big');
+    sz.setAttribute('aria-pressed', on ? 'true' : 'false');
+    try { localStorage.setItem('letra', on ? '1' : '0'); } catch(e){}
+    if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+  });
+
+  /* la barra de secciones sigue la lectura */
+  var links = [].slice.call(document.querySelectorAll('.top nav a')), nav = document.querySelector('.top nav');
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function mark(i){
+    links.forEach(function(a, j){ a.classList.toggle('on', j === i); });
+    var a = links[i]; if (!a || !nav) return;
+    var left = a.offsetLeft - 16;
+    if (Math.abs(nav.scrollLeft - left) > 4) { try { nav.scrollTo({left:left, behavior: window.__motion === 'off' ? 'auto' : 'smooth'}); } catch(e){ nav.scrollLeft = left; } }
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) mark(secs.indexOf(e.target)); }); }, {rootMargin:'-40% 0px -55% 0px'});
+    secs.forEach(function(s){ if (s) io.observe(s); });
+  }
+  links.concat([].slice.call(document.querySelectorAll('.hero .btn'))).forEach(function(a){
+    a.addEventListener('click', function(e){
+      var t = document.querySelector(a.getAttribute('href'));
+      if (t && window.__lenis) { e.preventDefault(); window.__lenis.scrollTo(t, {offset:-64, duration:1.2}); }
+    });
+  });
+})();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+/* ---------- escena 3D del hero: diez monedas que se apilan (los 10 pagos) y en órbita la protección, el seguro y el premio ---------- */
+(function(){
+  var stage = document.getElementById('stage'), cv = document.getElementById('scene'), T = window.THREE;
+  if (!stage || !cv || !T) return;
+  var r;
+  try { r = new T.WebGLRenderer({canvas:cv, antialias:!window.__lowfx, alpha:true, powerPreference:'low-power'}); } catch(e) { return; }
+  if (!r.getContext()) return;
+  r.setPixelRatio(window.__dpr ? window.__dpr() : 1);
+  r.outputEncoding = T.sRGBEncoding;
+  r.toneMapping = T.ACESFilmicToneMapping;
+  r.toneMappingExposure = 1.05;
+  var scene = new T.Scene(), cam = new T.PerspectiveCamera(38, 1, .1, 100);
+  function col(h){ return new T.Color(h).convertSRGBToLinear(); }
+  function mat(h, rough, metal){ return new T.MeshStandardMaterial({color:col(h), roughness:rough == null ? .55 : rough, metalness:metal || 0}); }
+  scene.add(new T.HemisphereLight(col('#FFF4E0'), col('#0B1A17'), .95));
+  var sun = new T.DirectionalLight(col('#FFFFFF'), 1.6); sun.position.set(4, 6, 6); scene.add(sun);
+  var rim = new T.DirectionalLight(col('#6FC2B6'), .9); rim.position.set(-6, 2, -4); scene.add(rim);
+
+  /* la pila de monedas */
+  var stack = new T.Group(); scene.add(stack);
+  var gold = mat('#F2B04F', .32, .6), goldDark = mat('#D98A1E', .4, .6);
+  var coinG = new T.CylinderGeometry(.78, .78, .17, 48), rimG = new T.TorusGeometry(.66, .03, 8, 48);
+  var coins = [];
+  for (var i = 0; i < 10; i++) {
+    var c = new T.Group();
+    c.add(new T.Mesh(coinG, gold));
+    var rr = new T.Mesh(rimG, goldDark); rr.rotation.x = Math.PI / 2; rr.position.y = .086; c.add(rr);
+    c.userData.y = -1.15 + i * .2;
+    c.userData.x = (i % 3 - 1) * .035;
+    c.position.set(c.userData.x, c.userData.y, 0);
+    stack.add(c); coins.push(c);
+  }
+
+  /* órbita: corazón (protección), escudo (seguro) y estrella (premio) */
+  var orbit = new T.Group(); orbit.rotation.x = .3; scene.add(orbit);
+  var ring = new T.Mesh(new T.TorusGeometry(2.6, .014, 8, 160), new T.MeshBasicMaterial({color:col('#AFC3BD'), transparent:true, opacity:.35}));
+  ring.rotation.x = Math.PI / 2; orbit.add(ring);
+  var spin = new T.Group(); orbit.add(spin);
+  function extrude(shape, color, sc){
+    var g = new T.ExtrudeGeometry(shape, {depth:.2, bevelEnabled:true, bevelThickness:.05, bevelSize:.04, bevelSegments:3, curveSegments:18});
+    g.center();
+    var m = new T.Mesh(g, mat(color, .4, .2)); m.scale.setScalar(sc); return m;
+  }
+  var h = new T.Shape();
+  h.moveTo(5, 5); h.bezierCurveTo(5, 5, 4, 0, 0, 0); h.bezierCurveTo(-6, 0, -6, 7, -6, 7); h.bezierCurveTo(-6, 11, -3, 15.4, 5, 19);
+  h.bezierCurveTo(12, 15.4, 16, 11, 16, 7); h.bezierCurveTo(16, 7, 16, 0, 10, 0); h.bezierCurveTo(7, 0, 5, 5, 5, 5);
+  var heart = extrude(h, '#E07A6A', .045); heart.rotation.z = Math.PI;
+  var s = new T.Shape();
+  s.moveTo(0, 1.15); s.bezierCurveTo(.45, 1.02, .75, 1, .95, .9); s.bezierCurveTo(.98, .2, .7, -.6, 0, -1.15);
+  s.bezierCurveTo(-.7, -.6, -.98, .2, -.95, .9); s.bezierCurveTo(-.75, 1, -.45, 1.02, 0, 1.15);
+  var shield = extrude(s, '#2E7A71', .5);
+  var st = new T.Shape();
+  for (var k = 0; k < 10; k++) { var a = Math.PI / 2 + k * Math.PI / 5, rad = k % 2 ? .24 : .55; st[k ? 'lineTo' : 'moveTo'](Math.cos(a) * rad, Math.sin(a) * rad); }
+  var star = extrude(st, '#F7C980', 1);
+  var items = [heart, shield, star].map(function(m){ var g = new T.Group(); g.add(m); return g; });
+  items.forEach(function(o, i){
+    var a = i * Math.PI * 2 / 3;
+    o.position.set(Math.cos(a) * 2.6, 0, Math.sin(a) * 2.6);
+    spin.add(o);
+  });
+
+  function size(){
+    var w = stage.clientWidth, hh = stage.clientHeight; if (!w || !hh) return;
+    r.setSize(w, hh, false);
+    cam.aspect = w / hh; cam.fov = cam.aspect < .95 ? 48 : 38;
+    cam.updateProjectionMatrix();
+  }
+  var mode = window.__motion, full = mode === 'full', off = mode === 'off';
+  var sp = 0, visible = true, raf = 0, t0 = performance.now();
+  var adapt = window.__adapt ? window.__adapt(r, size) : null;
+  function back(x){ x = Math.min(1, Math.max(0, x)); var c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); }
+  function bounce(x){ x = Math.min(1, Math.max(0, x)); var n = 7.5625, d = 2.75; if (x < 1/d) return n*x*x; if (x < 2/d) return n*(x-=1.5/d)*x+.75; if (x < 2.5/d) return n*(x-=2.25/d)*x+.9375; return n*(x-=2.625/d)*x+.984375; }
+  function frame(now){
+    raf = 0;
+    var t = off ? 99 : (now - t0) / 1000, k = full ? 1 : .45;
+    coins.forEach(function(c, i){
+      var p = off ? 1 : bounce((t - .2 - i * .14) / .7);
+      c.position.y = c.userData.y + (1 - p) * 4;
+      c.visible = p > 0;
+    });
+    stack.rotation.y = (off ? 0 : t) * .35 * k;
+    stack.position.y = Math.sin((off ? 0 : t) * 1.1 * k) * .06;
+    items.forEach(function(o, i){
+      o.scale.setScalar(off ? 1 : back((t - 1.6 - i * .18) / 1.1));
+      o.rotation.y = -(off ? 0 : t) * .6 * k + i;
+    });
+    spin.rotation.y = .5 + (off ? 0 : t) * .3 * k;
+    orbit.rotation.x = .3 + sp * .35;
+    cam.position.set(0, 2.4 - sp * 1.4, 11.2);
+    cam.lookAt(0, -.2, 0);
+    r.render(scene, cam);
+    if (adapt) adapt(now);
+    if (visible && !off) raf = requestAnimationFrame(frame);
+  }
+  size();
+  stage.classList.add('live');
+  addEventListener('resize', function(){ size(); if (!raf) frame(performance.now()); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(es){
+      visible = es[0].isIntersecting;
+      if (visible && !raf && !off) raf = requestAnimationFrame(frame);
+    }).observe(stage);
+  }
+  if (full && window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.create({trigger:'.hero', start:'top top', end:'bottom top', onUpdate:function(x){ sp = x.progress; }});
+  }
+  frame(performance.now());
+})();
+
+/* ---------- capa de movimiento ---------- */
+(function(){
+  var mode = window.__motion, soft = mode === 'soft', G = window.gsap, ST = window.ScrollTrigger;
+  if (mode === 'off' || !G || !ST) return;
+  G.registerPlugin(ST);
+  var $$ = function(s, c){ return [].slice.call((c || document).querySelectorAll(s)); };
+  var fine = matchMedia('(pointer: fine)').matches;
+
+  if (mode === 'full' && !window.__lowfx && window.Lenis) {
+    var l = new Lenis({lerp:.14});
+    window.__lenis = l;
+    document.documentElement.style.scrollBehavior = 'auto';
+    l.on('scroll', ST.update);
+    G.ticker.add(function(t){ l.raf(t * 1000); });
+    G.ticker.lagSmoothing(0);
+  }
+
+  G.from('.hero-copy > *', {y:soft ? 0 : 28, opacity:0, duration:.9, ease:'power3.out', stagger:.08, delay:.1, clearProps:'opacity,transform'});
+  G.from('.stage > .legend3d .tag', {y:soft ? 0 : 10, opacity:0, duration:.6, ease:'power3.out', stagger:.12, delay:1.8, clearProps:'opacity,transform'});
+
+  /* frases que se encienden palabra por palabra */
+  $$('.statement .st-text').forEach(function(p){
+    var out = '';
+    p.innerHTML.replace(/(<[^>]+>)|([^<\s]+)|(\s+)/g, function(m, tag, word){ if (tag) out += tag; else if (word) out += '<span class="sw">' + word + '</span>'; else out += ' '; return m; });
+    p.innerHTML = out;
+    var ws = $$('.sw', p);
+    G.fromTo(ws, soft ? {opacity:.13} : {opacity:.13, rotateX:-75, y:'0.32em', transformPerspective:600, transformOrigin:'50% 100%'},
+      {opacity:1, rotateX:0, y:0, ease:'none', stagger:.12, scrollTrigger:{trigger:p, start:'top 85%', end:'bottom 40%', scrub:.7}});
+    var em = $$('em', p);
+    if (em.length) G.fromTo(em, {'--hl':'0%'}, {'--hl':'100%', ease:'none', scrollTrigger:{trigger:p, start:'center 70%', end:'bottom 40%', scrub:.7}});
+  });
+
+  /* tarjetas que se levantan al entrar */
+  var rise = $$('.tile,.calc,.timeline,.opt3,.pz,.perk,.plus,.answer,.sos,.steps li,.thanks,.letra');
+  rise = rise.filter(function(el){ return el.getBoundingClientRect().top > innerHeight; });
+  G.set(rise, soft ? {opacity:0, y:16} : {opacity:0, y:50, rotateX:22, transformPerspective:900, transformOrigin:'50% 100%'});
+  ST.batch(rise, {start:'top 92%', once:true, onEnter:function(b){
+    G.to(b, {opacity:1, y:0, rotateX:0, duration:.9, ease:'power3.out', stagger:.07, overwrite:true, clearProps:'transform,opacity'});
+  }});
+
+  /* los números cuentan hasta su valor */
+  $$('[data-count]').forEach(function(el){
+    var v = parseFloat(el.getAttribute('data-count')), o = {v:0};
+    function fmt(n){ return '$' + Math.round(n).toLocaleString('es-MX'); }
+    ST.create({trigger:el, start:'top 92%', once:true, onEnter:function(){
+      G.to(o, {v:v, duration:1.4, ease:'power2.out', onUpdate:function(){ el.textContent = fmt(o.v); }, onComplete:function(){ el.textContent = fmt(v); }});
+    }});
+  });
+
+  /* la calculadora se mueve sola una vez al llegar: de hoy a 2036 y de regreso */
+  var calc = document.getElementById('calc'), yr = document.getElementById('yr');
+  if (calc && yr && !soft) {
+    ST.create({trigger:calc, start:'top 60%', once:true, onEnter:function(){
+      var i = 0, fire = function(v){ yr.value = v; yr.dispatchEvent(new Event('input')); };
+      var go = setInterval(function(){ i++; fire(i); if (i >= 9) { clearInterval(go); setTimeout(function(){ fire(0); }, 1400); } }, 260);
+      ['pointerdown','keydown'].forEach(function(ev){ calc.addEventListener(ev, function(){ clearInterval(go); }, {once:true}); });
+    }});
+  }
+
+  /* las letras chiquitas se abren y cierran suave */
+  $$('.letra').forEach(function(d){
+    var sum = d.querySelector('summary'), body = d.querySelector('.letra-body'); if (!sum || !body) return;
+    sum.addEventListener('click', function(e){
+      e.preventDefault();
+      if (d.open) G.to(body, {height:0, opacity:0, duration:.3, ease:'power2.in', onComplete:function(){ d.open = false; G.set(body, {clearProps:'height,opacity'}); ST.refresh(); }});
+      else { d.open = true; G.fromTo(body, {height:0, opacity:0}, {height:'auto', opacity:1, duration:.45, ease:'power3.out', clearProps:'height,opacity', onComplete:function(){ ST.refresh(); }}); }
+    });
+  });
+
+  /* la respuesta de cada duda entra suave */
+  $$('.fear').forEach(function(b){ b.addEventListener('click', function(){ G.fromTo('.answer > *', {opacity:0, y:10}, {opacity:1, y:0, duration:.4, ease:'power3.out', stagger:.06, clearProps:'opacity,transform'}); }); });
+
+  /* el camino hasta 2036 se llena con el scroll */
+  $$('.timeline').forEach(function(tl){
+    var line = document.createElement('span'); line.className = 'tl-fill'; tl.appendChild(line);
+    G.fromTo(line, {scaleY:0}, {scaleY:1, ease:'none', scrollTrigger:{trigger:tl, start:'top 75%', end:'bottom 55%', scrub:.6}});
+    $$('li', tl).forEach(function(li){ ST.create({trigger:li, start:'top 68%', onEnter:function(){ li.classList.add('lit'); }, onLeaveBack:function(){ li.classList.remove('lit'); }}); });
+  });
+
+  $$('.steps li').forEach(function(li){ ST.create({trigger:li, start:'top 70%', onEnter:function(){ li.classList.add('lit'); }, onLeaveBack:function(){ li.classList.remove('lit'); }}); });
+
+  if (fine && !soft) {
+    $$('.tile,.perk').forEach(function(c){
+      c.classList.add('spot');
+      c.addEventListener('pointermove', function(e){
+        var b = c.getBoundingClientRect(), x = (e.clientX - b.left) / b.width - .5, y = (e.clientY - b.top) / b.height - .5;
+        c.style.transform = 'perspective(1000px) rotateX(' + (-y * 6) + 'deg) rotateY(' + (x * 7) + 'deg) translateY(-3px)';
+      });
+      c.addEventListener('pointerleave', function(){ c.style.transform = ''; });
+    });
+  }
+
+  addEventListener('load', function(){ ST.refresh(); });
+})();
+
+/* ---------- botón de animaciones (solo con "Reducir movimiento") y diagnóstico #diag ---------- */
+(function(){
+  var m = window.__motion || 'full', os = !!window.__osReduce, pref = null;
+  try { pref = localStorage.getItem('anim'); } catch(e) {}
+  if (os || pref) {
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'motion-toggle';
+    b.textContent = m === 'full' ? 'Reducir animaciones' : 'Activar todas las animaciones';
+    b.addEventListener('click', function(){
+      try { if (m === 'full') { if (os) localStorage.removeItem('anim'); else localStorage.setItem('anim', 'off'); } else localStorage.setItem('anim', 'full'); } catch(e) {}
+      location.reload();
+    });
+    document.body.appendChild(b);
+  }
+  function diag(){
+    if (!/diag/.test(location.hash) || document.querySelector('.diag')) return;
+    var gl = false; try { var c = document.createElement('canvas'); gl = !!(c.getContext('webgl') || c.getContext('experimental-webgl')); } catch(e) {}
+    var fps = 0, n = 0, t0 = performance.now(), box = document.createElement('div'); box.className = 'diag'; document.body.appendChild(box);
+    function show(){
+      box.innerHTML = '<button type="button">Cerrar</button><b>Diagnóstico</b>\n' +
+        'Reducir movimiento (sistema): ' + (os ? 'SÍ' : 'no') + '\nModo de animación: ' + m + (pref ? ' (elegido en el botón)' : '') +
+        '\nWebGL (3D): ' + (gl ? 'sí' : 'NO') + ' · escena viva: ' + (document.querySelector('.stage.live') ? 'sí' : 'no') +
+        '\nGSAP: ' + (window.gsap ? 'sí' : 'NO') + ' · ScrollTrigger: ' + (window.ScrollTrigger ? 'sí' : 'NO') + ' · Three: ' + (window.THREE ? 'sí' : 'NO') + ' · Lenis: ' + (window.__lenis ? 'activo' : 'no') +
+        '\nPantalla: ' + innerWidth + '×' + innerHeight + ' · densidad ' + (window.devicePixelRatio || 1) + '\nCuadros por segundo: ' + (fps || 'midiendo…') +
+        '\nNavegador: ' + navigator.userAgent + '\nErrores: ' + ((window.__errs && window.__errs.length) ? window.__errs.join(' | ') : 'ninguno');
+      box.querySelector('button').onclick = function(){ box.remove(); };
+    }
+    show();
+    (function f(now){ n++; if (now - t0 >= 2000) { fps = Math.round(n * 1000 / (now - t0)); show(); return; } requestAnimationFrame(f); })(t0);
+  }
+  diag(); addEventListener('hashchange', diag);
+})();
+</script>
