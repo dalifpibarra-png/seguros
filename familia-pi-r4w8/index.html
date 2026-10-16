@@ -279,6 +279,67 @@
   html.mo-off .timeline li::before,html.mo-off .steps li::before{transition:none}
   @media (prefers-reduced-motion: reduce){html.mo-soft .bar-fill{transition-duration:.2s}}
 
+  /* gráfica de toda la vida del plan, dentro de "¿Cuánto tengo?": se mueve con el control (15 oct 2026) */
+  html,body{overflow-x:clip}
+  .gwrap{display:grid;gap:8px}
+  .gchart{width:100%;touch-action:pan-y;cursor:pointer;-webkit-user-select:none;user-select:none}
+  .gchart svg{display:block;width:100%;height:auto;overflow:visible}
+  .gchart .gl{stroke:var(--line);stroke-width:1}
+  .gchart text{fill:var(--ink-3);font-family:var(--f-mono);font-size:.8rem;font-weight:600}
+  .gchart .s1{stop-color:var(--pine);stop-opacity:.26}.gchart .s2{stop-color:var(--pine);stop-opacity:0}
+  .gchart .l-mine{fill:none;stroke:var(--pine);stroke-width:4.5;stroke-linejoin:round;stroke-linecap:round}
+  .gchart .l-paid{fill:none;stroke:var(--ink-3);stroke-width:2.5;stroke-dasharray:7 6}
+  .gchart .l-out{fill:none;stroke:var(--rose);stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+  .gchart .fin{stroke:var(--marigold);stroke-width:1.5;stroke-dasharray:3 4}
+  .gchart text.fin-t{fill:var(--marigold-ink);font-weight:700}
+  .gchart .cur{stroke:var(--marigold);stroke-width:2.5}
+  .gchart .dot{stroke:var(--card);stroke-width:3}
+  .gchart .d-mine{fill:var(--pine)}.gchart .d-paid{fill:var(--ink-3)}.gchart .d-out{fill:var(--rose)}
+  .gchart .mv{transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+  html.mo-off .gchart .mv{transition:none}
+  .gchart .draw{transition:stroke-dashoffset 1.6s cubic-bezier(.3,.7,.2,1)}
+  .glegend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.95rem;color:var(--ink-2)}
+  .glegend span{display:inline-flex;align-items:center;gap:7px}
+  .glegend i{display:inline-block;width:22px;height:4px;border-radius:3px}
+  .glegend .m i{background:var(--pine);height:5px}.glegend .p i{background:repeating-linear-gradient(90deg,var(--ink-3) 0 6px,transparent 6px 10px)}.glegend .o i{background:var(--rose)}
+
+  /* historia por scroll: mientras bajas pasan los años y crecen las columnas (misma pieza que la página de mi papá) */
+  .hist{position:relative;background:var(--night);color:var(--on-night);padding:0;width:100vw;margin-left:calc(50% - 50vw);margin-top:20px;--r:20px}
+  .hist .hstage{padding-block:clamp(48px,8vw,96px)}
+  .hist canvas,.hist .meters,.hist .hrail{display:none}
+  .hist h2{color:var(--on-night);max-width:20ch}
+  .hist .sub{color:var(--on-night-2);max-width:56ch;margin:10px 0 0;font-size:1.1rem}
+  .hist .caps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;margin-top:22px}
+  .hist .cap>div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:18px;display:grid;gap:6px;height:100%}
+  .hist .cap .ag{font:600 .8rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .hist .cap b.big{font:800 clamp(1.5rem,3vw,2rem)/1.1 var(--f-display);font-variant-numeric:tabular-nums}
+  .hist .cap p{margin:0;color:var(--on-night-2);font-size:1.02rem}
+  .hist .hnote{font-size:.9rem;color:var(--on-night-2);margin-top:16px}
+  .hist.live .hstage{position:relative;height:100vh;height:100svh;padding:0;overflow:hidden}
+  .hist.live canvas{display:block;position:absolute;inset:0;width:100%;height:100%;touch-action:pan-y}
+  .hist.live .hstage::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(11,26,23,.94) 0%,rgba(11,26,23,0) 38%,rgba(11,26,23,0) 58%,rgba(11,26,23,.9) 100%)}
+  .hist.live .hhead,.hist.live .caps,.hist.live .hrail,.hist.live .hnote{position:absolute;left:0;right:0;z-index:2}
+  .hist.live .hhead{top:clamp(14px,4vh,40px)}
+  .hist.live .hhead h2{font-size:clamp(1.5rem,3.4vw,2.4rem);margin:0}
+  .hist.live .hhead .sub{display:none}
+  .hist.live .meters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 18px;margin-top:12px}
+  .hist .meters span{display:block;font:600 .72rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--on-night-2)}
+  .hist .meters b{display:block;font:600 clamp(1.2rem,3.6vw,2rem)/1.15 var(--f-mono);font-variant-numeric:tabular-nums}
+  .hist .meters .hot b{color:var(--gold)}
+  .hist .meters .out b{color:#FF9A8A;transition:color .4s,text-shadow .4s}
+  .hist .meters .out.lit b{color:#7FE0AE;text-shadow:0 0 22px rgba(111,203,149,.55)}
+  .hist.live .caps{display:block;margin:0;bottom:clamp(64px,10vh,96px);height:0}
+  .hist.live .cap{position:absolute;left:20px;bottom:0;width:min(460px,calc(100% - 40px));opacity:0;visibility:hidden;transform:translateY(24px);transition:opacity .3s,transform .5s cubic-bezier(.2,.8,.2,1),visibility 0s .3s}
+  .hist.live .cap.on{opacity:1;visibility:visible;transform:none;transition:opacity .5s .1s,transform .6s .1s cubic-bezier(.2,.8,.2,1),visibility 0s}
+  .hist.live .cap>div{background:rgba(11,26,23,.82);border-color:rgba(242,176,79,.5)}
+  .hist.live .hrail{display:block;bottom:30px}
+  .hist .hrail .tr{position:relative;height:3px;background:rgba(255,255,255,.18);border-radius:3px;margin-inline:20px}
+  .hist .hrail .fl{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,#F2B04F,#5CC49A);border-radius:3px;box-shadow:0 0 12px rgba(242,176,79,.6)}
+  .hist .hrail span{position:absolute;top:10px;transform:translateX(-50%);font:600 .75rem/1 var(--f-mono);color:var(--on-night-2);white-space:nowrap}
+  .hist.live .hnote{display:none}
+  .hist.live .hrail{bottom:46px}
+  @media (max-width:700px){.hist.live .meters{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
   /* celular: letra más grande desde que abre (15 oct 2026) */
   @media (max-width:700px){html{font-size:122%}html.big{font-size:140%}}
 </style>
@@ -325,7 +386,7 @@
   <section id="cuanto">
     <span class="q-num">Pregunta 1</span>
     <h2>¿Cuánto tengo?</h2>
-    <p class="sec-sub">Mueve el año y mira cómo crece tu dinero. Empieza en hoy, tu primer año.</p>
+    <p class="sec-sub">Mueve el año, o toca la gráfica, y mira cómo crece tu dinero. Empieza en hoy, tu primer año.</p>
 
     <div class="calc" id="calc">
       <div class="calc-pick">
@@ -349,6 +410,10 @@
           <div class="bar mine"><div class="bar-lbl"><span>Tu dinero si terminas</span><b id="c-mine2">$39,813</b></div><div class="bar-track"><div class="bar-fill" id="b-mine"></div></div></div>
           <div class="bar out"><div class="bar-lbl"><span>Si te salieras ese año</span><b id="c-out">$23,888</b></div><div class="bar-track"><div class="bar-fill" id="b-out"></div></div></div>
         </div>
+        <div class="gwrap">
+          <div class="gchart" id="gchart" role="img" aria-label="Gráfica de tu dinero de 2027 a 2046: lo pagado, tu dinero si terminas y lo que recibirías si te salieras"></div>
+          <div class="glegend" aria-hidden="true"><span class="m"><i></i>Tu dinero si terminas</span><span class="p"><i></i>Lo pagado</span><span class="o"><i></i>Si te salieras</span></div>
+        </div>
         <p class="verdict careful" id="c-say">Es el año más caro del plan. Si te salieras ahora, recibirías menos de lo que pagaste. Por eso conviene seguir.</p>
         <p class="muted" style="margin:0">Proyección de GNP con lo que han rendido estas inversiones en 5 años (7.46 % al año). Lo de hoy, exacto, lo ves en la app Soy Cliente GNP.</p>
       </div>
@@ -356,6 +421,15 @@
   </section>
 
   <div class="statement"><div class="st-in"><p class="st-text">Ahorras diez años. <em>El dinero es tuyo.</em></p></div></div>
+
+  <section class="hist" id="historia"><div class="hstage">
+    <canvas id="h3d" aria-hidden="true"></canvas>
+    <div class="hhead wrap"><h2>Mamá, así crece tu ahorro</h2><p class="sub">Mientras bajas pasan los años: lo dorado es lo que pagas; lo verde, lo que crece solo.</p>
+      <div class="meters" aria-hidden="true"><div><span>Año</span><b id="hA">2027</b></div><div><span>Llevas pagado</span><b id="hP">$0</b></div><div class="hot"><span>Tu dinero</span><b id="hV">$0</b></div><div class="out" id="hOw"><span id="hOl">Si te salieras</span><b id="hO">$0</b></div></div></div>
+    <div class="caps wrap" id="hC"></div>
+    <div class="hrail" aria-hidden="true"><div class="tr" id="hR"><i class="fl" id="hF"></i></div></div>
+    <p class="hnote wrap">Proyección de GNP al 7.46 % al año. Entre los años marcados, las cifras con ~ son aproximadas. Proyección, no garantía.</p>
+  </div></section>
 
   <!-- ============ 2. CUÁNDO LO SACO ============ -->
   <section id="cuando">
@@ -629,6 +703,64 @@
     var s = sayFor(i); say.textContent = s[0]; say.classList.toggle('careful', s[1]);
     chips.forEach(function(c){ c.setAttribute('aria-pressed', +c.getAttribute('data-i') === i ? 'true' : 'false'); });
     prev.disabled = i === 0; next.disabled = i === 11;
+    gcur(i);
+  }
+
+  /* gráfica de 2027 a 2046: las tres líneas de la calculadora y un cursor que sigue al control.
+     Entre 2036 y 2041 y entre 2041 y 2046 se interpola (crecimiento compuesto); los puntos exactos son los de la tabla. */
+  var gc = document.getElementById('gchart'), GY = [], MAXC = 1000000, gW = 0, gH = 0, gDrawn = false, gCur = 0;
+  for (var ga = 1; ga <= 20; ga++) {
+    var gr = null; Y.forEach(function(q){ if (q[0] === ga) gr = q; });
+    if (gr) { GY.push([ga, gr[2], gr[3], gr[4]]); continue; }
+    var gA, gB; for (var gj = 0; gj < Y.length - 1; gj++) if (Y[gj][0] < ga && Y[gj+1][0] > ga) { gA = Y[gj]; gB = Y[gj+1]; }
+    var gf = (ga - gA[0]) / (gB[0] - gA[0]);
+    GY.push([ga, gA[2], gA[3] * Math.pow(gB[3] / gA[3], gf), gA[4] * Math.pow(gB[4] / gA[4], gf)]);
+  }
+  var PL = 8, PR = 12, PT = 30, PB = 34;
+  function gx(a){ return PL + (a - 1) / 19 * (gW - PL - PR); }
+  function gy(v){ return gH - PB - v / MAXC * (gH - PT - PB); }
+  function pts(k, upto){ return GY.filter(function(r){ return r[0] <= upto; }).map(function(r){ return gx(r[0]).toFixed(1) + ',' + gy(r[k]).toFixed(1); }).join(' '); }
+  function money(v){ return v === 0 ? '$0' : v >= 1000000 ? '$1 millón' : '$' + (v / 1000) + ' mil'; }
+  function gbuild(){
+    if (!gc) return;
+    gW = gc.clientWidth || 340; gH = Math.round(Math.max(230, Math.min(340, gW * .62)));
+    var ticks = gW < 480 ? [0, 500000, 1000000] : [0, 250000, 500000, 750000, 1000000], s = '';
+    s += '<defs><linearGradient id="gfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="s1"/><stop offset="1" class="s2"/></linearGradient></defs>';
+    ticks.forEach(function(t){ s += '<line class="gl" x1="' + PL + '" x2="' + (gW - PR) + '" y1="' + gy(t) + '" y2="' + gy(t) + '"/><text x="' + PL + '" y="' + (gy(t) - 7) + '">' + (t ? money(t) : '') + '</text>'; });
+    [1, 5, 10, 15, 20].forEach(function(a){ s += '<text x="' + gx(a) + '" y="' + (gH - 10) + '" text-anchor="' + (a === 1 ? 'start' : a === 20 ? 'end' : 'middle') + '">' + (2026 + a) + '</text>'; });
+    s += '<line class="fin" x1="' + gx(10) + '" x2="' + gx(10) + '" y1="' + PT + '" y2="' + (gH - PB) + '"/><text class="fin-t" x="' + (gx(10) + 7) + '" y="' + (gy(0) - 9) + '">Terminas</text>';
+    s += '<polygon fill="url(#gfill)" points="' + gx(1) + ',' + gy(0) + ' ' + pts(2, 20) + ' ' + gx(20) + ',' + gy(0) + '"/>';
+    s += '<polyline class="l-paid" points="' + pts(1, 20) + '"/><polyline class="l-out" points="' + pts(3, 10) + '"/><polyline class="l-mine" points="' + pts(2, 20) + '"/>';
+    s += '<g class="mv" id="g-cur"><line class="cur" x1="0" x2="0" y1="' + PT + '" y2="' + (gH - PB) + '"/></g>';
+    s += '<circle class="dot d-paid mv" id="g-dp" r="6"/><circle class="dot d-out mv" id="g-do" r="6.5"/><circle class="dot d-mine mv" id="g-dm" r="8"/>';
+    gc.innerHTML = '<svg viewBox="0 0 ' + gW + ' ' + gH + '" width="' + gW + '" height="' + gH + '">' + s + '</svg>';
+    if (!gDrawn && window.__motion !== 'off') {
+      [].forEach.call(gc.querySelectorAll('.l-mine,.l-out'), function(p){ var L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; p.classList.add('draw'); });
+    }
+    gcur(gCur, true);
+  }
+  function gcur(i, now){
+    gCur = i; if (!gc || !gW) return;
+    var a = Y[i][0], r = GY[a - 1], x = gx(a);
+    var set = function(id, X, Yv, hide){ var e = document.getElementById(id); if (!e) return; if (now) e.style.transition = 'none'; e.style.transform = 'translate(' + X + 'px,' + Yv + 'px)'; e.style.opacity = hide ? 0 : 1; if (now) { e.getBoundingClientRect(); e.style.transition = ''; } };
+    set('g-cur', x, 0); set('g-dm', x, gy(r[2])); set('g-dp', x, gy(r[1])); set('g-do', x, gy(r[3]), a >= 10);
+  }
+  function gpick(e){
+    var b = gc.getBoundingClientRect(), a = 1 + (e.clientX - b.left - PL * b.width / gW) / ((gW - PL - PR) * b.width / gW) * 19, best = 0;
+    Y.forEach(function(q, k){ if (Math.abs(q[0] - a) < Math.abs(Y[best][0] - a)) best = k; });
+    if (best !== +yr.value) render(best);
+  }
+  if (gc) {
+    gbuild();
+    var gdown = false;
+    gc.addEventListener('pointerdown', function(e){ gdown = true; gpick(e); });
+    gc.addEventListener('pointermove', function(e){ if (gdown) gpick(e); });
+    addEventListener('pointerup', function(){ gdown = false; }); gc.addEventListener('pointercancel', function(){ gdown = false; });
+    var gw0 = gW; addEventListener('resize', function(){ if (Math.abs(gc.clientWidth - gw0) > 8) { gw0 = gc.clientWidth; gDrawn = true; gbuild(); } });
+    if ('IntersectionObserver' in window && window.__motion !== 'off') {
+      var gio = new IntersectionObserver(function(es){ if (es[0].isIntersecting) { gDrawn = true; gio.disconnect(); [].forEach.call(gc.querySelectorAll('.draw'), function(p){ p.style.strokeDashoffset = 0; }); } }, {threshold:.35});
+      gio.observe(gc);
+    } else gDrawn = true;
   }
   yr.addEventListener('input', function(){ render(+yr.value); });
   prev.addEventListener('click', function(){ render(Math.max(0, +yr.value - 1)); });
@@ -940,3 +1072,76 @@
   diag(); addEventListener('hashchange', diag);
 })();
 </script>
+<script>
+/* ---------- historia por scroll: filas [año, pagado, tu dinero, si te salieras]; entre filas se interpola y se marca "~".
+   Es la misma pieza de la página de mi papá (plan-comparativo.tpl.html), con años en vez de edades.
+   Sin WebGL, sin GSAP o con animación reducida: queda como tarjetas fijas con las mismas cifras. ---------- */
+(function(){
+  var sec=document.getElementById("historia");if(!sec)return;
+  var F=[[2027,31354,39813,23888],[2028,63962,72080,55173],[2029,97875,110286,92336],[2030,133144,152199,133142],[2031,169823,198101,177869],[2032,207970,248295,226815],[2033,247643,303104,280299],[2034,288903,362873,338661],[2035,331813,427971,402266],[2036,376439,498794,498794],[2041,376439,672794,672794],[2046,376439,907494,907494]];
+  var HIT=[[2027,"Empiezas","Ya hiciste el pago más caro del plan. Y desde ese día mi papá está protegido."],[2030,"Ya recuperas","Desde aquí, si un día te salieras, ya te regresan lo que pagaste."],[2036,"$498,794","Terminas tus 10 años. El premio es tuyo completo y lo sacas sin impuestos. Pagaste $376,439."],[2046,"$907,494","Si no lo necesitas, sigue creciendo sin que pagues un peso más."]];
+  var $=function(i){return document.getElementById(i);},mx=function(n){return "$"+Math.round(n).toLocaleString("es-MX");};
+  var a0=F[0][0],a1=F[F.length-1][0],ex={};F.forEach(function(r){ex[r[0]]=r;});
+  function at(a){var i=0;while(i<F.length-1&&F[i+1][0]<=a)i++;var A=F[i],B=F[Math.min(i+1,F.length-1)];if(A[0]===a||A===B)return A.slice();
+    var f=(a-A[0])/(B[0]-A[0]);function g(x,y){return x*Math.pow(y/x,f);}return [a,A[1]+(B[1]-A[1])*f,g(A[2],B[2]),g(A[3],B[3])];}
+  var AG=[];for(var a=a0;a<=a1;a++)AG.push(a);var ROW=AG.map(at);
+  $("hC").innerHTML=HIT.map(function(h){return '<div class="cap"><div><span class="ag">'+h[0]+'</span><b class="big">'+h[1]+'</b><p>'+h[2]+'</p></div></div>';}).join("");
+  var LB=[2027,2030,2036,2041,2046];
+  $("hR").insertAdjacentHTML("beforeend",LB.map(function(x){return '<span style="left:'+((x-a0)/(a1-a0)*100).toFixed(1)+'%">'+x+'</span>';}).join(""));
+  var full=window.__motion==="full";
+  if(!full||!window.THREE||!window.gsap||!window.ScrollTrigger)return;
+  var cv=$("h3d"),T=THREE,r;try{r=new T.WebGLRenderer({canvas:cv,antialias:!window.__lowfx,alpha:true});}catch(e){return;}if(!r.getContext())return;
+  sec.classList.add("live");gsap.registerPlugin(ScrollTrigger);ScrollTrigger.config({ignoreMobileResize:true});
+  r.setPixelRatio(window.__dpr?window.__dpr():1);r.outputEncoding=T.sRGBEncoding;r.toneMapping=T.ACESFilmicToneMapping;
+  /* guion: el scroll recorre los años y hace una pausa en cada hito */
+  var stops=HIT.map(function(h){return h[0];}).filter(function(x){return x>a0&&x<=a1;}),KEYS=[[0,a0],[.05,a0]],n=stops.length,seg=.86/Math.max(1,n);
+  stops.forEach(function(x,i){var p=.05+seg*(i+1);KEYS.push([p-seg*.28,x]);KEYS.push([p,x]);});KEYS.push([1,a1]);
+  function ss(x){return x*x*(3-2*x);}
+  function ageAt(p){for(var i=1;i<KEYS.length;i++){var A=KEYS[i-1],B=KEYS[i];if(p<=B[0]){var q=(p-A[0])/((B[0]-A[0])||1);return A[1]+(B[1]-A[1])*ss(Math.max(0,Math.min(1,q)));}}return a1;}
+  var VMAX=Math.max.apply(null,ROW.map(function(r){return r[2];}))||1;function Hgt(v){return .12+7*Math.sqrt(Math.max(0,v)/VMAX);}
+  var scene=new T.Scene();scene.fog=new T.Fog(0x0B1A17,16,60);var cam=new T.PerspectiveCamera(38,1,.1,240);
+  scene.add(new T.HemisphereLight(0xdff5ee,0x0b1a17,.75));var key=new T.DirectionalLight(0xffe6c2,1.15);key.position.set(6,14,10);scene.add(key);
+  var rim=new T.DirectionalLight(0x6fc2b6,.7);rim.position.set(-8,6,-10);scene.add(rim);
+  var SP=.62;function X(a){return (a-a0)*SP;}
+  var geo=new T.BoxGeometry(.46,1,.46);geo.translate(0,.5,0);var mesh=new T.InstancedMesh(geo,new T.MeshStandardMaterial({roughness:.32,metalness:.18}),AG.length);scene.add(mesh);
+  function L(h){return new T.Color(h).convertSRGBToLinear();}
+  var cGold=L(0xF2B04F),cTeal=L(0x22A08C),cMint=L(0x8FD3C5),cGhost=L(0x16372F),tmp=new T.Object3D(),col=new T.Color();
+  var HT=ROW.map(function(r){return Hgt(r[2]);}),cur=AG.map(function(){return .02;});
+  var payEnd=2036;
+  var gnd=new T.Mesh(new T.PlaneGeometry(200,40),new T.MeshStandardMaterial({color:L(0x0E1F1B),roughness:1}));gnd.rotation.x=-Math.PI/2;gnd.position.set(X((a0+a1)/2),0,0);scene.add(gnd);
+  var grid=new T.GridHelper(200,200,0x2b5a4f,0x16372f);grid.position.set(X((a0+a1)/2),.002,0);grid.material.transparent=true;grid.material.opacity=.35;scene.add(grid);
+  var PAID=ROW[ROW.length-1][1],paidLine=new T.Mesh(new T.BoxGeometry(1,.045,.7),new T.MeshBasicMaterial({color:L(0xF2B04F),transparent:true,opacity:0}));scene.add(paidLine);
+  function label(txt){var c=document.createElement("canvas");c.width=256;c.height=128;var x=c.getContext("2d");x.font="700 60px system-ui,sans-serif";x.fillStyle="rgba(200,226,218,.85)";x.textAlign="center";x.textBaseline="middle";x.fillText(txt,128,64);
+    var tx=new T.CanvasTexture(c);tx.encoding=T.sRGBEncoding;var sp=new T.Sprite(new T.SpriteMaterial({map:tx,transparent:true,depthWrite:false}));sp.scale.set(1.5,.75,1);return sp;}
+  LB.forEach(function(a){var sp=label(String(a));sp.position.set(X(a),.3,1.3);scene.add(sp);});
+  var caps=[].slice.call(sec.querySelectorAll(".cap")),oW=$("hOw"),last="",lastC=-1;
+  function hud(age){var a=Math.round(age),R=ROW[a-a0],exact=!!ex[a],ap=function(v){return (exact?"":"~")+mx(v);};
+    var txt=a+"|"+Math.round(R[2]);if(txt!==last){last=txt;$("hA").textContent=a;$("hP").textContent=mx(R[1]);$("hV").textContent=ap(R[2]);
+      if(a>=payEnd){$("hOl").textContent="Lo sacas sin impuestos";$("hO").textContent=ap(R[2]);oW.classList.add("lit");}else{$("hOl").textContent="Si te salieras";$("hO").textContent=ap(R[3]);oW.classList.remove("lit");}}
+    $("hF").style.width=((age-a0)/(a1-a0)*100)+"%";
+    var c=-1;HIT.forEach(function(h,i){if(age>=h[0]-.35)c=i;});if(c!==lastC){lastC=c;caps.forEach(function(e,i){e.classList.toggle("on",i===c);});}}
+  var W=1,Hc=1,narrow=false;function size(){W=cv.clientWidth;Hc=cv.clientHeight;if(!W||!Hc)return;r.setSize(W,Hc,false);cam.aspect=W/Hc;narrow=cam.aspect<.9;cam.fov=narrow?50:38;cam.updateProjectionMatrix();}
+  addEventListener("resize",size);
+  var cp=new T.Vector3(),cl=new T.Vector3(),tp=new T.Vector3(),tl=new T.Vector3(),first=true,prog=0,active=false,near=false,running=false;
+  function camT(p,age){var head=X(age),hh=HT[Math.max(0,Math.min(AG.length-1,Math.round(age)-a0))],ang=-.62,R=(narrow?10:7)+hh*1.3,off=narrow?.6:2.6;
+    tp.set(head-off+Math.sin(ang)*R,2.4+hh*.75,Math.cos(ang)*R);tl.set(head-off*.4,hh*.55,0);
+    var w=ss(Math.max(0,Math.min(1,(p-.9)/.08)));if(w>0){var mid=X((a0+a1)/2),half=X(a1)/2+2.5,dist=Math.min(half/Math.tan(T.MathUtils.degToRad(cam.fov/2))/Math.min(cam.aspect,1.9),narrow?60:50);
+      tp.lerp(new T.Vector3(mid-3+Math.sin(-.15)*dist,dist*.5,Math.cos(-.15)*dist*.95),w);tl.lerp(new T.Vector3(mid,narrow?2:-.2,0),w);}}
+  ScrollTrigger.create({trigger:sec,start:"top top",end:function(){return "+="+Math.round(innerHeight*(4+n*1.2));},pin:sec.querySelector(".hstage"),anticipatePin:1,invalidateOnRefresh:true,
+    onUpdate:function(s){prog=s.progress;},onToggle:function(s){active=s.isActive;if(active)kick();}});
+  new IntersectionObserver(function(es){near=es[0].isIntersecting;if(near)kick();},{rootMargin:"200px 0px"}).observe(sec);
+  function kick(){if(!running){running=true;requestAnimationFrame(loop);}}
+  function frame(){var p=prog,age=ageAt(p);
+    for(var i=0;i<AG.length;i++){var a=AG[i],gr=Math.max(0,Math.min(1,age-a+1)),tg=gr>0?HT[i]*(1-Math.pow(1-gr,3)):.03;cur[i]+=(tg-cur[i])*.14;
+      tmp.position.set(X(a),0,0);tmp.scale.set(1,Math.max(.02,cur[i]),1);tmp.updateMatrix();mesh.setMatrixAt(i,tmp.matrix);
+      if(gr<=0)col.copy(cGhost);else if(a<=payEnd)col.copy(cGold);else col.copy(cTeal).lerp(cMint,Math.min(1,(a-payEnd)/(a1-payEnd||1))*.55);
+      if(Math.abs(a-age)<.6&&gr>0)col.lerp(new T.Color(1,1,1),.25);mesh.setColorAt(i,col);}
+    mesh.instanceMatrix.needsUpdate=true;mesh.instanceColor.needsUpdate=true;
+    var lw=Math.max(.01,X(Math.min(age,a1))+.6);paidLine.scale.set(lw,1,1);paidLine.position.set(X(a0)-.3+lw/2,Hgt(Math.min(PAID,ROW[Math.max(0,Math.min(AG.length-1,Math.round(age)-a0))][1])),0);paidLine.material.opacity=Math.max(0,Math.min(.9,(age-a0-1)*.5));
+    camT(p,age);if(first){cp.copy(tp);cl.copy(tl);first=false;}cp.lerp(tp,.09);cl.lerp(tl,.09);cam.position.copy(cp);cam.lookAt(cl);r.render(scene,cam);hud(age);}
+  var adapt=null;function loop(now){if(!adapt&&window.__adapt)adapt=window.__adapt(r,size);if(adapt)adapt(now||performance.now());frame();if(near||active)requestAnimationFrame(loop);else running=false;}
+  if(/debug/.test(location.hash))window.__hist=function(p){prog=p;near=true;first=true;kick();};
+  size();frame();addEventListener("load",function(){size();ScrollTrigger.refresh();});
+})();
+</script>
+
