@@ -1,0 +1,726 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Silvia, tus dos caminos</title>
+<script>(function(){var d=document.documentElement,R=false,p=null;try{R=matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}try{p=localStorage.getItem("anim")}catch(e){}var lo=(navigator.hardwareConcurrency||8)<=4||(navigator.deviceMemory||8)<=4;window.__lowfx=lo;if(lo)d.classList.add("lowfx");window.__dpr=function(){var c=false;try{c=matchMedia("(pointer: coarse)").matches}catch(e){}return Math.min(window.devicePixelRatio||1,c?1.5:(lo?1:1.5))};window.__adapt=function(r,resize,onSlow){var n=0,t=0,l=0,done=0;return function(now){if(done)return;var dt=now-l;if(l&&dt<200){t+=dt;n++}l=now;if(n>=45){done=1;if(t/n>24){if(r.getPixelRatio()>1){r.setPixelRatio(1);if(resize)resize()}if(onSlow)onSlow()}}}};window.__osReduce=R;window.__motion=p==="full"?"full":p==="off"?"off":(R?"soft":"full");d.classList.add("mo-"+window.__motion);window.__errs=[];addEventListener("error",function(e){window.__errs.push((e.message||("no cargó: "+((e.target&&(e.target.src||e.target.href))||"?")))+(e.filename?" @"+e.filename.split("/").pop()+":"+e.lineno:""))},true);})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Literata:opsz,wght@7..72,600;7..72,800&display=swap">
+<style>
+/* Una historia en una columna: mismo cheque → tres caminos lado a lado → por cada $100 → la pregunta que decide → año con año → cuándo sacar → cuándo conviene. Letra grande y ajustable; el 3D de la portada son los propios montos. */
+:root{
+  --bg:#F5F6F8; --card:#FFFFFF; --ink:#18212D; --muted:#525E6E; --line:#D8DDE4; --soft:#ECEFF3; --hero:#14202E; --hero-ink:#F2F5F9;
+  --cap:#1D6A4F; --tra:#3A4C9E; --ppr:#9A5A12; --pick:#C2410C;
+  --cap-soft:#E3F1EA; --tra-soft:#E7EAF8; --ppr-soft:#F6EBDD;
+  --f-body:'Atkinson Hyperlegible',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-head:'Literata',Georgia,'Times New Roman',serif;
+  --base:19px; --r:16px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E131A; --card:#161D27; --ink:#E6EBF2; --muted:#9DA9B9; --line:#283242; --soft:#1C2531; --hero:#0A1018; --hero-ink:#F2F5F9;
+  --cap:#5CC49A; --tra:#8E9EF0; --ppr:#E2A65E; --pick:#FB923C;
+  --cap-soft:#15302A; --tra-soft:#1E2442; --ppr-soft:#33261A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E131A; --card:#161D27; --ink:#E6EBF2; --muted:#9DA9B9; --line:#283242; --soft:#1C2531; --hero:#0A1018; --hero-ink:#F2F5F9;
+  --cap:#5CC49A; --tra:#8E9EF0; --ppr:#E2A65E; --pick:#FB923C;
+  --cap-soft:#15302A; --tra-soft:#1E2442; --ppr-soft:#33261A; color-scheme:dark}
+*{box-sizing:border-box}
+html{font-size:var(--base)}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--f-body);margin:0}
+.wrap{max-width:900px;margin:0 auto;padding-inline:16px}
+h1,h2,h3{font-family:var(--f-head);text-wrap:balance;margin:0;line-height:1.15}
+h2{font-size:clamp(1.5rem,4.5vw,2.1rem);font-weight:800}
+h3{font-size:1.2rem;font-weight:600}
+p{margin:0}
+.muted{color:var(--muted)}
+button{font:700 .95rem/1.25 var(--f-body);border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:12px 14px;cursor:pointer;min-height:48px}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--pick);outline-offset:2px}
+section.blk{padding-block:56px;display:grid;gap:18px}
+.sub{color:var(--muted);font-size:1.05rem;max-width:60ch}
+.dot{display:inline-block;width:.75em;height:.75em;border-radius:50%;background:var(--c);margin-right:8px;vertical-align:baseline}
+
+/* portada */
+.hero{background:var(--hero);color:var(--hero-ink);padding-block:28px 40px}
+.hero .wrap{display:grid;gap:18px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;opacity:.8}
+.aa{display:flex;gap:6px}
+.aa button{background:transparent;color:var(--hero-ink);border-color:rgba(255,255,255,.3);min-height:44px;padding:8px 12px}
+.hero h1{font-size:clamp(2rem,6.5vw,3.2rem);font-weight:800}
+.hero .lead{font-size:1.15rem;max-width:44ch;opacity:.92}
+.pill{justify-self:start;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:8px 16px;font-weight:700}
+.stage{position:relative;height:clamp(220px,42vw,340px);border-radius:var(--r);overflow:hidden;background:radial-gradient(70% 80% at 50% 100%,rgba(255,255,255,.08),transparent 70%)}
+.stage canvas{display:block;width:100%;height:100%}
+.legend{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.legend li{border-left:5px solid var(--c);padding:6px 12px;background:rgba(255,255,255,.06);border-radius:0 10px 10px 0}
+.legend b{display:block;font-family:var(--f-head);font-size:1.35rem}
+.legend span{font-size:.85rem;opacity:.85}
+
+/* frases que se encienden */
+.statement{padding-block:64px}
+.st-text{font-family:var(--f-head);font-weight:800;font-size:clamp(1.6rem,5vw,2.5rem);line-height:1.25;max-width:24ch}
+.st-text em{font-style:normal;background:linear-gradient(transparent 62%,color-mix(in srgb,var(--pick) 35%,transparent) 62%) no-repeat;background-size:var(--hl,100%) 100%}
+.sw{display:inline-block}
+
+/* tres caminos */
+.offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.offer{background:var(--card);border:1px solid var(--line);border-top:7px solid var(--c);border-radius:var(--r);padding:20px;display:grid;gap:14px;align-content:start;min-width:0;transition:box-shadow .25s}
+.offer.rec{box-shadow:0 0 0 3px var(--pick)}
+.offer .rb{display:none;color:var(--pick);font-weight:700;font-size:.85rem}
+.offer.rec .rb{display:block}
+.tag{justify-self:start;font-size:.8rem;font-weight:700;color:var(--c);background:var(--cs);padding:4px 10px;border-radius:999px}
+.yrs{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.yrs i{width:18px;height:18px;border-radius:5px;background:var(--c);display:inline-block}
+.yrs i.off{background:var(--soft);border:1px dashed var(--line)}
+.yrs small{margin-left:6px;color:var(--muted);font-weight:700}
+.flow{display:grid;gap:4px}
+.flow .k{font-size:.85rem;color:var(--muted);font-weight:700}
+.flow .v{font-family:var(--f-head);font-weight:800;font-size:1.55rem;color:var(--c);line-height:1.1}
+.flow .n{font-size:.88rem;color:var(--muted)}
+.arrow{font-size:1.4rem;color:var(--muted);line-height:1}
+.mini{display:grid;gap:8px;border-top:1px dashed var(--line);padding-top:12px}
+.mini div{display:flex;justify-content:space-between;gap:10px;font-size:.95rem}
+.mini b{text-align:right}
+
+/* por cada $100 */
+.bars{display:grid;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.bar{display:grid;gap:6px}
+.bar-lbl{display:flex;justify-content:space-between;gap:10px;font-weight:700}
+.bar-lbl b{font-family:var(--f-head);font-size:1.3rem;color:var(--c)}
+.bar-track{height:22px;background:var(--soft);border-radius:999px;overflow:hidden;position:relative}
+.bar-track::after{content:"";position:absolute;top:0;bottom:0;left:var(--m100);border-left:2px dashed var(--muted)}
+.bar-fill{height:100%;width:var(--w);background:var(--c);border-radius:999px}
+.bars .note{font-size:.88rem;color:var(--muted)}
+
+/* pregunta */
+.q-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.q-opts button{text-align:left;padding:14px 16px}
+.q-opts button[aria-pressed="true"]{border-color:var(--pick);background:var(--soft)}
+.verdict{font-size:1.12rem;padding:18px 20px;border-radius:var(--r);background:var(--card);border:1px solid var(--line);border-left:6px solid var(--pick)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--card);border-color:var(--ink)}
+
+/* año con año */
+.tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{padding:14px 12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+thead th{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+td.p{font-weight:700}
+
+/* cuándo sacar */
+.access{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.timeline{list-style:none;margin:0;padding:0 0 0 22px;position:relative;display:grid;gap:14px}
+.timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;border-left:3px solid var(--soft)}
+.timeline .tl-fill{position:absolute;left:7px;top:6px;bottom:6px;border-left:3px solid var(--c);transform-origin:top}
+.timeline li{position:relative}
+.timeline li::before{content:"";position:absolute;left:-22px;top:6px;width:17px;height:17px;border-radius:50%;background:var(--card);border:3px solid var(--c);transition:transform .3s,background .3s}
+.timeline li.lit::before{background:var(--c);transform:scale(1.1)}
+.timeline b{display:block}
+.when{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:grid;gap:10px;align-content:start;min-width:0}
+ul.list{margin:0;padding-left:1.2em;display:grid;gap:6px}
+details.letras{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 20px}
+summary{cursor:pointer;font-weight:700;font-size:1.05rem}
+details.letras ul{margin-top:12px}
+.sig{font-size:.95rem;color:var(--muted);border-top:1px solid var(--line);padding-block:20px 40px}
+.scale{display:flex;flex-wrap:wrap;gap:8px}
+.scale button[aria-pressed="true"]{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.motion-toggle{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:20;font-size:.85rem;min-height:40px;padding:8px 12px}
+.diag{position:fixed;inset:auto 8px 8px 8px;z-index:30;background:var(--card);color:var(--ink);border:2px solid var(--ink);border-radius:12px;padding:12px;white-space:pre-wrap;font-size:.8rem;max-height:60vh;overflow:auto}
+
+
+/* gráfica que se dibuja */
+.plot{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 12px 8px;overflow-x:auto}
+.plot svg{display:block;width:100%;height:auto}
+.plot{overflow:visible}
+.plot .gl{stroke:var(--line);stroke-width:1}
+.plot text{fill:var(--muted);font:700 13px var(--f-body)}
+.plot text.end{font-size:14px}
+@media (max-width:600px){.plot text{font-size:15px}.plot text.end{font-size:15px}}
+.plot .ln{fill:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.plot .pg{fill:none;stroke:var(--muted);stroke-width:2.5;stroke-dasharray:6 6}
+/* miedos */
+.fears{display:grid;gap:12px}
+.answer{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--pick);border-radius:var(--r);padding:18px 20px;display:grid;gap:8px;min-height:6em}
+.answer .q{font-family:var(--f-head);font-weight:800;font-size:1.2rem}
+/* tarjetas que se voltean */
+.flips{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.flip{position:relative;min-height:190px;padding:0;border:0;background:none;perspective:1000px;text-align:left;cursor:pointer}
+.flip .in{position:absolute;inset:0;transition:transform .6s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.flip[aria-pressed="true"] .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--r);padding:18px;display:grid;align-content:space-between;gap:8px}
+.flip .f{background:var(--hero);color:var(--hero-ink)}
+.flip .f b{font-family:var(--f-head);font-size:1.25rem;line-height:1.2}
+.flip .f small{opacity:.75;font-weight:700}
+.flip .b{background:var(--card);border:2px solid var(--pick);transform:rotateY(180deg);font-size:1rem;color:var(--ink)}
+.mo-off .flip .in,.mo-soft .flip .in{transition:none}
+/* preguntas a fondo */
+.faq-tools{display:grid;gap:10px}
+.faq-tools input{font:400 1rem var(--f-body);padding:14px 16px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);width:100%}
+.faq{display:grid;gap:10px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.faq summary{font-size:1rem}
+.faq p{margin-top:8px}
+.faq .src{display:block;margin-top:6px;font-size:.82rem;color:var(--muted)}
+/* pasos */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;counter-reset:st}
+.steps li{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:6px;counter-increment:st}
+.steps li::before{content:counter(st);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--soft);font:800 1.1rem var(--f-head);transition:background .3s,transform .3s}
+.steps li.lit::before{background:var(--pick);color:var(--card);transform:scale(1.08)}
+.countdown{display:inline-block;background:var(--soft);border-radius:999px;padding:6px 14px;font-weight:700}
+/* WhatsApp fijo y riel de capítulos */
+#cta{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translate(-50%,140%);z-index:15;background:var(--cap);color:#fff;border-radius:999px;padding:14px 22px;font-weight:700;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .4s cubic-bezier(.2,.8,.2,1);white-space:nowrap}
+body.past-hero #cta{transform:translate(-50%,0)}
+body.at-end #cta{transform:translate(-50%,140%)}
+.chapters{display:none}
+@media (min-width:1180px){.chapters{display:grid;gap:12px;position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:12}
+  .chapters a{display:flex;align-items:center;gap:10px;color:var(--muted);text-decoration:none;font-size:.78rem;font-weight:700}
+  .chapters a i{width:10px;height:10px;border-radius:50%;border:2px solid var(--muted);transition:all .3s}
+  .chapters a span{opacity:0;transition:opacity .3s}
+  .chapters:hover a span,.chapters a.on span{opacity:1}
+  .chapters a.on{color:var(--ink)}.chapters a.on i{background:var(--pick);border-color:var(--pick);transform:scale(1.3)}
+  .chapters a.done i{background:var(--muted)}}
+
+
+/* lo que les queda: franja oscura con números grandes */
+.crece .vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.crece .vs>div{border:2px solid var(--line);border-radius:var(--r);padding:18px;background:var(--card);min-width:0}
+.crece .vs>div.si{border-color:var(--tra);background:var(--tra-soft)}
+.crece .vs h3{margin:0 0 8px;font-size:1.1rem}
+.crece .vs ul{list-style:none;margin:0;padding:0}
+.crece .vs li{margin:6px 0;padding-left:26px;position:relative}
+.crece .vs li::before{position:absolute;left:0;font-weight:800}
+.crece .vs .no li::before{content:"✕";color:var(--muted)}
+.crece .vs .si li::before{content:"✓";color:var(--tra)}
+@media (max-width:700px){.crece .vs{grid-template-columns:minmax(0,1fr)}}
+/* explorador deslizable (regla 15 oct 2026: toda página de cliente lleva su "mueve la edad y ve cuánto crece") */
+.exp{display:grid;gap:12px;background:var(--card);border:2px solid var(--line);border-radius:var(--r);padding:18px}
+.exp-top{display:flex;align-items:center;justify-content:center;gap:14px}
+.exp-top output{font:800 1.6rem/1.1 var(--f-head);text-align:center;min-width:9ch}
+.exp-top output small{display:block;font:700 .85rem/1.3 var(--f-body);color:var(--muted)}
+.exp-ar{width:48px;height:48px;border-radius:50%;padding:0;font-size:1.5rem;line-height:1}
+#expR{width:100%;accent-color:var(--pick);height:32px}
+.exp-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.exp-chips button{min-height:40px;padding:8px 12px;font-size:.9rem}
+.exp-chips button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.exp-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.exp-card{border:2px solid var(--c);border-radius:var(--r);padding:14px;background:var(--cs);min-width:0;container-type:inline-size}
+.exp-card h4{margin:0 0 8px;font-size:1rem;display:flex;align-items:center;gap:8px}
+.exp-card h4 i{width:12px;height:12px;border-radius:50%;background:var(--c)}
+.exp-card .big{font:800 clamp(1.3rem,13cqi,1.9rem)/1.1 var(--f-head);color:var(--c);font-variant-numeric:tabular-nums}
+.exp-card .lbl{font-size:.85rem;color:var(--muted);font-weight:700}
+.exp-card .bar{height:10px;border-radius:6px;background:var(--line);overflow:hidden;margin:6px 0 2px}
+.exp-card .bar i{display:block;height:100%;background:var(--c);transition:width .35s ease}
+.exp-card .row{display:flex;justify-content:space-between;gap:8px;font-size:.9rem;margin-top:6px}
+.exp-card .row b{font-variant-numeric:tabular-nums}
+.exp-card .x{font-weight:800;color:var(--c)}
+#cur line{stroke:var(--pick);stroke-width:2;stroke-dasharray:5 5}
+#cur circle{stroke:var(--card);stroke-width:3}
+/* línea de vida: "pagas pocos años, crece toda la vida" (opcional, D.crece) */
+.crece .rail{position:relative;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:14px;margin-top:6px}
+.crece .rail::before{content:"";position:absolute;left:12px;right:12px;top:15px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--tra),var(--cap))}
+.crece .hito{position:relative;padding-top:42px;min-width:0}
+.crece .hito::before{content:"";position:absolute;top:6px;left:0;width:22px;height:22px;border-radius:50%;background:var(--card);border:4px solid var(--tra)}
+.crece .hito:last-child::before{border-color:var(--cap)}
+.crece .hito .ed{font:800 1.5rem/1 var(--f-head);color:var(--ink)}
+.crece .hito .tt{font-weight:700;margin:6px 0 2px}
+.crece .hito .vv{font:800 clamp(1.2rem,2.2vw,1.6rem)/1.15 var(--f-head);color:var(--tra);font-variant-numeric:tabular-nums}
+.crece .hito p{font-size:.95rem;color:var(--muted);margin:4px 0 0}
+.crece .pagas{display:flex;gap:4px;flex-wrap:wrap;align-items:center;font-weight:700}
+.crece .pagas i{width:14px;height:14px;border-radius:4px;background:var(--tra)}
+.crece .pagas i.o{background:transparent;border:2px solid var(--line)}
+@media (max-width:700px){.crece .rail{grid-template-columns:minmax(0,1fr);gap:0;padding-left:36px}.crece .rail::before{left:9px;right:auto;top:0;bottom:0;width:4px;height:auto;background:linear-gradient(180deg,var(--tra),var(--cap))}
+  .crece .hito{padding:0 0 22px}.crece .hito::before{left:-36px;top:2px}}
+.legado{background:var(--hero);color:var(--hero-ink)}
+.legado h2{color:var(--hero-ink)}
+.legado .sub{color:var(--hero-ink);opacity:.85}
+.leg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.leg{border:1px solid rgba(255,255,255,.18);border-radius:var(--r);padding:18px;display:grid;gap:4px;background:rgba(255,255,255,.05);min-width:0;align-content:space-between;container-type:inline-size}
+.leg span{font-size:.9rem;opacity:.85}
+.leg b{font-family:var(--f-head);font-weight:800;font-size:clamp(1.2rem,13cqi,1.85rem);font-variant-numeric:tabular-nums;overflow-wrap:anywhere;color:var(--leg,#9FB4FF);line-height:1.1}
+.leg.main{background:rgba(255,255,255,.1);border-color:var(--leg,#9FB4FF)}
+.legado .nota{opacity:.8;font-size:.95rem}
+
+/* modo agente */
+.agent{border:2px dashed var(--muted);border-radius:var(--r);padding:20px;display:grid;gap:16px;background:var(--card);margin-bottom:48px}
+.lock{display:flex;gap:8px;flex-wrap:wrap}
+.lock input{flex:1 1 200px;font:400 1rem var(--f-body);padding:12px 14px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink)}
+.err{color:var(--pick);font-weight:700;font-size:.9rem}
+.agent h3{font-family:var(--f-body);font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.qa{display:grid;gap:10px}
+.qa details{background:var(--bg);border-radius:12px;padding:12px 16px}
+.chat,.fb{display:grid;gap:10px}
+.chat textarea,.fb textarea,.fb select{width:100%;font:400 1rem/1.5 var(--f-body);padding:12px 14px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink)}
+.chat-out{white-space:pre-wrap;background:var(--soft);border-radius:12px;padding:14px 16px}
+.ok{color:var(--cap);font-weight:700;font-size:.9rem}
+.primary{background:var(--ink);color:var(--card);border-color:var(--ink)}
+@media (max-width:600px){
+  .tbl{background:none;border:0;overflow:visible}
+  .tbl thead{display:none}
+  .tbl table,.tbl tbody{display:block}
+  .tbl tr{display:grid;gap:6px;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:var(--r);padding:14px 16px;margin-bottom:12px}
+  .tbl td{display:flex;justify-content:space-between;gap:12px;padding:0;border:0;white-space:normal;text-align:right}
+  .tbl td.p{font-size:1.1rem;text-align:left}
+  .tbl td[data-l]::before{content:attr(data-l);color:var(--muted);font-weight:700;font-size:.85rem;text-align:left}
+}
+@media (max-width:700px){section.blk{padding-block:40px}.statement{padding-block:44px}.flow .v{font-size:1.4rem}}
+
+/* celular: letra más grande desde que abre (pedido de Dalí 15 oct 2026: "se ve muy chiquito, la gente no ve bien en el cel") */
+@media (max-width:700px){:root{--base:22px}}
+
+/* ---------- historia por scroll: mientras bajas, crecen las columnas y suben los contadores (D.historia; 15 oct 2026) ---------- */
+.hist{position:relative;background:var(--hero);color:var(--hero-ink)}
+.hist .stage{padding-block:clamp(48px,8vw,96px)}
+.hist canvas,.hist .meters,.hist .hrail{display:none}
+.hist h2{color:var(--hero-ink);max-width:20ch}
+.hist .sub{color:var(--hero-ink);opacity:.85;max-width:56ch}
+.hist .caps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;margin-top:22px}
+.hist .cap>div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:18px;display:grid;gap:6px;height:100%}
+.hist .cap .ag{font:700 .8rem/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:#F2B04F}
+.hist .cap b.big{font:800 clamp(1.4rem,3vw,2rem)/1.1 var(--f-head);font-variant-numeric:tabular-nums}
+.hist .cap p{margin:0;opacity:.88;font-size:.95rem}
+.hist .hnote{font-size:.85rem;opacity:.75;margin-top:16px}
+.hist.live .stage{position:relative;height:100vh;height:100svh;padding:0;overflow:hidden}
+.hist.live canvas{display:block;position:absolute;inset:0;width:100%;height:100%;touch-action:pan-y}
+.hist.live .stage::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(10,16,24,.92) 0%,rgba(10,16,24,0) 36%,rgba(10,16,24,0) 58%,rgba(10,16,24,.94) 100%)}
+.hist.live .hhead,.hist.live .caps,.hist.live .hrail,.hist.live .hnote{position:absolute;left:0;right:0;z-index:2}
+.hist.live .hhead{top:clamp(14px,4vh,40px)}
+.hist.live .hhead h2{font-size:clamp(1.5rem,3.4vw,2.4rem);margin:0}
+.hist.live .hhead .sub{display:none}
+.hist.live .meters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 18px;margin-top:12px}
+.hist .meters span{display:block;font:700 .72rem/1.2 var(--f-body);letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.hist .meters b{display:block;font:800 clamp(1.15rem,3.6vw,2rem)/1.15 var(--f-head);font-variant-numeric:tabular-nums}
+.hist .meters .hot b{color:#F2B04F}
+.hist .meters .out b{opacity:.5;transition:opacity .4s,color .4s}
+.hist .meters .out.lit b{opacity:1;color:#FF9A73;text-shadow:0 0 22px rgba(232,97,60,.6)}
+.hist.live .caps{display:block;margin:0;bottom:clamp(64px,10vh,96px);height:0}
+.hist.live .cap{position:absolute;left:16px;bottom:0;width:min(460px,calc(100% - 32px));opacity:0;visibility:hidden;transform:translateY(24px);transition:opacity .3s,transform .5s cubic-bezier(.2,.8,.2,1),visibility 0s .3s}
+.hist.live .cap.on{opacity:1;visibility:visible;transform:none;transition:opacity .5s .1s,transform .6s .1s cubic-bezier(.2,.8,.2,1),visibility 0s}
+.hist.live .cap>div{background:rgba(10,16,24,.8);border-color:rgba(242,176,79,.5)}
+.hist.live .hrail{display:block;bottom:30px}
+.hist .hrail .tr{position:relative;height:3px;background:rgba(255,255,255,.18);border-radius:3px;margin-inline:16px}
+.hist .hrail .fl{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,#F2B04F,#5CC49A);border-radius:3px;box-shadow:0 0 12px rgba(242,176,79,.6)}
+.hist .hrail span{position:absolute;top:10px;transform:translateX(-50%);font:700 .75rem/1 var(--f-body);opacity:.75;white-space:nowrap}
+.hist.live .hnote{display:none}
+@media (max-width:700px){.hist.live .meters{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+
+<header class="hero" data-chapter="Inicio">
+  <div class="wrap">
+    <div class="topbar"><span class="eyebrow" id="eyebrow"></span>
+      <div class="aa" aria-label="Tamaño de letra"><button type="button" id="aMenos" aria-label="Letra más chica">A−</button><button type="button" id="aMas" aria-label="Letra más grande">A+</button></div></div>
+    <h1 id="h1"></h1>
+    <p class="lead" id="lead"></p>
+    <span class="pill" id="pill"></span>
+    <div class="stage" id="stage" aria-hidden="true"><canvas id="c3d"></canvas></div>
+    <ul class="legend" id="legend"></ul>
+  </div>
+</header>
+
+<main>
+  <section class="statement"><div class="wrap"><p class="st-text" id="st1"></p></div></section>
+
+  <section class="blk" id="caminos" data-chapter="Los caminos"><div class="wrap" style="display:grid;gap:18px">
+    <h2 id="hCam"></h2><p class="sub" id="subCam"></p>
+    <div class="scale" id="escala" hidden></div>
+    <div class="offers" id="offers"></div>
+  </div></section>
+
+  <section class="hist" id="historia" data-chapter="Así crece" hidden><div class="stage">
+    <canvas id="h3d" aria-hidden="true"></canvas>
+    <div class="hhead wrap"><h2 id="hT"></h2><p class="sub" id="hX"></p>
+      <div class="meters" aria-hidden="true"><div><span>Edad</span><b id="hA">--</b></div><div><span>Llevas pagado</span><b id="hP">$0</b></div><div class="hot"><span>Tu plan vale</span><b id="hV">$0</b></div><div class="out" id="hOw"><span id="hOl">Si faltas, reciben</span><b id="hO">$0</b></div></div></div>
+    <div class="caps wrap" id="hC"></div>
+    <div class="hrail" aria-hidden="true"><div class="tr" id="hR"><i class="fl" id="hF"></i></div></div>
+    <p class="hnote wrap" id="hN"></p>
+  </div></section>
+  <section class="blk" id="grafica" data-chapter="Tu dinero"><div class="wrap" style="display:grid;gap:18px">
+    <h2>Tu dinero, año con año</h2><p class="sub" id="subGraf"></p>
+    <div class="plot" id="plot"></div>
+    <div class="exp" id="exp" hidden>
+      <div class="exp-top"><button type="button" class="exp-ar" id="expPrev" aria-label="Un año antes">‹</button>
+        <output id="expEd" aria-live="polite"></output><button type="button" class="exp-ar" id="expNext" aria-label="Un año después">›</button></div>
+      <input type="range" id="expR" aria-label="Edad">
+      <div class="exp-chips" id="expC" role="group" aria-label="Saltar a"></div>
+      <div class="exp-cards" id="expO"></div>
+    </div>
+  </div></section>
+
+  <section class="blk" id="cien"><div class="wrap" style="display:grid;gap:18px">
+    <h2>Por cada $100 que metes, ¿cuánto te regresa?</h2><p class="sub" id="subCien"></p>
+    <div class="bars" id="bars"></div>
+  </div></section>
+
+  <section class="blk crece" id="crece" data-chapter="Crece solo" hidden><div class="wrap" style="display:grid;gap:18px">
+    <h2 id="crT"></h2><p class="sub" id="crX"></p><div class="vs" id="crV" hidden></div><div class="pagas" id="crP"></div>
+    <div class="rail" id="crR"></div><p class="muted" id="crN" style="font-size:.95rem"></p>
+  </div></section>
+  <section class="blk legado" id="legado" data-chapter="Lo que les queda" hidden><div class="wrap" style="display:grid;gap:18px">
+    <h2 id="legT"></h2><p class="sub" id="legX"></p>
+    <div class="leg-grid" id="legG"></div><p class="nota" id="legN"></p>
+  </div></section>
+
+  <section class="blk" id="decide" data-chapter="La pregunta"><div class="wrap" style="display:grid;gap:18px">
+    <h2 id="hQ"></h2>
+    <div class="q-opts" id="qOpts"></div>
+    <p class="verdict" id="qOut" hidden></p>
+  </div></section>
+
+  <section class="blk" id="miedos" data-chapter="Tus dudas"><div class="wrap" style="display:grid;gap:18px">
+    <h2>Lo que te quita el pendiente</h2><p class="sub">Toca la pregunta que te ronda.</p>
+    <div class="fears"><div class="chips" id="fearChips"></div><div class="answer" id="fearAns"><span class="q" id="fearQ"></span><p id="fearA"></p></div></div>
+  </div></section>
+
+  <section class="blk" id="anio"><div class="wrap" style="display:grid;gap:14px">
+    <h2>Año con año</h2><p class="sub" id="anoNota"></p>
+    <div class="chips" id="momentos"></div>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>Llevas pagado</th><th>Tu dinero</th><th>Si faltas, reciben</th></tr></thead>
+      <tbody id="tAno"></tbody></table></div>
+    <p class="muted" id="tAnoNota"></p>
+  </div></section>
+
+  <section class="statement"><div class="wrap"><p class="st-text" id="st2"></p></div></section>
+
+  <section class="blk" id="acceso" data-chapter="Cuándo sacar"><div class="wrap" style="display:grid;gap:18px">
+    <h2>¿Cuándo puedo sacar mi dinero?</h2>
+    <div class="access" id="access"></div>
+  </div></section>
+
+  <section class="blk" id="saber"><div class="wrap" style="display:grid;gap:18px">
+    <h2>Antes de firmar, lo que conviene saber</h2><p class="sub">Toca cada tarjeta.</p>
+    <div class="flips" id="flips"></div>
+  </div></section>
+
+  <section class="blk" id="cuando" data-chapter="Cuál conviene"><div class="wrap" style="display:grid;gap:18px">
+    <h2>¿Cuándo conviene cuál?</h2>
+    <div class="when" id="when"></div>
+  </div></section>
+
+  <section class="blk" id="fondo" data-chapter="Preguntas"><div class="wrap" style="display:grid;gap:18px">
+    <h2>Preguntas a fondo</h2>
+    <div class="faq-tools"><label for="faqQ" class="muted" style="font-weight:700">Busca tu duda</label><input id="faqQ" type="search" placeholder="Ej.: impuestos, cancelar, retiro" autocomplete="off"></div>
+    <div class="faq" id="faq"></div><p class="muted" id="faqNada" hidden>No encontré esa duda aquí. Pregúntame directo.</p>
+  </div></section>
+
+  <section class="blk" id="pasos" data-chapter="Siguiente paso"><div class="wrap" style="display:grid;gap:18px">
+    <h2>Cómo seguimos</h2><p class="sub" id="vence"></p>
+    <ol class="steps" id="steps"></ol>
+  </div></section>
+
+  <div class="wrap" style="display:grid;gap:16px">
+    <details class="letras"><summary>Las letras chiquitas</summary><ul class="list" id="letrasL"></ul></details>
+    <p class="sig" id="sig"></p>
+  </div>
+
+  
+</main>
+<a id="cta" href="#" target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
+
+<script id="data" type="application/json">{"clave": "silvia", "titulo_pag": "Silvia, tus dos caminos", "eyebrow": "Plan de ahorro · Silvia · 57 años", "titulo": "Silvia, tus dos caminos", "lead": "Con el mismo dinero, dos planes. Aquí ves cuánto metes, cuánto sacas, cuándo, y qué les queda a tus hijos.", "pill": "Mismo dinero en los dos: §30000§ el primer año", "firma": "Fernando Dalí Pérez Ibarra · Asesor de seguros GNP · Cualquier duda, pregúntame.", "frases": ["Mismo dinero cada año. Lo que cambia es <em>para quién trabaja<\/em>: para ti o para tus hijos.", "Lo que no se toca, crece. En Capitalízate tu dinero gana <em>interés sobre interés<\/em> diez años seguidos, y al ser seguro de vida lo sacas sin impuestos."], "hCam": "El mismo dinero, dos caminos", "subCam": "Los dos piden §30000§ el primer año, subiendo 5 % cada año, durante 10 años: §377337§ en total. Escoge cuánto quieres meter y todo se ajusta.", "escala": {"base": 30000, "opciones": [10000, 20000, 30000]}, "productos": [{"id": "cap", "tag": "Ahorro con candado", "nombre": "Capitalízate", "corto": "Capitalízate", "anos": 10, "frase": "Tu dinero crece guardado 10 años y luego lo sacas sin impuestos.", "metes": "§30000§ al año", "metesNota": "10 años · §377337§ en total", "sacasK": "A los 66 tienes", "sacas": "§498794§", "sacasNota": "tuyo y sin impuestos · ganas §121457§", "sacasNum": 498794, "sacasCorto": "§498794§", "sacasCuando": "a los 66 · metiste §377337§", "mini": [["Si lo dejas hasta los 76", "§907494§"], ["Si faltas, tus hijos reciben", "tu ahorro y unos §12000§ más"], ["Si te enfermas grave", "sin adelanto importante"]], "acceso": [["Años 1 a 9", "Si cancelas te regresan tu ahorro, sin el premio de lealtad (año 3: §92336§ de §94575§ que pusiste)."], ["Año 10 · 66 años", "Terminas de pagar. Sacas lo que necesites: una parte o todo."], ["Sin impuestos", "Es seguro de vida: con 60 años cumplidos y 5 de póliza, lo que sacas no paga ISR."], ["Si no lo necesitas", "Sigue creciendo: §907494§ a los 76."]], "conviene": ["Lo que quieres es ahorrar para ti", "Puedes dejar el dinero quieto 10 años", "Quieres que no se te vaya en el día a día", "Quieres sacarlo sin impuestos a los 66"], "cuidado": ["Antes del año 10 no puedes sacar una parte: solo cancelar todo", "La protección para tus hijos es casi solo tu propio ahorro"]}, {"id": "tra", "tag": "Protección de por vida", "nombre": "Trasciende", "corto": "Trasciende", "anos": 10, "frase": "Tus hijos quedan protegidos desde el primer día y además vas juntando dinero.", "metes": "§30000§ al año", "metesNota": "10 años · §377337§ en total", "sacasK": "Si faltas, tus hijos reciben", "sacas": "§426326§", "sacasNota": "desde el primer día; §661372§ a los 66", "sacasNum": 378139, "sacasCorto": "§378139§", "sacasCuando": "a los 66 y tus hijos protegidos", "mini": [["A los 66 tienes", "§378139§"], ["A los 76, sin meter más", "§771210§"], ["Si te enfermas grave", "hasta §141007§ adelantados"]], "acceso": [["Años 1 y 2", "Si cancelas no recuperas nada."], ["Años 3 a 9", "Si cancelas recuperas una parte (año 6: §114421§). Desde el año 3, si dictaminan fase terminal, te adelantan el 30 %."], ["Año 10 · 66 años", "Sacas hasta la mitad sin impuestos; la protección baja en la misma proporción."], ["Siempre", "Tus hijos protegidos hasta tus 100 años."]], "conviene": ["Te preocupa dejarles algo a tus hijos", "Quieres un respaldo si te enfermas grave (desde el año 3)", "No vas a necesitar ese dinero en los próximos años"], "cuidado": ["Si cancelas los primeros 2 años no recuperas nada", "Como ahorro tarda 10 años en regresarte lo que metiste"]}], "cien": {"nota": "Para comparar parejo: lo que tienes al final entre lo que metiste.", "barras": [{"id": "cap", "l": "Capitalízate a los 66", "v": 132, "n": "§498794§ por §377337§"}, {"id": "tra", "l": "Trasciende a los 66", "v": 100, "n": "lo mismo que metiste, y tus hijos protegidos"}, {"id": "cap", "l": "Capitalízate a los 76", "v": 240, "n": "sin meter un peso más"}, {"id": "tra", "l": "Trasciende a los 76", "v": 204, "n": "y la protección sigue"}]}, "pregunta": {"texto": "¿Qué es lo que más te importa de este dinero?", "opciones": [{"label": "Que sea para mí, para cuando lo necesite más adelante", "rec": ["cap"], "texto": "<b>Capitalízate.<\/b> A los 66 tienes §498794§ tuyos, sin impuestos. Como ahorro rinde más que Trasciende."}, {"label": "Que mis hijos reciban algo si yo falto", "rec": ["tra"], "texto": "<b>Trasciende.<\/b> Desde el primer día tus hijos reciben §426326§ si faltas, y sube con los años. Como ahorro tarda más: a los 66 tienes lo mismo que metiste."}, {"label": "Tener dinero si me enfermo de algo grave", "rec": ["tra"], "texto": "<b>Trasciende.<\/b> Desde el año 3, si un médico dictamina fase terminal, te adelantan hasta §141007§ para lo que necesites. No es seguro de gastos médicos."}, {"label": "Poder sacarlo pronto si se ofrece", "rec": [], "texto": "<b>Ninguno con todo tu dinero.<\/b> Los dos lo guardan varios años. Lo mejor: una parte chica en Capitalízate y el resto a la mano en tu app."}]}, "anoNota": "Toca el año para ver cómo va cada plan.", "momentos": [{"label": "Año 1 · 57 años", "vals": {"cap": ["§30000§", "§23888§ si cancelas", "§51813§"], "tra": ["§30000§", "$0", "§426326§"]}, "nota": "En Trasciende, lo del primer año compra la protección; el dinero empieza a juntarse en el año 3."}, {"label": "Año 3 · 59 años", "vals": {"cap": ["§94575§", "§92336§ si cancelas", "§123265§"], "tra": ["§94575§", "§26317§", "§470024§"]}}, {"label": "Año 6 · 62 años", "vals": {"cap": ["§204057§", "§226815§ si cancelas", "§262895§"], "tra": ["§204057§", "§114421§", "§544112§"]}}, {"label": "Año 10 · 66 años", "vals": {"cap": ["§377337§", "§498794§", "§515873§"], "tra": ["§377337§", "§378139§", "§661372§"]}, "nota": "Desde aquí ya no pagas nada. En Capitalízate sacas lo que quieras, sin impuestos."}, {"label": "Año 20 · 76 años", "vals": {"cap": ["§377337§", "§907494§", "§924574§"], "tra": ["§377337§", "§771210§", "§1077305§"]}}], "historia": {"titulo": "Tía, así crece tu Capitalízate", "sub": "Mientras bajas pasan los años: lo dorado es lo que pones; lo verde, lo que crece guardado.", "filas": [[57, 30000, 39813, 51813], [59, 94575, 110286, 123265], [62, 204057, 248295, 262895], [66, 377337, 498794, 515873], [76, 377337, 907494, 924574]], "hitos": [[57, "Empiezas", "Pones ¤30000¤ el primer año, y sube un poco cada año."], [62, "¤248295¤", "Ya vale más de lo que llevas metido, y GNP te premia por seguir."], [66, "¤498794¤", "Terminas de pagar. Es tuyo y lo sacas sin impuestos: metiste ¤377337¤."], [76, "¤907494¤", "Si no lo necesitas, sigue creciendo sin meter un peso más."]], "nota": "Capitalízate con $30,000 el primer año, subiendo 5 % cada año, 10 años de pago (cotización de GNP). Entre las edades marcadas, las cifras con ~ son aproximadas. El rendimiento depende de las inversiones; proyección, no garantía."}, "letras": ["Cifras de las cotizaciones de GNP con $30,000 el primer año, subiendo 5 % cada año, 10 años de pago. Con otra cantidad los montos cambian casi en la misma proporción; la cifra exacta sale en tu cotización.", "Son proyecciones, no garantías. En Capitalízate el valor depende del rendimiento de las inversiones que elijas; los valores garantizados de Trasciende vienen en tu póliza.", "Capitalízate (condiciones CNSF-S0043-0129-2014): antes de terminar el plazo de pago solo se puede cancelar completo y el premio de lealtad se pierde. Terminado el plazo, retiros parciales por el monto que quieras.", "Si además metes aportaciones extra a Capitalízate, esas sí las puedes sacar cuando quieras.", "Trasciende: retirar una parte baja la protección en la misma proporción. La protección dura hasta los 100 años.", "El adelanto por enfermedad en fase terminal de Trasciende (30 % de la protección, desde el año 3; infarto, evento cerebral, bypass, cáncer o insuficiencia renal) se confirma por escrito con GNP antes de firmar.", "Ninguno de los dos es seguro de gastos médicos. Hoy tienes IMSS; eso lo platicamos aparte.", "La Cobertura Mujer de Trasciende ya no aplica por tu edad."], "legado": {"titulo": "Lo que les queda a tus hijos y a tu nieto", "texto": "Esto es lo que más pesa. Si un día faltas, esto es lo que reciben mis primos, y lo reciben sin pagar impuestos.", "items": [["Con Trasciende, desde el primer día", "§426326§"], ["Con Trasciende, a tus 66", "§661372§"], ["Con Trasciende, a tus 76", "§1077305§"], ["Con Capitalízate, a tus 66", "§515873§"]], "nota": "Con Capitalízate lo que reciben es tu propio ahorro y un poco más. Con Trasciende es una protección que sigue creciendo aunque dejes de pagar a los 66."}, "subGraf": "Cuánto vale tu dinero a cada edad si lo necesitaras. La línea punteada es lo que llevas metido.", "serie": [{"id": "cap", "l": "Capitalízate", "p": [[57, 39813], [59, 110286], [62, 248295], [66, 498794], [76, 907494]]}, {"id": "tra", "l": "Trasciende", "p": [[57, 0], [59, 26317], [62, 114421], [66, 378139], [76, 771210]]}, {"id": "pag", "l": "Lo que metiste", "p": [[57, 30000], [59, 94575], [62, 204057], [66, 377337], [76, 377337]]}], "miedos": [["Si me pasa algo, ¿qué les queda a mis hijos?", "A mis primos y a tu nieto: con Trasciende reciben §426326§ desde el primer día, y sube con los años. Con Capitalízate reciben tu ahorro y un poco más (año 1: §51813§)."], ["¿Y si necesito el dinero antes?", "Los dos lo guardan. En Capitalízate, antes del año 10 solo se puede cancelar todo y te regresan tu ahorro sin el premio. Para lo urgente, deja una parte en tu app, o mete aportaciones extra a Capitalízate: ésas sí se sacan cuando quieras."], ["¿Voy a pagar impuestos al sacarlo?", "No. Es seguro de vida: con 60 años cumplidos y 5 de póliza, lo que sacas no paga ISR."], ["¿Y si me enfermo de algo grave?", "Trasciende te adelanta el 30 % de tu protección desde el año 3 si un médico dictamina fase terminal (lo confirmo por escrito con GNP). Ninguno de los dos es seguro de gastos médicos."], ["¿Quién me ayuda con los trámites?", "Yo, tu sobrino. Y tu póliza la ves en la app Soy Cliente GNP: cuánto llevas, tus pagos y tu estado de cuenta."]], "flips": [["El rendimiento de Capitalízate", "No está garantizado: depende de las inversiones que elijas. Las cifras de esta página son proyección."], ["Los dos primeros años de Trasciende", "Si cancelas, no recuperas nada: lo pagado esos años compra la protección de tus hijos."], ["Lo que no cubren", "Ninguno es seguro de gastos médicos. Tu salud la vemos aparte."], ["Sin impuestos, con una condición", "Lo que sacas no paga ISR si tienes 60 años cumplidos y la póliza tiene 5 años."]], "faq": [["¿Qué pasa si un año no puedo pagar?", "Tienes seis meses para ponerte al corriente. Si no, en Capitalízate el premio de lealtad se reduce: todo en los años 1 y 2, la mitad del año 3 al 5, una cuarta parte del 6 al 10.", "Condiciones Capitalízate CNSF-S0043-0129-2014, Premio de Lealtad"], ["¿Qué es el premio de lealtad?", "GNP te abona el 50 % de tu prima de ahorro del primer año (en planes de 10 a 14 años). Es tuyo al terminar de pagar.", "Condiciones Capitalízate, Premio de Lealtad"], ["¿El rendimiento está garantizado?", "En Capitalízate no: depende de las inversiones. Trasciende trae una tabla de valores garantizados en la póliza.", "Condiciones Capitalízate, Valor de Rescate"], ["¿Puedo meter más dinero?", "Sí, en Capitalízate como aportaciones extra, y esas las puedes sacar cuando quieras.", "Condiciones Capitalízate, Retiros Parciales"], ["¿Puedo sacar una parte en el año 5?", "En Capitalízate no: las partes se sacan al terminar de pagar. Antes solo cancelando todo.", "Condiciones Capitalízate, Retiros Parciales"], ["¿Por qué Trasciende vale $0 al principio?", "Lo que pagas los dos primeros años compra la protección. El dinero empieza a juntarse en el año 3.", "Cotización Trasciende de GNP"], ["¿Hasta cuándo dura la protección de Trasciende?", "Hasta tus 100 años, aunque solo pagues 10.", "Cotización Trasciende de GNP"], ["¿Puedo cambiar a mis beneficiarios?", "Sí, cuando quieras, avisando por escrito a GNP.", "Condiciones generales, Beneficiarios"], ["¿Puedo tener la Cobertura Mujer?", "Ya no aplica por tu edad.", "Condiciones Trasciende"]], "pasos": [["Contesta la pregunta de arriba", "Con tu respuesta sabemos cuál te conviene."], ["Te saco la cotización exacta", "Con tu edad y la cantidad que escojas: §30000§ o la que quieras."], ["Firmas y listo", "Yo me encargo de los trámites; tú lo ves en la app de GNP."]], "wa": "523117408139", "waTexto": "Hola Dalí, vi mi plan de ahorro y tengo una duda"}</script>
+<script>
+/* ---------- contenido: todo sale de DATA ---------- */
+(function(){
+  var D=JSON.parse(document.getElementById("data").textContent);window.__D=D;
+  var $=function(id){return document.getElementById(id);};
+  var k=1,picked=null,mom=0;
+  function mx(n){return "$"+Math.round(n).toLocaleString("es-MX");}
+  /* §n§ se escala con la prima elegida; ¤n¤ es fijo */
+  function t(s){return String(s==null?"":s).replace(/§(-?\d+)§/g,function(_,n){return mx(+n*k);}).replace(/¤(-?\d+)¤/g,function(_,n){return mx(+n);});}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  window.__t=t;
+  var PC={cap:["var(--cap)","var(--cap-soft)"],tra:["var(--tra)","var(--tra-soft)"],ppr:["var(--ppr)","var(--ppr-soft)"]};
+  function cs(id){return 'style="--c:'+PC[id][0]+';--cs:'+PC[id][1]+'"';}
+  try{var b=localStorage.getItem("planBase");if(b)document.documentElement.style.setProperty("--base",b);}catch(e){}
+  function base(d){var cur=parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--base"))||19;cur=Math.max(16,Math.min(30,cur+d));
+    document.documentElement.style.setProperty("--base",cur+"px");try{localStorage.setItem("planBase",cur+"px");}catch(e){}if(window.ScrollTrigger)ScrollTrigger.refresh();}
+  $("aMas").onclick=function(){base(2);};$("aMenos").onclick=function(){base(-2);};
+
+  $("eyebrow").textContent=D.eyebrow;$("h1").textContent=D.titulo;$("lead").textContent=D.lead;
+  $("st1").innerHTML=D.frases[0];$("st2").innerHTML=D.frases[1];
+  $("hCam").textContent=D.hCam;$("subCien").textContent=D.cien.nota;$("hQ").textContent=D.pregunta.texto;
+  $("anoNota").textContent=D.anoNota;$("sig").textContent=D.firma;
+
+  $("qOpts").innerHTML=D.pregunta.opciones.map(function(o,i){return '<button type="button" data-i="'+i+'" aria-pressed="false">'+esc(o.label)+'</button>';}).join("");
+  $("qOpts").onclick=function(e){var b=e.target.closest("button[data-i]");if(!b)return;var o=D.pregunta.opciones[+b.dataset.i];
+    [].forEach.call($("qOpts").children,function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});
+    picked=o.rec;$("qOut").hidden=false;$("qOut").innerHTML=t(o.texto);paint();
+    if(window.gsap&&window.__motion!=="off")gsap.fromTo("#qOut",{y:14,opacity:0},{y:0,opacity:1,duration:.45,ease:"power3.out"});};
+
+  if(D.escala){var es=$("escala");es.hidden=false;
+    es.innerHTML='<span class="muted" style="align-self:center;font-weight:700">¿Cuánto al año?</span>'+D.escala.opciones.map(function(p){return '<button type="button" data-p="'+p+'" aria-pressed="'+(p===D.escala.base)+'">'+mx(p)+'</button>';}).join("");
+    es.onclick=function(e){var b=e.target.closest("button[data-p]");if(!b)return;k=+b.dataset.p/D.escala.base;
+      [].forEach.call(es.querySelectorAll("button"),function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});paint();};}
+
+  $("momentos").innerHTML=D.momentos.map(function(m,i){return '<button type="button" data-i="'+i+'" aria-pressed="'+(i===0)+'">'+esc(m.label)+'</button>';}).join("");
+  $("momentos").onclick=function(e){var b=e.target.closest("button[data-i]");if(!b)return;mom=+b.dataset.i;
+    [].forEach.call($("momentos").children,function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});paintAno();};
+
+  function yrs(n,max){var s="";for(var i=0;i<max;i++)s+='<i class="'+(i<n?"":"off")+'"></i>';return s+'<small>'+n+(n===1?" año":" años")+' pagando</small>';}
+  function paintAno(){var m=D.momentos[mom];
+    $("tAno").innerHTML=D.productos.map(function(p){var v=m.vals[p.id];if(!v)return "";
+      return '<tr '+cs(p.id)+'><td class="p"><span class="dot"></span>'+esc(p.corto)+'</td><td data-l="Llevas pagado">'+t(v[0])+'</td><td data-l="Tu dinero">'+t(v[1])+'</td><td data-l="Si faltas, reciben">'+t(v[2])+'</td></tr>';}).join("");
+    $("tAnoNota").innerHTML=t(m.nota||"");}
+  function paint(){
+    $("pill").innerHTML=t(D.pill);$("subCam").innerHTML=t(D.subCam);
+    var maxY=Math.max.apply(null,D.productos.map(function(p){return p.anos;}));
+    $("legend").innerHTML=D.productos.map(function(p){return '<li '+cs(p.id)+'><span>'+esc(p.corto)+'</span><b>'+t(p.sacasCorto)+'</b><span>'+t(p.sacasCuando)+'</span></li>';}).join("");
+    $("offers").innerHTML=D.productos.map(function(p){
+      return '<article class="offer'+(picked&&picked.indexOf(p.id)>-1?" rec":"")+'" '+cs(p.id)+'><span class="rb">★ El que te conviene según tu respuesta</span>'+
+        '<span class="tag">'+esc(p.tag)+'</span><h3>'+esc(p.nombre)+'</h3><p class="muted">'+t(p.frase)+'</p>'+
+        '<div class="yrs" aria-label="'+p.anos+' años pagando">'+yrs(p.anos,maxY)+'</div>'+
+        '<div class="flow"><span class="k">Metes</span><span class="v">'+t(p.metes)+'</span><span class="n">'+t(p.metesNota)+'</span></div>'+
+        '<span class="arrow" aria-hidden="true">↓</span>'+
+        '<div class="flow"><span class="k">'+esc(p.sacasK)+'</span><span class="v">'+t(p.sacas)+'</span><span class="n">'+t(p.sacasNota)+'</span></div>'+
+        '<div class="mini">'+p.mini.map(function(r){return '<div><span>'+esc(r[0])+'</span><b>'+t(r[1])+'</b></div>';}).join("")+'</div></article>';}).join("");
+    var mx100=Math.max.apply(null,D.cien.barras.map(function(b){return b.v;}))*1.08;
+    $("bars").innerHTML=D.cien.barras.map(function(b){return '<div class="bar" '+cs(b.id)+'><div class="bar-lbl"><span><span class="dot"></span>'+esc(b.l)+'</span><b>$'+b.v+'</b></div>'+
+      '<div class="bar-track" style="--m100:'+(100/mx100*100).toFixed(1)+'%"><div class="bar-fill" style="--w:'+(b.v/mx100*100).toFixed(1)+'%"></div></div><span class="note">'+t(b.n)+'</span></div>';}).join("")+
+      '<p class="note">La línea punteada marca los $100 que metiste.</p>';
+    $("access").innerHTML=D.productos.map(function(p){return '<div class="card" '+cs(p.id)+'><h3><span class="dot"></span>'+esc(p.corto)+'</h3><ol class="timeline">'+
+      p.acceso.map(function(a){return '<li><b>'+t(a[0])+'</b><span>'+t(a[1])+'</span></li>';}).join("")+'</ol></div>';}).join("");
+    $("when").innerHTML=D.productos.map(function(p){return '<div class="card" '+cs(p.id)+'><h3><span class="dot"></span>'+esc(p.corto)+' te conviene si…</h3><ul class="list">'+
+      p.conviene.map(function(x){return "<li>"+t(x)+"</li>";}).join("")+'</ul>'+(p.cuidado&&p.cuidado.length?'<p class="muted" style="font-weight:700">Ojo con:</p><ul class="list">'+
+      p.cuidado.map(function(x){return "<li>"+t(x)+"</li>";}).join("")+'</ul>':'')+'</div>';}).join("");
+    $("letrasL").innerHTML=D.letras.map(function(x){return "<li>"+t(x)+"</li>";}).join("");
+
+    /* gráfica: una línea por plan + lo que metiste (punteada) */
+    if(D.serie){var nar=innerWidth<600,S=D.serie,W=nar?400:720,H=nar?320:340,L=nar?74:76,R=nar?104:128,T=18,B=40,all=[];   /* en celular, una gráfica a su medida: nada de deslizar de lado */S.forEach(function(s){s.p.forEach(function(q){all.push(q);});});
+      var x0=Math.min.apply(null,all.map(function(q){return q[0];})),x1=Math.max.apply(null,all.map(function(q){return q[0];})),y1=Math.max.apply(null,all.map(function(q){return q[1];}))*k*1.06;
+      var X=function(a){return L+(a-x0)/(x1-x0)*(W-L-R);},Y=function(v){return H-B-(v*k)/y1*(H-T-B);};
+      var stp=[100000,200000,250000,500000,1000000].filter(function(v){return y1/v<=5;})[0]||1000000,g="";
+      for(var v=0;v<=y1;v+=stp){g+='<line class="gl" x1="'+L+'" x2="'+(W-R)+'" y1="'+Y(v/k)+'" y2="'+Y(v/k)+'"/><text x="'+(L-8)+'" y="'+(Y(v/k)+4)+'" text-anchor="end">'+(v===0?"$0":v>=1e6?"$"+(v/1e6).toFixed(v%1e6?1:0)+" M":"$"+Math.round(v/1000)+" mil")+'</text>';}
+      /* edades cada 5 años (con todas las de los datos se amontonan en celular) */
+      var ages=[x0];for(var a5=Math.ceil((x0+1)/5)*5;a5<=x1;a5+=5)if(a5-x0>=3)ages.push(a5);ages.forEach(function(a){g+='<text x="'+X(a)+'" y="'+(H-14)+'" text-anchor="middle">'+a+(a===x0?" años":"")+'</text>';});
+      var ln=S.map(function(s){var d=s.p.map(function(q,i){return (i?"L":"M")+X(q[0]).toFixed(1)+","+Y(q[1]).toFixed(1);}).join(" "),e=s.p[s.p.length-1];
+        var col=s.id==="pag"?"":'style="stroke:var(--'+s.id+')"';
+        return '<path class="'+(s.id==="pag"?"pg":"ln")+'" '+col+' d="'+d+'"/>'+s.p.map(function(q,qi){return (s.id==="pag"||(s.p.length>12&&qi<s.p.length-1))?"":'<circle cx="'+X(q[0])+'" cy="'+Y(q[1])+'" r="5" style="fill:var(--'+s.id+')"/>';}).join("")+
+          '<text class="end" x="'+(X(e[0])+10)+'" y="'+(Y(e[1])+(s.dy||5))+'" style="fill:'+(s.id==="pag"?"var(--muted)":"var(--"+s.id+")")+'">'+esc(s.l)+'</text>';}).join("");
+      $("plot").innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Gráfica de cuánto vale tu dinero por edad en cada plan">'+g+ln+'<g id="cur"></g></svg>';
+      window.__plot={X:X,Y:Y,T:T,B:B,H:H,x0:x0,x1:x1};if(window.__exp)window.__exp();
+      $("subGraf").innerHTML=t(D.subGraf||"");}
+
+  /* explorador: mueve la edad y ve cuánto llevas pagado, cuánto vale y cuánto protege, en cada plan (necesita D.tabla) */
+  if(D.tabla){(function(){var Tb=D.tabla,ids=D.productos.map(function(p){return p.id;}).filter(function(id){return Tb[id];});
+    var ages=Tb[ids[0]].map(function(r){return r[0];}),r=$("expR"),cur=0;$("exp").hidden=false;
+    r.min=0;r.max=ages.length-1;r.step=1;r.value=0;
+    function row(id,i){var a=Tb[id];return a[Math.min(i,a.length-1)];}
+    $("expC").innerHTML=(D.tablaSaltos||[]).map(function(j){var i=ages.indexOf(j[0]);return i<0?"":'<button type="button" data-i="'+i+'" aria-pressed="false">'+esc(j[1])+'</button>';}).join("");
+    function show(i){cur=Math.max(0,Math.min(ages.length-1,i));r.value=cur;var ed=ages[cur];
+      $("expEd").innerHTML=ed+" años<small>"+(cur===0?"hoy, primer año":"año "+(cur+1)+" de tu plan")+"</small>";
+      [].forEach.call($("expC").children,function(b){b.setAttribute("aria-pressed",+b.dataset.i===cur?"true":"false");});
+      var maxV=0;ids.forEach(function(id){maxV=Math.max(maxV,row(id,ages.length-1)[2],row(id,ages.length-1)[1]);});
+      $("expO").innerHTML=D.productos.filter(function(p){return Tb[p.id];}).map(function(p){var q=row(p.id,cur),x=q[1]?q[2]/q[1]:0;
+        return '<div class="exp-card" '+cs(p.id)+'><h4><i></i>'+esc(p.corto)+'</h4><div class="lbl">Tu dinero si lo necesitaras</div><div class="big">'+mx(q[2]*k)+'</div>'+
+          '<div class="bar"><i style="width:'+(q[2]/maxV*100).toFixed(1)+'%"></i></div>'+
+          '<div class="row"><span>Llevas pagado</span><b>'+mx(q[1]*k)+'</b></div>'+
+          '<div class="row"><span>Por cada $100 que metiste</span><b class="x">'+(q[2]?"$"+Math.round(x*100):"$0")+'</b></div>'+
+          '<div class="row"><span>Si faltas, reciben</span><b>'+mx(q[3]*k)+'</b></div></div>';}).join("");
+      var P=window.__plot,c=$("cur");if(P&&c&&ed>=P.x0&&ed<=P.x1){var X=P.X(ed);
+        c.innerHTML='<line x1="'+X+'" x2="'+X+'" y1="'+P.T+'" y2="'+(P.H-P.B)+'"/>'+ids.map(function(id){var v=row(id,cur)[2];return '<circle cx="'+X+'" cy="'+P.Y(v)+'" r="7" style="fill:var(--'+id+')"/>';}).join("");}}
+    window.__exp=function(){show(cur);};
+    r.addEventListener("input",function(){show(+r.value);});
+    $("expPrev").onclick=function(){show(cur-1);};$("expNext").onclick=function(){show(cur+1);};
+    $("expC").onclick=function(e){var b=e.target.closest("button[data-i]");if(b)show(+b.dataset.i);};
+    show(Math.max(0,ages.indexOf(D.tablaInicio||ages[0])));})();}
+    if(D.crece){var C=D.crece;$("crece").hidden=false;$("crT").textContent=C.titulo;$("crX").innerHTML=t(C.texto);$("crN").innerHTML=t(C.nota||"");
+      $("crP").innerHTML=Array.apply(null,{length:C.anosTotales||10}).map(function(_,i){return '<i class="'+(i<C.anosPago?"":"o")+'"></i>';}).join("")+'<span style="margin-left:8px">'+esc(C.pagasTexto||"")+'</span>';
+      if(C.vs){$("crV").hidden=false;$("crV").innerHTML=C.vs.map(function(v,i){return '<div class="'+(i?"si":"no")+'"><h3>'+esc(v[0])+'</h3><ul>'+v[1].map(function(x){return "<li>"+t(x)+"</li>";}).join("")+'</ul></div>';}).join("");}
+      $("crR").style.setProperty("--n",C.hitos.length);
+      $("crR").innerHTML=C.hitos.map(function(h){return '<div class="hito"><div class="ed">'+esc(h[0])+'</div><div class="tt">'+esc(h[1])+'</div><div class="vv">'+t(h[2])+'</div><p>'+t(h[3])+'</p></div>';}).join("");}
+    if(D.legado){$("legado").hidden=false;$("legT").textContent=D.legado.titulo;$("legX").innerHTML=t(D.legado.texto);$("legN").innerHTML=t(D.legado.nota||"");
+      $("legG").innerHTML=D.legado.items.map(function(x,i){return '<div class="leg'+(i===0?" main":"")+'"><span>'+esc(x[0])+'</span><b class="v">'+t(x[1])+'</b></div>';}).join("");}
+    paintAno();
+    if(window.__onPaint)window.__onPaint();
+  }
+  paint();
+  var narNow=innerWidth<600;addEventListener("resize",function(){var n=innerWidth<600;if(n!==narNow){narNow=n;paint();}});
+
+
+  /* miedos, tarjetas, preguntas a fondo, pasos, vencimiento y WhatsApp */
+  if(D.miedos){$("fearChips").innerHTML=D.miedos.map(function(m,i){return '<button type="button" class="chip" data-i="'+i+'" aria-pressed="'+(i===0)+'">'+esc(m[0])+'</button>';}).join("");
+    function fear(i){$("fearQ").textContent=D.miedos[i][0];$("fearA").innerHTML=t(D.miedos[i][1]);}
+    fear(0);$("fearChips").onclick=function(e){var b=e.target.closest("button[data-i]");if(!b)return;[].forEach.call($("fearChips").children,function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});fear(+b.dataset.i);
+      if(window.gsap&&window.__motion!=="off")gsap.fromTo("#fearQ,#fearA",{y:14,opacity:0},{y:0,opacity:1,duration:.45,ease:"power3.out",stagger:.06});};}
+  if(D.flips)$("flips").innerHTML=D.flips.map(function(f){return '<button type="button" class="flip" aria-pressed="false"><span class="in"><span class="f"><b>'+esc(f[0])+'</b><small>Toca para ver</small></span><span class="b">'+t(f[1])+'</span></span></button>';}).join("");
+  $("flips").onclick=function(e){var f=e.target.closest(".flip");if(f)f.setAttribute("aria-pressed",f.getAttribute("aria-pressed")==="true"?"false":"true");};
+  if(D.faq){$("faq").innerHTML=D.faq.map(function(q){return '<details data-s="'+esc((q[0]+" "+q[1]).toLowerCase())+'"><summary>'+esc(q[0])+'</summary><p>'+t(q[1])+'<span class="src">'+esc(q[2]||"")+'</span></p></details>';}).join("");
+    $("faqQ").oninput=function(){var v=this.value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""),n=0;
+      [].forEach.call($("faq").children,function(d){var ok=!v||d.dataset.s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").indexOf(v)>-1;d.hidden=!ok;if(ok)n++;});$("faqNada").hidden=n>0;};}
+  if(D.pasos)$("steps").innerHTML=D.pasos.map(function(p){return '<li><b>'+esc(p[0])+'</b><span>'+t(p[1])+'</span></li>';}).join("");
+  if(D.vence){var dv=Math.ceil((new Date(D.vence+"T23:59:00")-new Date())/864e5);
+    $("vence").innerHTML=dv>0?'<span class="countdown">⏳ La cotización vence en '+dv+(dv===1?" día":" días")+'</span>':'<span class="countdown">La cotización ya venció: te saco una nueva</span>';}
+  if(D.wa){$("cta").href="https://wa.me/"+D.wa+"?text="+encodeURIComponent(D.waTexto||"Hola Dalí, vi mi plan y tengo una duda");}else $("cta").remove();
+  
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ---------- portada 3D: una columna por plan, alta según lo que sacas. Sin WebGL o con animación apagada, la leyenda dice lo mismo. ---------- */
+(function(){
+  var D=window.__D,stage=document.getElementById("stage"),cv=document.getElementById("c3d");
+  if(!window.THREE||window.__motion==="off"){stage.hidden=true;return;}
+  var gl=false;try{gl=!!(cv.getContext("webgl")||cv.getContext("experimental-webgl"));}catch(e){}
+  if(!gl){stage.hidden=true;return;}
+  var T=THREE,r=new T.WebGLRenderer({canvas:cv,antialias:!window.__lowfx,alpha:true});r.setPixelRatio(window.__dpr());
+  var sc=new T.Scene(),cam=new T.PerspectiveCamera(35,1,.1,100);cam.position.set(0,3.2,9.5);cam.lookAt(0,1.4,0);
+  sc.add(new T.AmbientLight(0xffffff,.55));var dl=new T.DirectionalLight(0xffffff,.9);dl.position.set(4,8,6);sc.add(dl);
+  var root=getComputedStyle(document.documentElement),grp=new T.Group();sc.add(grp);
+  var P=D.productos,max=Math.max.apply(null,P.map(function(p){return p.sacasNum;})),cols=[],gap=2.1,x0=-(P.length-1)*gap/2;
+  P.forEach(function(p,i){var col=new T.Color((root.getPropertyValue("--"+p.id)||"#888").trim());
+    var h=Math.max(.25,p.sacasNum/max*3.6),g=new T.BoxGeometry(1.2,1,1.2),m=new T.MeshStandardMaterial({color:col,roughness:.45,metalness:.1});
+    var b=new T.Mesh(g,m);b.position.set(x0+i*gap,0,0);b.userData.h=h;b.scale.y=.001;grp.add(b);cols.push(b);
+    var base=new T.Mesh(new T.CylinderGeometry(.95,.95,.08,40),new T.MeshStandardMaterial({color:col,transparent:true,opacity:.25}));base.position.set(b.position.x,0,0);grp.add(base);});
+  function size(){var w=stage.clientWidth,h=stage.clientHeight;r.setSize(w,h,false);cam.aspect=w/h;cam.position.z=w<520?12.5:9.5;cam.updateProjectionMatrix();}
+  size();addEventListener("resize",size);
+  var t0=performance.now(),vis=true,raf=0,adapt=window.__adapt(r,size),soft=window.__motion==="soft";
+  new IntersectionObserver(function(es){vis=es[0].isIntersecting;if(vis&&!raf)raf=requestAnimationFrame(loop);}).observe(stage);
+  function loop(now){raf=0;adapt(now);var e=Math.min(1,(now-t0)/1800),ease=1-Math.pow(1-e,3);
+    cols.forEach(function(b,i){var k=Math.min(1,Math.max(0,ease*1.25-i*.12));b.scale.y=Math.max(.001,b.userData.h*k);b.position.y=b.scale.y/2;});
+    grp.rotation.y=soft?-.25:Math.sin(now/3200)*.35-.15;r.render(sc,cam);if(vis)raf=requestAnimationFrame(loop);}
+  raf=requestAnimationFrame(loop);
+  window.__on3d=function(){max=Math.max.apply(null,P.map(function(p){return p.sacasNum;}));};
+})();
+
+/* ---------- movimiento: frases que se encienden, tarjetas que se levantan, barras que se llenan, línea de tiempo ---------- */
+(function(){
+  var G=window.gsap,ST=window.ScrollTrigger,mode=window.__motion,soft=mode==="soft";
+  var $$=function(s){return [].slice.call(document.querySelectorAll(s));};
+  /* botón de animaciones y #diag, en cualquier modo */
+  var os=!!window.__osReduce,pref=null;try{pref=localStorage.getItem("anim");}catch(e){}
+  if(os||pref){var mb=document.createElement("button");mb.type="button";mb.className="motion-toggle";mb.textContent=mode==="full"?"Reducir animaciones":"✨ Activar animaciones";
+    mb.onclick=function(){try{if(mode==="full"){if(os)localStorage.removeItem("anim");else localStorage.setItem("anim","off");}else localStorage.setItem("anim","full");}catch(e){}location.reload();};document.body.appendChild(mb);}
+  if(/diag/.test(location.hash)){var bx=document.createElement("div");bx.className="diag";bx.textContent="Modo: "+mode+" · GSAP: "+(G?"sí":"NO")+" · Three: "+(window.THREE?"sí":"NO")+"\nErrores: "+((window.__errs||[]).join(" | ")||"ninguno");document.body.appendChild(bx);}
+
+  /* riel de capítulos y WhatsApp fijo */
+  var chs=$$("[data-chapter]").filter(function(c){return !c.hidden;}),rail=null,dots=[];   /* las secciones apagadas no van al riel */
+  if(chs.length>3){rail=document.createElement("nav");rail.className="chapters";rail.setAttribute("aria-label","Capítulos");
+    rail.innerHTML=chs.map(function(c,i){if(!c.id)c.id="cap-"+i;return '<a href="#'+c.id+'"><i></i><span>'+c.dataset.chapter+'</span></a>';}).join("");document.body.appendChild(rail);dots=$$(".chapters a");
+    dots.forEach(function(d,i){d.addEventListener("click",function(e){e.preventDefault();if(window.__lenis)window.__lenis.scrollTo(chs[i],{offset:-20,duration:1.3});else chs[i].scrollIntoView({behavior:"smooth"});});});}
+  var hero=document.querySelector(".hero"),tk=false;
+  function ui(){tk=false;var past=hero.getBoundingClientRect().bottom<innerHeight*.3,end=(innerHeight+scrollY)>=document.documentElement.scrollHeight-160;
+    document.body.classList.toggle("past-hero",past);document.body.classList.toggle("at-end",end);
+    if(rail){var cur=0;chs.forEach(function(c,i){if(c.getBoundingClientRect().top<innerHeight*.45)cur=i;});dots.forEach(function(d,i){d.classList.toggle("on",i===cur);d.classList.toggle("done",i<cur);});}}
+  addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(ui);}},{passive:true});ui();
+  if(!G||!ST||mode==="off")return;
+  G.registerPlugin(ST);
+  /* scroll suave en laptop, como en las páginas de seguros (Lenis); en celular el scroll nativo */
+  var fine=window.matchMedia&&matchMedia("(pointer: fine)").matches;
+  if(window.Lenis&&mode==="full"&&fine&&!window.__lowfx){var len=new Lenis({duration:1.15,smoothWheel:true});window.__lenis=len;len.on("scroll",ST.update);G.ticker.add(function(t){len.raf(t*1000);});G.ticker.lagSmoothing(0);}
+  G.from(".hero h1,.hero .lead,.hero .pill,.legend li",{y:soft?0:26,opacity:0,duration:.9,ease:"power3.out",stagger:.08,delay:.1,clearProps:"opacity,transform"});
+  $$(".st-text").forEach(function(p){var out="";p.innerHTML.replace(/(<[^>]+>)|([^<\s]+)|(\s+)/g,function(m,tag,w){if(tag)out+=tag;else if(w)out+='<span class="sw">'+w+'</span>';else out+=" ";return m;});
+    p.innerHTML=out;G.fromTo(p.querySelectorAll(".sw"),soft?{opacity:.15}:{opacity:.15,rotateX:-70,y:"0.3em",transformPerspective:600,transformOrigin:"50% 100%"},
+      {opacity:1,rotateX:0,y:0,ease:"none",stagger:.12,scrollTrigger:{trigger:p,start:"top 85%",end:"bottom 45%",scrub:.7}});
+    var em=p.querySelectorAll("em");if(em.length)G.fromTo(em,{"--hl":"0%"},{"--hl":"100%",ease:"none",scrollTrigger:{trigger:p,start:"center 70%",end:"bottom 45%",scrub:.7}});});
+
+  /* números que cuentan al aparecer (solo la primera vez) */
+  $$(".flow .v,.legend b,.leg b").forEach(function(el){var m=el.textContent.match(/\$([\d,]+)/);if(!m)return;var n=+m[1].replace(/,/g,"");if(n<1000)return;var pre=el.textContent;
+    ST.create({trigger:el,start:"top 92%",once:true,onEnter:function(){var o={v:0};G.to(o,{v:n,duration:soft?.6:1.4,ease:"power2.out",onUpdate:function(){el.textContent=pre.replace(m[0],"$"+Math.round(o.v).toLocaleString("es-MX"));},onComplete:function(){el.textContent=pre;}});}});});
+  /* la gráfica se dibuja */
+  function drawPlot(){var ps=$$("#plot path.ln"),dots=$$("#plot circle,#plot text.end");if(!ps.length)return;
+    ps.forEach(function(p){var Ln=p.getTotalLength();p.style.strokeDasharray=Ln;p.style.strokeDashoffset=Ln;});G.set(dots,{opacity:0});
+    G.to(ps,{strokeDashoffset:0,duration:1.6,ease:"power2.inOut",stagger:.2,onComplete:function(){ps.forEach(function(p){p.style.strokeDasharray="";p.style.strokeDashoffset="";});}});G.to(dots,{opacity:1,duration:.5,stagger:.03,delay:1});}
+  var plotSeen=false;ST.create({trigger:"#plot",start:"top 80%",once:true,onEnter:function(){plotSeen=true;drawPlot();}});
+  window.__plotRedraw=function(){if(plotSeen)drawPlot();};
+  $$(".steps li").forEach(function(li){ST.create({trigger:li,start:"top 75%",onEnter:function(){li.classList.add("lit");},onLeaveBack:function(){li.classList.remove("lit");}});});
+  var armed=false;
+  function arm(){
+    var rise=$$(".offer,.when .card,.access .card,.tbl,.verdict,.flip,.faq details,.answer").filter(function(el){return !el.__risen&&el.getBoundingClientRect().top>innerHeight;});
+    rise.forEach(function(el){el.__risen=1;});
+    if(rise.length){G.set(rise,soft?{opacity:0,y:16}:{opacity:0,y:56,rotateX:24,transformPerspective:900,transformOrigin:"50% 100%"});
+      ST.batch(rise,{start:"top 92%",once:true,onEnter:function(b){G.to(b,{opacity:1,y:0,rotateX:0,duration:.95,ease:"power3.out",stagger:.08,overwrite:true,clearProps:"transform,opacity"});}});}
+    var fills=$$(".bar-fill");
+    if(!armed){fills.forEach(function(f){G.set(f,{width:0});});ST.create({trigger:"#bars",start:"top 80%",once:true,onEnter:function(){armed=true;G.to(".bar-fill",{width:function(i,el){return el.style.getPropertyValue("--w");},duration:1.3,ease:"power3.out",stagger:.15});}});}
+    $$(".timeline").forEach(function(tl){if(tl.__tl)return;tl.__tl=1;var line=document.createElement("span");line.className="tl-fill";tl.appendChild(line);
+      G.fromTo(line,{scaleY:0},{scaleY:1,ease:"none",scrollTrigger:{trigger:tl,start:"top 78%",end:"bottom 55%",scrub:.6}});
+      tl.querySelectorAll("li").forEach(function(li){ST.create({trigger:li,start:"top 70%",onEnter:function(){li.classList.add("lit");},onLeaveBack:function(){li.classList.remove("lit");}});});});
+  }
+  arm();
+  window.__onPaint=function(){ST.getAll().forEach(function(s){if(s.trigger&&s.trigger.closest&&s.trigger.closest(".timeline"))s.kill();});
+    $$(".timeline").forEach(function(tl){tl.__tl=0;});if(armed)$$(".bar-fill").forEach(function(f){f.style.width="";});arm();if(window.__plotRedraw)window.__plotRedraw();ST.refresh();};
+  addEventListener("load",function(){ST.refresh();});
+})();
+</script>
+<script>
+/* ---------- historia por scroll (D.historia): filas [edad, pagado, valor, protección, retiro?]; entre filas se interpola y se marca "~".
+   Sin WebGL, sin GSAP o con animación reducida: queda como tarjetas fijas con las mismas cifras. ---------- */
+(function(){
+  var D=window.__D,Hh=D&&D.historia,sec=document.getElementById("historia");if(!Hh||!sec)return;
+  sec.hidden=false;var $=function(i){return document.getElementById(i);},k=1,mx=function(n){return "$"+Math.round(n*k).toLocaleString("es-MX");},t=window.__t||function(x){return x;};
+  $("hT").innerHTML=Hh.titulo;$("hX").innerHTML=t(Hh.sub||"");$("hN").innerHTML=t(Hh.nota||"");
+  var F=Hh.filas,a0=F[0][0],a1=F[F.length-1][0],ex={};F.forEach(function(r){ex[r[0]]=r;});
+  function at(a){var i=0;while(i<F.length-1&&F[i+1][0]<=a)i++;var A=F[i],B=F[Math.min(i+1,F.length-1)];if(A[0]===a||A===B)return A.slice();
+    var f=(a-A[0])/(B[0]-A[0]);function g(x,y){return (x>0&&y>0&&!B[4])?x*Math.pow(y/x,f):x+(y-x)*f;}return [a,A[1]+(B[1]-A[1])*f,g(A[2],B[2]),g(A[3],B[3]),0];}
+  var AG=[];for(var a=a0;a<=a1;a++)AG.push(a);var ROW=AG.map(at);
+  var HIT=Hh.hitos||[];
+  $("hC").innerHTML=HIT.map(function(h){return '<div class="cap"><div><span class="ag">'+h[0]+' años</span><b class="big">'+t(h[1])+'</b><p>'+t(h[2])+'</p></div></div>';}).join("");
+  var LB=[],lp=-99;HIT.forEach(function(h){if(h[0]-lp>=3){LB.push(h[0]);lp=h[0];}});
+  $("hR").insertAdjacentHTML("beforeend",LB.map(function(x){return '<span style="left:'+((x-a0)/(a1-a0)*100).toFixed(1)+'%">'+x+'</span>';}).join(""));
+  var full=window.__motion==="full";
+  if(!full||!window.THREE||!window.gsap||!window.ScrollTrigger)return;
+  var cv=$("h3d"),T=THREE,r;try{r=new T.WebGLRenderer({canvas:cv,antialias:!window.__lowfx,alpha:true});}catch(e){return;}if(!r.getContext())return;
+  sec.classList.add("live");gsap.registerPlugin(ScrollTrigger);ScrollTrigger.config({ignoreMobileResize:true});
+  r.setPixelRatio(window.__dpr?window.__dpr():1);r.outputEncoding=T.sRGBEncoding;r.toneMapping=T.ACESFilmicToneMapping;
+  /* guion: el scroll recorre las edades y hace una pausa en cada hito */
+  var stops=HIT.map(function(h){return h[0];}).filter(function(x){return x>a0&&x<=a1;}),KEYS=[[0,a0],[.05,a0]],n=stops.length,seg=.86/Math.max(1,n);
+  stops.forEach(function(x,i){var p=.05+seg*(i+1);KEYS.push([p-seg*.28,x]);KEYS.push([p,x]);});KEYS.push([1,a1]);
+  function ss(x){return x*x*(3-2*x);}
+  function ageAt(p){for(var i=1;i<KEYS.length;i++){var A=KEYS[i-1],B=KEYS[i];if(p<=B[0]){var q=(p-A[0])/((B[0]-A[0])||1);return A[1]+(B[1]-A[1])*ss(Math.max(0,Math.min(1,q)));}}return a1;}
+  var VMAX=Math.max.apply(null,ROW.map(function(r){return r[2];}))||1;function Hgt(v){return .12+7*Math.sqrt(Math.max(0,v)/VMAX);}
+  var scene=new T.Scene();scene.fog=new T.Fog(0x0A1018,16,60);var cam=new T.PerspectiveCamera(38,1,.1,240);
+  scene.add(new T.HemisphereLight(0xdff5ee,0x0a1018,.75));var key=new T.DirectionalLight(0xffe6c2,1.15);key.position.set(6,14,10);scene.add(key);
+  var rim=new T.DirectionalLight(0x6fc2b6,.7);rim.position.set(-8,6,-10);scene.add(rim);
+  var SP=.56;function X(a){return (a-a0)*SP;}
+  var geo=new T.BoxGeometry(.42,1,.42);geo.translate(0,.5,0);var mesh=new T.InstancedMesh(geo,new T.MeshStandardMaterial({roughness:.32,metalness:.18}),AG.length);scene.add(mesh);
+  function L(h){return new T.Color(h).convertSRGBToLinear();}
+  var cGold=L(0xF2B04F),cTeal=L(0x22A08C),cMint=L(0x8FD3C5),cGhost=L(0x1A2A3A),cOut=L(0xE8613C),tmp=new T.Object3D(),col=new T.Color();
+  var HT=ROW.map(function(r){return Hgt(r[2]);}),cur=AG.map(function(){return .02;});
+  var payEnd=a0;ROW.forEach(function(r,i){if(i&&r[1]>ROW[i-1][1]+1)payEnd=r[0];});
+  var gnd=new T.Mesh(new T.PlaneGeometry(200,40),new T.MeshStandardMaterial({color:L(0x0E1824),roughness:1}));gnd.rotation.x=-Math.PI/2;gnd.position.set(X((a0+a1)/2),0,0);scene.add(gnd);
+  var grid=new T.GridHelper(200,200,0x2b4a5a,0x162434);grid.position.set(X((a0+a1)/2),.002,0);grid.material.transparent=true;grid.material.opacity=.35;scene.add(grid);
+  var PAID=ROW[ROW.length-1][1],paidLine=new T.Mesh(new T.BoxGeometry(1,.045,.7),new T.MeshBasicMaterial({color:L(0xF2B04F),transparent:true,opacity:0}));scene.add(paidLine);
+  function label(txt){var c=document.createElement("canvas");c.width=256;c.height=128;var x=c.getContext("2d");x.font="700 64px system-ui,sans-serif";x.fillStyle="rgba(200,212,226,.85)";x.textAlign="center";x.textBaseline="middle";x.fillText(txt,128,64);
+    var tx=new T.CanvasTexture(c);tx.encoding=T.sRGBEncoding;var sp=new T.Sprite(new T.SpriteMaterial({map:tx,transparent:true,depthWrite:false}));sp.scale.set(1.3,.65,1);return sp;}
+  LB.forEach(function(a){var sp=label(String(a));sp.position.set(X(a),.3,1.25);scene.add(sp);});
+  /* retiro: partículas que salen de la columna */
+  var RA=null;F.forEach(function(r){if(r[4])RA=r;});var N=RA?420:0,pg=new T.BufferGeometry(),pos=new Float32Array(Math.max(1,N)*3),st=[],dr=[];
+  if(RA){var hi=AG.indexOf(RA[0]-1);for(var i=0;i<N;i++){var h=HT[Math.max(0,hi)]*(.35+Math.random()*.65);st.push([X(RA[0]-.5)+(Math.random()-.5)*.4,h,(Math.random()-.5)*.4]);var th=Math.random()*Math.PI*2;dr.push([Math.cos(th)*(1+Math.random()*3)+1.5,2+Math.random()*6,Math.sin(th)*(1+Math.random()*3)+2]);}}
+  pg.setAttribute("position",new T.BufferAttribute(pos,3));var pm=new T.PointsMaterial({color:L(0xF7C980),size:.22,transparent:true,opacity:0,depthWrite:false,blending:T.AdditiveBlending});scene.add(new T.Points(pg,pm));
+  var caps=[].slice.call(sec.querySelectorAll(".cap")),oW=$("hOw"),last="",lastC=-1;
+  function hud(age){var a=Math.round(age),R=ROW[a-a0],exact=!!ex[a]&&!ex[a][5];   /* fila[5]=1: punto aproximado (se marca ~) */var ap=function(v){return (exact?"":"~")+mx(v);};
+    var txt=a+"|"+Math.round(R[2]);if(txt!==last){last=txt;$("hA").textContent=a;$("hP").textContent=mx(R[1]);$("hV").textContent=R[2]?ap(R[2]):"$0";
+      if(RA&&a>=RA[0]){$("hOl").textContent="Sacaste sin ISR";$("hO").textContent=mx(RA[4]);oW.classList.add("lit");}else{$("hOl").textContent="Si faltas, reciben";$("hO").textContent=ap(R[3]);oW.classList.remove("lit");}}
+    $("hF").style.width=((age-a0)/(a1-a0)*100)+"%";
+    var c=-1;HIT.forEach(function(h,i){if(age>=h[0]-.35)c=i;});if(c!==lastC){lastC=c;caps.forEach(function(e,i){e.classList.toggle("on",i===c);});}}
+  var W=1,Hc=1,narrow=false;function size(){W=cv.clientWidth;Hc=cv.clientHeight;if(!W||!Hc)return;r.setSize(W,Hc,false);cam.aspect=W/Hc;narrow=cam.aspect<.9;cam.fov=narrow?50:38;cam.updateProjectionMatrix();}
+  addEventListener("resize",size);
+  var cp=new T.Vector3(),cl=new T.Vector3(),tp=new T.Vector3(),tl=new T.Vector3(),first=true,prog=0,active=false,near=false,running=false;
+  function camT(p,age){var head=X(age),hh=HT[Math.max(0,Math.min(AG.length-1,Math.round(age)-a0))],ang=-.62,R=(narrow?10:7)+hh*1.3,off=narrow?.6:2.6;
+    tp.set(head-off+Math.sin(ang)*R,2.4+hh*.75,Math.cos(ang)*R);tl.set(head-off*.4,hh*.55,0);
+    var w=ss(Math.max(0,Math.min(1,(p-.9)/.08)));if(w>0){var mid=X((a0+a1)/2),half=X(a1)/2+2.5,dist=Math.min(half/Math.tan(T.MathUtils.degToRad(cam.fov/2))/Math.min(cam.aspect,1.9),narrow?70:60);
+      tp.lerp(new T.Vector3(mid-3+Math.sin(-.15)*dist,dist*.5,Math.cos(-.15)*dist*.95),w);tl.lerp(new T.Vector3(mid,narrow?2:-.2,0),w);}}
+  ScrollTrigger.create({trigger:sec,start:"top top",end:function(){return "+="+Math.round(innerHeight*(4+n*1.2));},pin:sec.querySelector(".stage"),anticipatePin:1,invalidateOnRefresh:true,
+    onUpdate:function(s){prog=s.progress;},onToggle:function(s){active=s.isActive;if(active)kick();}});
+  new IntersectionObserver(function(es){near=es[0].isIntersecting;if(near)kick();},{rootMargin:"200px 0px"}).observe(sec);
+  function kick(){if(!running){running=true;requestAnimationFrame(loop);}}
+  function frame(){var p=prog,age=ageAt(p);
+    for(var i=0;i<AG.length;i++){var a=AG[i],gr=Math.max(0,Math.min(1,age-a+1)),tg=gr>0?HT[i]*(1-Math.pow(1-gr,3)):.03;cur[i]+=(tg-cur[i])*.14;
+      tmp.position.set(X(a),0,0);tmp.scale.set(1,Math.max(.02,cur[i]),1);tmp.updateMatrix();mesh.setMatrixAt(i,tmp.matrix);
+      if(gr<=0)col.copy(cGhost);else if(a<=payEnd)col.copy(cGold);else if(RA&&a===RA[0])col.copy(cOut);else col.copy(cTeal).lerp(cMint,Math.min(1,(a-payEnd)/(a1-payEnd||1))*.55);
+      if(Math.abs(a-age)<.6&&gr>0)col.lerp(new T.Color(1,1,1),.25);mesh.setColorAt(i,col);}
+    mesh.instanceMatrix.needsUpdate=true;mesh.instanceColor.needsUpdate=true;
+    var lw=Math.max(.01,X(Math.min(age,a1))+.6);paidLine.scale.set(lw,1,1);paidLine.position.set(X(a0)-.3+lw/2,Hgt(PAID),0);paidLine.material.opacity=Math.max(0,Math.min(.9,(age-a0-1)*.5));
+    if(RA){var rp=KEYS.filter(function(q){return q[1]===RA[0];})[0],tt=rp?Math.max(0,Math.min(1,(p-rp[0]+.06)/.12)):0;pm.opacity=tt>0&&tt<1?Math.sin(Math.PI*tt)*.95:0;
+      if(pm.opacity>0){var e=1-Math.pow(1-tt,2.2);for(var q=0;q<N;q++){var S0=st[q],Dd=dr[q];pos[q*3]=S0[0]+Dd[0]*e;pos[q*3+1]=S0[1]+Dd[1]*e-2.5*tt*tt;pos[q*3+2]=S0[2]+Dd[2]*e;}pg.attributes.position.needsUpdate=true;}}
+    camT(p,age);if(first){cp.copy(tp);cl.copy(tl);first=false;}cp.lerp(tp,.09);cl.lerp(tl,.09);cam.position.copy(cp);cam.lookAt(cl);r.render(scene,cam);hud(age);}
+  var adapt=null;function loop(now){if(!adapt&&window.__adapt)adapt=window.__adapt(r,size);if(adapt)adapt(now||performance.now());frame();if(near||active)requestAnimationFrame(loop);else running=false;}
+  if(/debug/.test(location.hash))window.__hist=function(p){prog=p;near=true;first=true;kick();};
+  size();frame();addEventListener("load",function(){size();ScrollTrigger.refresh();});
+})();
+</script>
+
